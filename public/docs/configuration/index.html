@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Configuration Overview # GoToSocial aims to be as configurable as possible, to fit lots of different use cases.
+We try to provide sensible defaults wherever possible, but you can&rsquo;t run a GoToSocial instance without managing some configuration.
+Configuration Methods # There are three different methods for configuring a GoToSocial instance, which can be combined depending on your setup.
+Configuration File # The easiest way to configure GoToSocial is to pass a configuration file to to the gotosocial server start command, for example:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/docs/configuration/" />
+
+<title>Configuration |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://example.org/docs/configuration/index.xml" title=" GoToSocial Documentation " />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="active">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Configuration</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuration-methods">Configuration Methods</a>
+      <ul>
+        <li><a href="#configuration-file">Configuration File</a></li>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#command-line-flags">Command Line Flags</a></li>
+      </ul>
+    </li>
+    <li><a href="#priority">Priority</a></li>
+    <li><a href="#default-values">Default Values</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="configuration-overview">
+  Configuration Overview
+  <a class="anchor" href="#configuration-overview">#</a>
+</h1>
+<p>GoToSocial aims to be as configurable as possible, to fit lots of different use cases.</p>
+<p>We try to provide sensible defaults wherever possible, but you can&rsquo;t run a GoToSocial instance without managing <em>some</em> configuration.</p>
+<h2 id="configuration-methods">
+  Configuration Methods
+  <a class="anchor" href="#configuration-methods">#</a>
+</h2>
+<p>There are three different methods for configuring a GoToSocial instance, which can be combined depending on your setup.</p>
+<h3 id="configuration-file">
+  Configuration File
+  <a class="anchor" href="#configuration-file">#</a>
+</h3>
+<p>The easiest way to configure GoToSocial is to pass a configuration file to to the <code>gotosocial server start</code> command, for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gotosocial --config-path ./config.yaml server start
+</span></span></code></pre></div><p>The command expects a file in <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> or <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format.</p>
+<p>An example configuration file, with an explanation of each of the config fields, with default and example values, can be found <a href="https://github.com/superseriousbusiness/gotosocial/blob/main/example/config.yaml">here</a>.</p>
+<p>This example file is included with release downloads, so you can just copy it and edit it to your needs without having to worry too much about what the hell YAML or JSON is.</p>
+<h3 id="environment-variables">
+  Environment Variables
+  <a class="anchor" href="#environment-variables">#</a>
+</h3>
+<p>You can also configure GoToSocial by setting <a href="https://en.wikipedia.org/wiki/Environment_variable">environment variables</a>. These environment variables follow the format:</p>
+<ol>
+<li>Prepend <code>GTS_</code> to the config flag.</li>
+<li>Uppercase-all.</li>
+<li>Replace dash (<code>-</code>) with underscore (<code>_</code>).</li>
+</ol>
+<p>So for example, instead of setting <code>media-image-max-size</code> to <code>2097152</code> in your config.yaml, you could set the environment variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>GTS_MEDIA_IMAGE_MAX_SIZE=2097152
+</span></span></code></pre></div><p>If you&rsquo;re in doubt about any of the names of these environment variables, just check the <code>--help</code> for the subcommand you&rsquo;re using.</p>
+<h3 id="command-line-flags">
+  Command Line Flags
+  <a class="anchor" href="#command-line-flags">#</a>
+</h3>
+<p>Finally, you can set configuration values using command-line flags, which you pass directly when you&rsquo;re running a <code>gotosocial</code> command. For example, instead of setting <code>media-image-max-size</code> in your config.yaml, or with an environment variable, you can pass the value directly through the command line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gotosocial server start --media-image-max-size <span style="color:#ae81ff">2097152</span> 
+</span></span></code></pre></div><p>If you&rsquo;re in doubt about which flags are available, check <code>gotosocial --help</code>.</p>
+<h2 id="priority">
+  Priority
+  <a class="anchor" href="#priority">#</a>
+</h2>
+<p>The above configuration methods override each other in the order in which they were listed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>command line flags &gt; environment variables &gt; config file
+</span></span></code></pre></div><p>That is, if you set <code>media-image-max-size</code> to <code>2097152</code> in your config file, but then <em>ALSO</em> set the environment variable <code>GTS_MEDIA_MAX_IMAGE_SIZE=9999999</code>, then the final value will be <code>9999999</code>, because environment variables have a <em>higher priority</em> than values set in config.yaml.</p>
+<p>Command line flags have the highest priority, so if you set <code>--media-image-max-size 13121312</code>, then the final value will be <code>13121312</code> regardless of what you&rsquo;ve set elsewhere.</p>
+<p>This means in cases where you want to just try changing one thing, but don&rsquo;t want to edit your config file, you can temporarily use an environment variable or a command line flag to set that one thing.</p>
+<h2 id="default-values">
+  Default Values
+  <a class="anchor" href="#default-values">#</a>
+</h2>
+<p>Reasonable default values are provided for <em>most</em> of the configuration parameters, except in cases where a custom value is absolutely required.</p>
+<p>See the <a href="https://github.com/superseriousbusiness/gotosocial/blob/main/example/config.yaml">example config file</a> for the default values, or run <code>gotosocial --help</code>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuration-methods">Configuration Methods</a>
+      <ul>
+        <li><a href="#configuration-file">Configuration File</a></li>
+        <li><a href="#environment-variables">Environment Variables</a></li>
+        <li><a href="#command-line-flags">Command Line Flags</a></li>
+      </ul>
+    </li>
+    <li><a href="#priority">Priority</a></li>
+    <li><a href="#default-values">Default Values</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

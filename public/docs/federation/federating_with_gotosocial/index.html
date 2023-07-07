@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Federating with GoToSocial # Information on the various (ActivityPub) elements needed to federate with GoToSocial.
+HTTP Signatures # GoToSocial requires all GET and POST requests to ActivityPub s2s endpoints to be accompanied by a valid http signature.
+GoToSocial will also sign all outgoing GET and POST requests that it makes to other servers.
+This behavior is the equivalent of Mastodon&rsquo;s AUTHORIZED_FETCH / &ldquo;secure mode&rdquo;.
+GoToSocial uses the go-fed/httpsig library for signing outgoing requests, and for parsing and validating the signatures of incoming requests.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Federating with GoToSocial # Information on the various (ActivityPub) elements needed to federate with GoToSocial.
+HTTP Signatures # GoToSocial requires all GET and POST requests to ActivityPub s2s endpoints to be accompanied by a valid http signature.
+GoToSocial will also sign all outgoing GET and POST requests that it makes to other servers.
+This behavior is the equivalent of Mastodon&rsquo;s AUTHORIZED_FETCH / &ldquo;secure mode&rdquo;.
+GoToSocial uses the go-fed/httpsig library for signing outgoing requests, and for parsing and validating the signatures of incoming requests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/federation/federating_with_gotosocial/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Federating With Gotosocial |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle" checked />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="active">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Federating With Gotosocial</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#http-signatures">HTTP Signatures</a>
+      <ul>
+        <li><a href="#incoming-requests">Incoming Requests</a></li>
+        <li><a href="#outgoing-requests">Outgoing Requests</a></li>
+        <li><a href="#quirks">Quirks</a></li>
+      </ul>
+    </li>
+    <li><a href="#access-control">Access Control</a></li>
+    <li><a href="#request-throttling--rate-limiting">Request Throttling &amp; Rate Limiting</a></li>
+    <li><a href="#outbox">Outbox</a></li>
+    <li><a href="#conversation-threads">Conversation Threads</a></li>
+    <li><a href="#reports--flags">Reports / Flags</a>
+      <ul>
+        <li><a href="#outgoing">Outgoing</a></li>
+        <li><a href="#incoming">Incoming</a></li>
+      </ul>
+    </li>
+    <li><a href="#featured-aka-pinned-posts">Featured (aka pinned) Posts</a></li>
+    <li><a href="#post-deletes">Post Deletes</a>
+      <ul>
+        <li><a href="#outgoing-1">Outgoing</a></li>
+        <li><a href="#incoming-1">Incoming</a></li>
+      </ul>
+    </li>
+    <li><a href="#profile-fields">Profile Fields</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="federating-with-gotosocial">
+  Federating with GoToSocial
+  <a class="anchor" href="#federating-with-gotosocial">#</a>
+</h1>
+<p>Information on the various (ActivityPub) elements needed to federate with GoToSocial.</p>
+<h2 id="http-signatures">
+  HTTP Signatures
+  <a class="anchor" href="#http-signatures">#</a>
+</h2>
+<p>GoToSocial requires all <code>GET</code> and <code>POST</code> requests to ActivityPub s2s endpoints to be accompanied by a valid http signature.</p>
+<p>GoToSocial will also sign all outgoing <code>GET</code> and <code>POST</code> requests that it makes to other servers.</p>
+<p>This behavior is the equivalent of Mastodon&rsquo;s <a href="https://docs.joinmastodon.org/admin/config/#authorized_fetch">AUTHORIZED_FETCH / &ldquo;secure mode&rdquo;</a>.</p>
+<p>GoToSocial uses the <a href="https://github.com/go-fed/httpsig">go-fed/httpsig</a> library for signing outgoing requests, and for parsing and validating the signatures of incoming requests. This library strictly follows the <a href="https://datatracker.ietf.org/doc/html/draft-cavage-http-signatures">Cavage http signature RFC</a>, which is the same RFC used by other implementations like Mastodon, Pixelfed, Akkoma/Pleroma, etc. (This RFC has since been superceded by the <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-message-signatures">httpbis http signature RFC</a>, but this is not yet widely implemented.)</p>
+<h3 id="incoming-requests">
+  Incoming Requests
+  <a class="anchor" href="#incoming-requests">#</a>
+</h3>
+<p>GoToSocial request signature validation is implemented in <a href="https://github.com/superseriousbusiness/gotosocial/blob/main/internal/federation/authenticate.go">internal/federation</a>.</p>
+<p>GoToSocial will attempt to parse the signature using the following algorithms (in order), stopping at the first success:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>RSA_SHA256
+</span></span><span style="display:flex;"><span>RSA_SHA512
+</span></span><span style="display:flex;"><span>ED25519
+</span></span></code></pre></div><h3 id="outgoing-requests">
+  Outgoing Requests
+  <a class="anchor" href="#outgoing-requests">#</a>
+</h3>
+<p>GoToSocial request signing is implemented in <a href="https://github.com/superseriousbusiness/gotosocial/blob/main/internal/transport/signing.go">internal/transport</a>.</p>
+<p>When assembling signatures:</p>
+<ul>
+<li>outgoing <code>GET</code> requests use <code>(request-target) host date</code></li>
+<li>outgoing <code>POST</code> requests use <code>(request-target) host date digest</code></li>
+</ul>
+<p>GoToSocial uses the <code>RSA_SHA256</code> algorithm for signing requests, which is in line with other ActivityPub implementations.</p>
+<h3 id="quirks">
+  Quirks
+  <a class="anchor" href="#quirks">#</a>
+</h3>
+<p>The <code>keyId</code> used by GoToSocial in the <code>Signature</code> header will look something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://example.org/users/example_user/main-key
+</span></span></code></pre></div><p>This is different from most other implementations, which usually use a fragment (<code>#</code>) in the <code>keyId</code> uri. For example, on Mastodon the user&rsquo;s key would instead be found at:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://example.org/users/example_user#main-key
+</span></span></code></pre></div><p>For Mastodon, the public key of a user is served as part of that user&rsquo;s Actor representation. GoToSocial mimics this behavior when serving the public key of a user, but instead of returning the entire Actor at the <code>main-key</code> endpoint (which may contain sensitive fields), will return only a partial stub of the actor. This looks like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://w3id.org/security/v1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/example_user&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;preferredUsername&#34;</span>: <span style="color:#e6db74">&#34;example_user&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;publicKey&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/example_user/main-key&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;owner&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/example_user&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;publicKeyPem&#34;</span>: <span style="color:#e6db74">&#34;-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzGB3yDvMl+8p+ViutVRG\nVDl9FO7ZURYXnwB3TedSfG13jyskoiMDNvsbLoUQM9ajZPB0zxJPZUlB/W3BWHRC\nNFQglE5DkB30GjTClNZoOrx64vLRT5wAEwIOjklKVNk9GJi1hFFxrgj931WtxyML\nBvo+TdEblBcoru6MKAov8IU4JjQj5KUmjnW12Rox8dj/rfGtdaH8uJ14vLgvlrAb\neQbN5Ghaxh9DGTo1337O9a9qOsir8YQqazl8ahzS2gvYleV+ou09RDhS75q9hdF2\nLI+1IvFEQ2ZO2tLk3umUP1ioa+5CWKsWD0GAXbQu9uunAV0VoExP4+/9WYOuP0ei\nKwIDAQAB\n-----END PUBLIC KEY-----\n&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Person&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Remote servers federating with GoToSocial should extract the public key from the <code>publicKey</code> field. Then, they should use the <code>owner</code> field of the public key to further dereference the full version of the Actor, using a signed <code>GET</code> request.</p>
+<p>This behavior was introduced as a way of avoiding having remote servers make unsigned <code>GET</code> requests to the full Actor endpoint. However, this may change in future as it is not compliant and causes issues. Tracked in <a href="https://github.com/superseriousbusiness/gotosocial/issues/1186">this issue</a>.</p>
+<h2 id="access-control">
+  Access Control
+  <a class="anchor" href="#access-control">#</a>
+</h2>
+<p>GoToSocial uses access control restrictions to protect users and resources from unwanted interactions with remote accounts and instances.</p>
+<p>As shown in the <a href="#http-signatures">HTTP Signatures</a> section, GoToSocial requires all incoming <code>GET</code> and <code>POST</code> requests from remote servers to be signed. Unsigned requests will be denied with http code <code>401 Unauthorized</code>.</p>
+<p>Access control restrictions are implemented by checking the <code>keyId</code> of the signature (who owns the public/private key pair making the request).</p>
+<p>First, the host value of the <code>keyId</code> uri is checked against the GoToSocial instance&rsquo;s list of blocked (defederated) domains. If the host is recognized as a blocked domain, then the http request will immediately be aborted with http code <code>403 Forbidden</code>.</p>
+<p>Next, GoToSocial will check for the existence of a block (in either direction) between the owner of the public key making the http request, and the owner of the resource that the request is targeting. If the GoToSocial user blocks the remote account making the request, then the request will be aborted with http code <code>403 Forbidden</code>.</p>
+<h2 id="request-throttling--rate-limiting">
+  Request Throttling &amp; Rate Limiting
+  <a class="anchor" href="#request-throttling--rate-limiting">#</a>
+</h2>
+<p>GoToSocial applies http request throttling and rate limiting to the ActivityPub API endpoints (inboxes, user endpoints, emojis, etc).</p>
+<p>This ensures that remote servers cannot flood a GoToSocial instance with spurious requests. Instead, remote servers making GET or POST requests to the ActivityPub API endpoints should respect 429 and 503 http codes, and take account of the <code>retry-after</code> http response header.</p>
+<p>For more details on request throttling and rate limiting behavior, please see the <a href="../../api/throttling">throttling</a> and <a href="../../api/ratelimiting">rate limiting</a> documents.</p>
+<h2 id="outbox">
+  Outbox
+  <a class="anchor" href="#outbox">#</a>
+</h2>
+<p>GoToSocial implements Outboxes for Actors (ie., instance accounts) following the ActivityPub specification <a href="https://www.w3.org/TR/activitypub/#outbox">here</a>.</p>
+<p>To get an <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">OrderedCollection</a> of Activities that an Actor has published recently, remote servers can do a <code>GET</code> request to a user&rsquo;s outbox. The address of this will be something like <code>https://example.org/users/whatever/outbox</code>.</p>
+<p>The server will return an OrderedCollection of the following structure:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OrderedCollection&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;first&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox?page=true&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Note that the <code>OrderedCollection</code> itself contains no items. Callers must dereference the <code>first</code> page to start getting items. For example, a <code>GET</code> to <code>https://example.org/users/whatever/outbox?page=true</code> will produce something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox?page=true&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OrderedCollectionPage&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;next&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox?max_id=01FJC1Q0E3SSQR59TD2M1KP4V8&amp;page=true&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;prev&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox?min_id=01FJC1Q0E3SSQR59TD2M1KP4V8&amp;page=true&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;partOf&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/outbox&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;orderedItems&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/statuses/01FJC1MKPVX2VMWP2ST93Q90K7/activity&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Create&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;published&#34;</span>: <span style="color:#e6db74">&#34;2021-10-18T20:06:18Z&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;to&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams#Public&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;cc&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;https://example.org/users/whatever/followers&#34;</span>
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;object&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/whatever/statuses/01FJC1MKPVX2VMWP2ST93Q90K7&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>orderedItems</code> array will contain up to 30 entries. To get more entries beyond that, the caller can use the <code>next</code> link provided in the response.</p>
+<p>Note that in the returned <code>orderedItems</code>, all activity types will be <code>Create</code>. On each activity, the <code>object</code> field will be the AP URI of an original public status created by the Actor who owns the Outbox (ie., a <code>Note</code> with <code>https://www.w3.org/ns/activitystreams#Public</code> in the <code>to</code> field, which is not a reply to another status). Callers can use the returned AP URIs to dereference the content of the notes.</p>
+<h2 id="conversation-threads">
+  Conversation Threads
+  <a class="anchor" href="#conversation-threads">#</a>
+</h2>
+<p>Due to the nature of decentralization and federation, it is practically impossible for any one server on the fediverse to be aware of every post in a given conversation thread.</p>
+<p>With that said, it is possible to do &lsquo;best effort&rsquo; dereferencing of threads, whereby remote replies are fetched from one server onto another, to try to more fully flesh out a conversation.</p>
+<p>GoToSocial does this by iterating up and down the thread of a conversation, pulling in remote statuses where possible.</p>
+<p>Let&rsquo;s say we have two accounts: <code>local_account</code> on <code>our.server</code>, and <code>remote_1</code> on <code>remote.1</code>.</p>
+<p>In this scenario, <code>local_account</code> follows <code>remote_1</code>, so posts from <code>remote_1</code> show up in the home timeline of <code>local_account</code>.</p>
+<p>Now, <code>remote_1</code> boosts/reblogs a post from a third account, <code>remote_2</code>, residing on server <code>remote.2</code>.</p>
+<p><code>local_account</code> does not follow <code>remote_2</code>, and neither does anybody else on <code>our.server</code>, which means that <code>our.server</code> has not seen this post by <code>remote_2</code> before.</p>
+<p><img src="/assets/diagrams/conversation_thread.png" alt="A diagram of the conversation thread, showing the post from remote_2, and possible ancestor and descendant posts" /></p>
+<p>What GoToSocial will do now, is &lsquo;dereference&rsquo; the post by <code>remote_2</code> to check if it is part of a thread and, if so, whether any other parts of the thread can be obtained.</p>
+<p>GtS begins by checking the <code>inReplyTo</code> property of the post, which is set when a post is a reply to another post. <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-inreplyto">See here</a>. If <code>inReplyTo</code> is set, GoToSocial derefences the replied-to post. If <em>this</em> post also has an <code>inReplyTo</code> set, then GoToSocial dereferences that too, and so on.</p>
+<p>Once all of these <strong>ancestors</strong> of a status have been retrieved, GtS will begin working down through the <strong>descendants</strong> of posts.</p>
+<p>It does this by checking the <code>replies</code> property of a derefenced post, and working through replies, and replies of replies. <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-replies">See here</a>.</p>
+<p>This process of thread dereferencing will likely involve making multiple HTTP calls to different servers, especially if the thread is long and complicated.</p>
+<p>The end result of this dereferencing is that, assuming the reblogged post by <code>remote_2</code> was part of a thread, then <code>local_account</code> should now be able to see posts in the thread when they open the status on their home timeline. In other words, they will see replies from accounts on other servers (who they may not have come across yet), in addition to any previous and next posts in the thread as posted by <code>remote_2</code>.</p>
+<p>This gives <code>local_account</code> a more complete view on the conversation, as opposed to just seeing the reblogged post in isolation and out of context. It also gives <code>local_account</code> the opportunity to discover new accounts to follow, based on replies to <code>remote_2</code>.</p>
+<h2 id="reports--flags">
+  Reports / Flags
+  <a class="anchor" href="#reports--flags">#</a>
+</h2>
+<p>Like other microblogging ActivityPub implementations, GoToSocial uses the <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-flag">Flag</a> Activity type to communicate user moderation reports to other servers.</p>
+<h3 id="outgoing">
+  Outgoing
+  <a class="anchor" href="#outgoing">#</a>
+</h3>
+<p>The json of an outgoing GoToSocial <code>Flag</code> looks like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/example.org&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;dark souls sucks, please yeet this nerd&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/reports/01GP3AWY4CRDVRNZKW0TEAMB5R&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;object&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/statuses/01FVW7JHQFSFK166WWKR8CBA6M&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Flag&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>actor</code> of the <code>Flag</code> will always be the instance actor of the GoToSocial instance on which the <code>Flag</code> was created. This is done to preserve partial anonymity of the user who created the report, in order to prevent them becoming a target for harassment.</p>
+<p>The <code>content</code> of the <code>Flag</code> is a piece of text submitted by the user who created the <code>Flag</code>, which should give remote instance admins a reason why the report was created. This may be an empty string, or may not be present on the json, if no reason was submitted by the user.</p>
+<p>The value of the <code>object</code> field of the <code>Flag</code> will either be a string (the ActivityPub <code>id</code> of the user being reported), or it will be an array of strings, where the first entry in the array is the <code>id</code> of the reported user, and subsequent entries are the <code>id</code>s of one or more reported <code>Note</code>s / statuses.</p>
+<p>The <code>Flag</code> activity is delivered as-is to the <code>inbox</code> (or shared inbox) of the reported user. It is not wrapped in a <code>Create</code> activity.</p>
+<h3 id="incoming">
+  Incoming
+  <a class="anchor" href="#incoming">#</a>
+</h3>
+<p>GoToSocial assumes incoming reports will be delivered as a <code>Flag</code> Activity to the <code>inbox</code> of the account being reported.  It will parse the incoming <code>Flag</code> following the same formula that it uses for creating outgoing <code>Flag</code>s, with one difference: it will attempt to parse status URLs from both the <code>object</code> field, and from a Misskey/Calckey-formatted <code>content</code> value, which includes in-line status URLs.</p>
+<p>GoToSocial will not assume that the <code>to</code> field will be set on an incoming <code>Flag</code> activity. Instead, it assumes that remote instances use <code>bto</code> to direct the <code>Flag</code> to its recipient.</p>
+<p>A valid incoming <code>Flag</code> Activity will be made available as a report to the admin(s) of the GoToSocial instance that received the report, so that they can take any necessary moderation action against the reported user.</p>
+<p>The reported user themself will not see the report, or be notified that they have been reported, unless the GtS admin chooses to share this information with them via some other channel.</p>
+<h2 id="featured-aka-pinned-posts">
+  Featured (aka pinned) Posts
+  <a class="anchor" href="#featured-aka-pinned-posts">#</a>
+</h2>
+<p>GoToSocial allows users to feature (or &lsquo;pin&rsquo;) posts on their profile.</p>
+<p>In ActivityPub terms, GoToSocial serves these pinned posts as an <a href="https://www.w3.org/TR/activitystreams-vocabulary/#dfn-orderedcollection">OrderedCollection</a> at the endpoint indicated in an Actor&rsquo;s <a href="https://docs.joinmastodon.org/spec/activitypub/#featured">featured</a> field. The value of this field will be set to something like <code>https://example.org/users/some_user/collections/featured</code>.</p>
+<p>By making a signed GET request to this endpoint, remote instances can dereference the featured posts collection, which will return an <code>OrderedCollection</code> with a list of post URIs in the <code>orderedItems</code> field.</p>
+<p>Example of a featured collection of a user who has pinned multiple <code>Note</code>s:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/some_user/collections/featured&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;orderedItems&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://example.org/users/some_user/statuses/01GS7VTYH0S77NNXTP6W4G9EAG&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://example.org/users/some_user/statuses/01GSFY2SZK9TPCJFQ1WCCPGDRT&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://example.org/users/some_user/statuses/01GSCXY70MZCBFMH5EKJW9ENC8&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;totalItems&#34;</span>: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OrderedCollection&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Example of a user who has pinned one <code>Note</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/some_user/collections/featured&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;orderedItems&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://example.org/users/some_user/statuses/01GS7VTYH0S77NNXTP6W4G9EAG&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;totalItems&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OrderedCollection&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Example with no pinned <code>Note</code>s:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/users/some_user/collections/featured&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;orderedItems&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;totalItems&#34;</span>: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;OrderedCollection&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Unlike Mastodon and some other implementations, GoToSocial does <em>not</em> serve full <code>Note</code> representations as <code>orderedItems</code> values. Instead, it provides just the URI of each <code>Note</code>, which the remote server can then dereference (or not, if they already have the <code>Note</code> cached locally).</p>
+<p>Some of the URIs served as part of the collection may point to followers-only posts which the requesting <code>Actor</code> won&rsquo;t necessarily have permission to view. Remote servers should make sure to do their own filtering (as with any other post type) to ensure that these posts are only shown to users who are permitted to view them.</p>
+<p>Another difference between GoToSocial and other server implementations is that GoToSocial does not send updates to remote servers when a post is pinned or unpinned by a user. Mastodon does this by sending <a href="https://www.w3.org/TR/activitypub/#add-activity-inbox">Add</a> and <a href="https://www.w3.org/TR/activitypub/#remove-activity-inbox">Remove</a> Activity types where the <code>object</code> is the post being pinned or unpinned, and the <code>target</code> is the sending <code>Actor</code>&rsquo;s <code>featured</code> collection. While this conceptually makes sense, it is not in line with what the ActivityPub protocol recommends, since the <code>target</code> of the Activity &ldquo;is not owned by the receiving server, and thus they can&rsquo;t update it&rdquo;.</p>
+<p>Instead, to build a view of a GoToSocial user&rsquo;s pinned posts, it is recommended that remote instances simply poll a GoToSocial Actor&rsquo;s <code>featured</code> collection every so often, and add/remove posts in their cached representation as appropriate.</p>
+<h2 id="post-deletes">
+  Post Deletes
+  <a class="anchor" href="#post-deletes">#</a>
+</h2>
+<p>GoToSocial allows users to delete posts that they have created. These deletes will be federated out to other instances, which are expected to also delete their local cache of the post.</p>
+<h3 id="outgoing-1">
+  Outgoing
+  <a class="anchor" href="#outgoing-1">#</a>
+</h3>
+<p>When a post is deleted by a GoToSocial user, the server will send a <code>Delete</code> activity out to other instances.</p>
+<p>The <code>Delete</code> will have the ActivityPub URI of the post set as the value of the <code>Object</code> entry.</p>
+<p><code>to</code> and <code>cc</code> will be set according to the visibility of the original post, and any users mentioned/replied to by the original post.</p>
+<p>If the original post was not a direct message, the ActivityPub <code>Public</code> URI will be addressed in <code>to</code>. Otherwise, only mentioned and replied to users will be addressed.</p>
+<p>In the following example, the &lsquo;admin&rsquo; user deletes a public post of theirs in which the &lsquo;foss_satan&rsquo; user was mentioned:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/admin&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cc&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://example.org/users/admin/followers&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;object&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/admin/statuses/01FF25D5Q0DH7CHD57CTRS6WK0&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;to&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams#Public&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Delete&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the next example, the &lsquo;1happyturtle&rsquo; user deletes a direct message which was originally addressed to the &rsquo;the_mighty_zork&rsquo; user.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;actor&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;cc&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;object&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/statuses/01FN3VJGFH10KR7S2PB0GFJZYG&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;to&#34;</span>: <span style="color:#e6db74">&#34;http://somewhere.com/users/the_mighty_zork&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Delete&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To process a <code>Delete</code> activity coming from a GoToSocial instance, remote instances should check if they have the <code>Object</code> stored according to the provided URI. If they do, they should remove it from their local cache. If not, then no action is required, since they never had the now-deleted post stored in the first place.</p>
+<h3 id="incoming-1">
+  Incoming
+  <a class="anchor" href="#incoming-1">#</a>
+</h3>
+<p>GoToSocial processes <code>Delete</code> activities coming in from remote instances as thoroughly as possible in order to respect the privacy of other users.</p>
+<p>When a GoToSocial instance receives a <code>Delete</code>, it will attempt to derive the deleted post URI from the <code>Object</code> field. If the <code>Object</code> is just a URI, then this URI will be taken. If the <code>Object</code> is a <code>Note</code> or another type commonly used to represent a post, then the URI will be extracted from it.</p>
+<p>Then, GoToSocial will check if it has a post stored with the given URI. If it does, it will be completely deleted from the database and all user timelines.</p>
+<p>GoToSocial will only delete a post if it can be sure that the original post was owned by the <code>actor</code> that the <code>Delete</code> is attributed to.</p>
+<h2 id="profile-fields">
+  Profile Fields
+  <a class="anchor" href="#profile-fields">#</a>
+</h2>
+<p>Like Mastodon and other fediverse softwares, GoToSocial lets users set key/value pairs on their profile; useful for conveying short pieces of information like links, pronouns, age, etc.</p>
+<p>For the sake of compatibility with other implementations, GoToSocial uses the same schema.org PropertyValue extension that Mastodon uses, present as an <code>attachment</code> array value on <code>actor</code>s that have fields set. For example, the below JSON shows an account with two PropertyValue fields:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;@context&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://joinmastodon.org/ns&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://w3id.org/security/v1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;https://www.w3.org/ns/activitystreams&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;http://schema.org&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;attachment&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;should you follow me?&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;PropertyValue&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;maybe!&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;age&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;PropertyValue&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#e6db74">&#34;120&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;discoverable&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;featured&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/collections/featured&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;followers&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/followers&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;following&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/following&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;inbox&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/inbox&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;manuallyApprovesFollowers&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;happy little turtle :3&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;outbox&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle/outbox&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;preferredUsername&#34;</span>: <span style="color:#e6db74">&#34;1happyturtle&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;publicKey&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle#main-key&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;owner&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/users/1happyturtle&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;publicKeyPem&#34;</span>: <span style="color:#e6db74">&#34;-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtTc6Jpg6LrRPhVQG4KLz\n2+YqEUUtZPd4YR+TKXuCnwEG9ZNGhgP046xa9h3EWzrZXaOhXvkUQgJuRqPrAcfN\nvc8jBHV2xrUeD8pu/MWKEabAsA/tgCv3nUC47HQ3/c12aHfYoPz3ufWsGGnrkhci\nv8PaveJ3LohO5vjCn1yZ00v6osMJMViEZvZQaazyE9A8FwraIexXabDpoy7tkHRg\nA1fvSkg4FeSG1XMcIz2NN7xyUuFACD+XkuOk7UqzRd4cjPUPLxiDwIsTlcgGOd3E\nUFMWVlPxSGjY2hIKa3lEHytaYK9IMYdSuyCsJshd3/yYC9LqxZY2KdlKJ80VOVyh\nyQIDAQAB\n-----END PUBLIC KEY-----\n&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;summary&#34;</span>: <span style="color:#e6db74">&#34;\u003cp\u003ei post about things that concern me\u003c/p\u003e&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;tag&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Person&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;http://example.org/@1happyturtle&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For <code>actor</code>s that have no <code>PropertyValue</code> fields set, the <code>attachment</code> property will not be set at all. That is, the <code>attachment</code> key value will not be present on the <code>actor</code> (not even as an empty array or null value).</p>
+<p>While <code>attachment</code> is not technically an ordered collection, GoToSocial&ndash;again, in line with what other implementations do&ndash;does present <code>attachment</code> <code>PropertyValue</code> fields in the order in which they should to be displayed.</p>
+<p>GoToSocial will also parse PropertyValue fields from remote <code>actor</code>s discovered by the GoToSocial instance, to allow them to be displayed to users on the GoToSocial instance.</p>
+<p>GoToSocial allows up to 6 <code>PropertyValue</code> fields by default, as opposed to Mastodon&rsquo;s default 4.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#http-signatures">HTTP Signatures</a>
+      <ul>
+        <li><a href="#incoming-requests">Incoming Requests</a></li>
+        <li><a href="#outgoing-requests">Outgoing Requests</a></li>
+        <li><a href="#quirks">Quirks</a></li>
+      </ul>
+    </li>
+    <li><a href="#access-control">Access Control</a></li>
+    <li><a href="#request-throttling--rate-limiting">Request Throttling &amp; Rate Limiting</a></li>
+    <li><a href="#outbox">Outbox</a></li>
+    <li><a href="#conversation-threads">Conversation Threads</a></li>
+    <li><a href="#reports--flags">Reports / Flags</a>
+      <ul>
+        <li><a href="#outgoing">Outgoing</a></li>
+        <li><a href="#incoming">Incoming</a></li>
+      </ul>
+    </li>
+    <li><a href="#featured-aka-pinned-posts">Featured (aka pinned) Posts</a></li>
+    <li><a href="#post-deletes">Post Deletes</a>
+      <ul>
+        <li><a href="#outgoing-1">Outgoing</a></li>
+        <li><a href="#incoming-1">Incoming</a></li>
+      </ul>
+    </li>
+    <li><a href="#profile-fields">Profile Fields</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

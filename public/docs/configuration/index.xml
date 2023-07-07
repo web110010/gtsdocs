@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/configuration/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/general/</guid>
+      <description>General # The top-level configuration for GoToSocial, including basic things like host, port, bind address and transport protocol.
+The only things you really need to set here are host, which should be the hostname where your instance is reachable, and probably port.
+Settings # ########################### ##### GENERAL CONFIG ###### ########################### # String. Log level to use throughout the application. Must be lower-case. # Options: [&amp;#34;trace&amp;#34;,&amp;#34;debug&amp;#34;,&amp;#34;info&amp;#34;,&amp;#34;warn&amp;#34;,&amp;#34;error&amp;#34;,&amp;#34;fatal&amp;#34;] # Default: &amp;#34;info&amp;#34; log-level: &amp;#34;info&amp;#34; # Bool.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/database/</guid>
+      <description>Database # GoToSocial stores statuses, accounts, etc, in a database. This can be either SQLite or Postgres.
+By default, GoToSocial will use Postgres, but this is easy to change.
+SQLite # SQLite, as the name implies, is the lightest database type that GoToSocial can use. It stores entries in a simple file format, usually in the same directory as the GoToSocial binary itself. SQLite is great for small instances and lower-powered machines like Raspberry Pi, where a dedicated database would be overkill.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/web/</guid>
+      <description>Web # Settings # ###################### ##### WEB CONFIG ##### ###################### # Config pertaining to templating and serving of web pages/email notifications and the like # String. Directory from which gotosocial will attempt to load html templates (.tmpl files). # Examples: [&amp;#34;/some/absolute/path/&amp;#34;, &amp;#34;./relative/path/&amp;#34;, &amp;#34;../../some/weird/path/&amp;#34;] # Default: &amp;#34;./web/template/&amp;#34; web-template-base-dir: &amp;#34;./web/template/&amp;#34; # String. Directory from which gotosocial will attempt to serve static web assets (images, scripts). # Examples: [&amp;#34;/some/absolute/path/&amp;#34;, &amp;#34;./relative/path/&amp;#34;, &amp;#34;../../some/weird/path/&amp;#34;] # Default: &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/instance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/instance/</guid>
+      <description>Instance # Settings # ########################### ##### INSTANCE CONFIG ##### ########################### # Config pertaining to instance federation settings, pages to hide/expose, etc. # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order # to see a list of instances that this instance &amp;#39;peers&amp;#39; with. Even if set to &amp;#39;false&amp;#39;, then authenticated # users (members of the instance) will still be able to query the endpoint. # Options: [true, false] # Default: false instance-expose-peers: false # Bool.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/accounts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/accounts/</guid>
+      <description>Accounts # Settings # ########################### ##### ACCOUNTS CONFIG ##### ########################### # Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts. # Bool. Do we want people to be able to just submit sign up requests, or do we want invite only? # Options: [true, false] # Default: true accounts-registration-open: true # Bool. Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/media/</guid>
+      <description>Media # Settings # ######################## ##### MEDIA CONFIG ##### ######################## # Config pertaining to user media uploads (videos, image, image descriptions). # Int. Maximum allowed image upload size in bytes. # Examples: [2097152, 10485760] # Default: 10485760 -- aka 10MB media-image-max-size: 10485760 # Int. Maximum allowed video upload size in bytes. # Examples: [2097152, 10485760] # Default: 41943040 -- aka 40MB media-video-max-size: 41943040 # Int. Minimum amount of characters required as an image or video description.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/storage/</guid>
+      <description>Storage # Settings # ########################## ##### STORAGE CONFIG ##### ########################## # Config pertaining to storage of user-created uploads (videos, images, etc). # String. Type of storage backend to use. # Examples: [&amp;#34;local&amp;#34;, &amp;#34;s3&amp;#34;] # Default: &amp;#34;local&amp;#34; (storage on local disk) storage-backend: &amp;#34;local&amp;#34; # String. Directory to use as a base path for storing files. # Make sure whatever user/group gotosocial is running as has permission to access # this directory, and create new subdirectories and files within it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/statuses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/statuses/</guid>
+      <description>Statuses # Settings # ########################### ##### STATUSES CONFIG ##### ########################### # Config pertaining to the creation of statuses/posts, and permitted limits. # Int. Maximum amount of characters permitted for a new status. # Note that going way higher than the default might break federation. # Examples: [140, 500, 5000] # Default: 5000 statuses-max-chars: 5000 # Int. Maximum amount of characters allowed in the CW/subject header of a status. # Note that going way higher than the default might break federation.</description>
+    </item>
+    
+    <item>
+      <title>TLS</title>
+      <link>http://example.org/docs/configuration/tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/tls/</guid>
+      <description>TLS # It&amp;rsquo;s possible to configure TLS support in one of two ways:
+Built-in support for Lets Encrypt / ACME compatible vendors Loading TLS files from disk It is not possible to have both methods enabled at the same time.
+Note that when using TLS files loaded from disk you are responsible for restarting the instance when the files change. They are not automatically reloaded.
+Settings # ############################## ##### LETSENCRYPT CONFIG ##### ############################## # Config pertaining to the automatic acquisition and use of LetsEncrypt HTTPS certificates.</description>
+    </item>
+    
+    <item>
+      <title>OpenID Connect (OIDC)</title>
+      <link>http://example.org/docs/configuration/oidc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/oidc/</guid>
+      <description>OpenID Connect (OIDC) # GoToSocial supports OpenID Connect, which is an identification protocol built on top of OAuth 2.0, an industry standard protocol for authorization.
+This means that you can connect GoToSocial to an external OIDC provider like Gitlab, Google, Keycloak, or Dex and allow users to sign in to GoToSocial using their credentials for that provider.
+This is very convenient in the following cases:
+You&amp;rsquo;re running multiple services on a platform (Matrix, Peertube, GoToSocial), and you want users to be able to use the same sign in page for all of them.</description>
+    </item>
+    
+    <item>
+      <title>Email Config (smtp)</title>
+      <link>http://example.org/docs/configuration/smtp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/smtp/</guid>
+      <description>Email Config (smtp) # GoToSocial supports sending emails to users via the Simple Mail Transfer Protocol or smtp.
+Configuring GoToSocial to send emails is not required in order to have a properly running instance. Still, it&amp;rsquo;s very useful for doing things like sending confirmation emails and notifications, and handling password reset requests.
+In order to make GoToSocial email sending work, you need an smtp-compatible mail service running somewhere, either as a server on the same machine that GoToSocial is running on, or via an external service like Mailgun.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/syslog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/syslog/</guid>
+      <description>Syslog # GoToSocial can be configured to mirror logs to syslog, either via udp/tcp, or a local syslog (eg., /var/log/syslog).
+This is useful if you want to daemonize GtS and not handle log rotations etc yourself but rely on a proven implementation.
+Logs in syslog will look something like this:
+Dec 12 17:44:03 dilettante ./gotosocial[246860]: time=2021-12-12T17:44:03+01:00 level=info msg=connected to SQLITE database Dec 12 17:44:03 dilettante ./gotosocial[246860]: time=2021-12-12T17:44:03+01:00 level=info msg=there are no new migrations to run func=doMigration Settings # ######################### ##### SYSLOG CONFIG ##### ######################### # Config for additional syslog log hooks.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/advanced/</guid>
+      <description>Advanced # Advanced settings options are provided for the sake of allowing admins to tune their instance to their liking.
+These are set to sensible defaults, so most server admins won&amp;rsquo;t need to touch them or think about them.
+Changing these settings if you don&amp;rsquo;t know what you&amp;rsquo;re doing may break your instance.
+Settings # ############################# ##### ADVANCED SETTINGS ##### ############################# # Advanced settings pertaining to http timeouts, security, cookies, and more.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/observability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/observability/</guid>
+      <description>Observability # These settings let you tune and configure certain observability related behaviours.
+Settings # ################################## ##### OBSERVABILITY SETTINGS ##### ################################## # Bool. Enable generation/parsing of a request ID for each received HTTP Request. # Default: true request-id-enabled: true # String. Header name to use to extract a request or trace ID from. Typically set by a # loadbalancer or proxy. # Default: &amp;#34;X-Request-Id&amp;#34; request-id-header: &amp;#34;X-Request-Id&amp;#34; # Bool. Enable OpenTelemetry based tracing support.</description>
+    </item>
+    
+  </channel>
+</rss>

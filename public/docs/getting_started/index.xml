@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/getting_started/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/getting_started/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/deployment_considerations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/deployment_considerations/</guid>
+      <description>Deployment considerations # Before deploying GoToSocial, it&amp;rsquo;s important to think through a few things as some choices will have long-term consequences for how you run and manage GoToSocial.
+Danger
+It&amp;rsquo;s not supported across the Fediverse to switch between implementations on the same domain. This means that if you run GoToSocial on example.org, you&amp;rsquo;ll run into federation issues if you try to switch to a different implementation like Pleroma/Akkoma, Misskey/Calckey etc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/releases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/releases/</guid>
+      <description>Releases # GoToSocial can be installed in a number of different ways. We publish official binary releases as well as container images. A number of third-party packages are maintained by different distributions and some people have created additional deployment tooling to make it easy to deploy GoToSocial yourself.
+Binary releases # We publish binary builds for Linux to our GitHub project:
+32-bit Intel/AMD (i386/x86) 64-bit Intel/AMD (amd64/x86_64) 32-bit ARM (v6 and v7) 64-bit ARM64 For FreeBSD we publish:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/user_creation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/user_creation/</guid>
+      <description>Creating users # Regardless of the installation method, you&amp;rsquo;ll need to create some users. GoToSocial currently doesn&amp;rsquo;t have a way for users to be created through the web UI, or for people to sign-up through the web UI.
+Using the CLI, you can create a user:
+$ gotosocial --config-path /path/to/config.yaml \ admin account create \ --username some_username \ --email some_email@whatever.org \ --password &amp;#39;SOME_PASSWORD&amp;#39; In the above command, replace some_username with your desired username, some_email@whatever.</description>
+    </item>
+    
+  </channel>
+</rss>

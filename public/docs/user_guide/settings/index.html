@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Settings # GoToSocial provides a settings interface where you can update your post settings, add an avatar and header image, write a bio for your account, and so on.
+You can access the Settings at https://my-instance.example.com/settings with your own GoToSocial instance. It uses the same OAUTH mechanism as normal clients (with scope: admin), and as such can be accessed from anywhere, separately from your own instance, or ran locally. A public installation is available here: https://gts.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Settings # GoToSocial provides a settings interface where you can update your post settings, add an avatar and header image, write a bio for your account, and so on.
+You can access the Settings at https://my-instance.example.com/settings with your own GoToSocial instance. It uses the same OAUTH mechanism as normal clients (with scope: admin), and as such can be accessed from anywhere, separately from your own instance, or ran locally. A public installation is available here: https://gts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/user_guide/settings/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Settings |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle" checked />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="active">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Settings</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#profile">Profile</a>
+      <ul>
+        <li><a href="#set-avatar--header">Set Avatar / Header</a></li>
+        <li><a href="#set-displayname-and-bio">Set Displayname and Bio</a></li>
+        <li><a href="#manually-approve-followe-requests--lock-your-account">Manually Approve Followe Requests / Lock Your Account</a></li>
+        <li><a href="#enable-rss-feed-of-public-posts">Enable RSS feed of Public posts</a></li>
+        <li><a href="#custom-css">Custom CSS</a></li>
+      </ul>
+    </li>
+    <li><a href="#settings-1">Settings</a></li>
+    <li><a href="#password-change">Password Change</a></li>
+    <li><a href="#admins">Admins</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h1>
+<p>GoToSocial provides a settings interface where you can update your post settings, add an avatar and header image, write a bio for your account, and so on.</p>
+<p>You can access the Settings at <code>https://my-instance.example.com/settings</code> with your own GoToSocial instance. It uses the same OAUTH mechanism as normal clients (with scope: admin), and as such can be accessed from anywhere, separately from your own instance, or ran locally. A public installation is available here: <a href="https://gts.superseriousbusiness.org">https://gts.superseriousbusiness.org/settings</a>.</p>
+<p>You will be prompted to log in with your email address and password after providing the instance url (auto-filled when using the page that comes with your instance).</p>
+<h2 id="profile">
+  Profile
+  <a class="anchor" href="#profile">#</a>
+</h2>
+<p><img src="/assets/user-settings-profile-info.png" alt="Screenshot of the profile section of the user settings interface, showing a preview of the avatar, header and display name, and providing form fields to change them" /></p>
+<p>In the profile section you can change your display name, avatar and header images. You can also choose to enable manually approving follow requests, and opt-in to providing a public RSS feed of your posts.</p>
+<h3 id="set-avatar--header">
+  Set Avatar / Header
+  <a class="anchor" href="#set-avatar--header">#</a>
+</h3>
+<p>To set an avatar or header image, click on the <code>Browse</code> button in the appropriate section, and use the file browser to select an image.</p>
+<p>Currently, supported image formats are <code>gif</code>, <code>png</code>, and <code>jpeg</code>/<code>jpg</code>.</p>
+<p>A preview of the image as it will appear on your profile will be shown. If you&rsquo;re happy with your choices, click on the <code>Save profile info</code> button at the bottom of the Profile Info section. If you navigate to your profile and refresh the page, your new avatar / header will be shown. It might take a bit longer for the update to federate out to remote instances.</p>
+<h3 id="set-displayname-and-bio">
+  Set Displayname and Bio
+  <a class="anchor" href="#set-displayname-and-bio">#</a>
+</h3>
+<p>Your display name is a short handle shown alongside your username on your profile. While your username cannot be changed once it&rsquo;s created, your display name can. Your display name can also contain spaces, capital letters, emojis, and so on. It&rsquo;s a great place to put a nickname, full name, and/or pronouns. For example, if your username is <code>@miranda</code>, your display name could be something like <code>Miranda Priestly (she/her)</code>.</p>
+<p>Your bio is a longer text that introduces your account and your self. Your bio is a good place to:</p>
+<ul>
+<li>Give an indication of the sort of things you post about</li>
+<li>Mention your approximate age / location</li>
+<li>Link to any of your other accounts or profiles elsewhere</li>
+<li>Describe your boundaries and preferences when it comes to other people interacting with you</li>
+<li>Link hashtags that you often use when you post</li>
+</ul>
+<p>The bio accepts either <code>plain</code> or <code>markdown</code> formatting. This is set by the default post format setting described in <a href="#user-settings">User Settings</a>.</p>
+<p>After updating your display name and bio, click on the <code>Save profile info</code> button at the bottom of the Profile Info section to save your changes.</p>
+<h3 id="manually-approve-followe-requests--lock-your-account">
+  Manually Approve Followe Requests / Lock Your Account
+  <a class="anchor" href="#manually-approve-followe-requests--lock-your-account">#</a>
+</h3>
+<p>At the bottom of the Profile Info section, there&rsquo;s a checkbox to manually approve follow requests.</p>
+<p>When this is <strong>not checked</strong>, new follow requests are approved automatically without your intervention. This is useful for more public-facing accounts or cases where you don&rsquo;t really post anything sensitive or private.</p>
+<p>When it is <strong>checked</strong>, you must manually approve new follow requests, and you can deny follow requests from accounts you don&rsquo;t want to follow you. This is useful for private accounts where you post personal things to followers only.</p>
+<p>This option is often referred to on the fediverse as &ldquo;locking&rdquo; your account.</p>
+<p>After ticking or unticking the checkbox, be sure to click on the <code>Save profile info</code> button at the bottom to save your new settings.</p>
+<h3 id="enable-rss-feed-of-public-posts">
+  Enable RSS feed of Public posts
+  <a class="anchor" href="#enable-rss-feed-of-public-posts">#</a>
+</h3>
+<p>RSS feeds for users are disabled by default, but can be opted into with this checkbox. For more information see <a href="../rss">RSS</a>. It&rsquo;s important to note that this by-passes follow requests, allowing anyone to get updates on your public posts. This feed only includes posts set as &lsquo;Public&rsquo; (see <a href="../posts#privacy-settings">Privacy Settings</a>.</p>
+<h3 id="custom-css">
+  Custom CSS
+  <a class="anchor" href="#custom-css">#</a>
+</h3>
+<p>If enabled on your instance, <a href="../custom_css">Custom CSS</a> allows you to theme the way your profile looks when visited through a browser. When this setting is not enabled, the field is hidden.</p>
+<h2 id="settings-1">
+  Settings
+  <a class="anchor" href="#settings-1">#</a>
+</h2>
+<p><img src="/assets/user-settings-post-settings.png" alt="Screenshot of the user settings section, providing drop-down menu&amp;rsquo;s to select default post settings, and form fields to change your password" /></p>
+<p>In the &lsquo;Settings&rsquo; section, you can set various defaults for new posts.</p>
+<p>The default post language setting allows you to indicate to other fediverse users which language your posts are usually written in. This is helpful for fediverse users who speak (for example) Korean, and would prefer to filter out posts written in other languages.</p>
+<p>The default post privacy setting allows you to set the default privacy for new posts. This is useful when you generally prefer to post public or followers-only, but you don&rsquo;t want to have to remember to set the privacy every time you post. Remember, this is only the default: no matter what you set here, you can still set the privacy individually for new posts if desired. For more information on post privacy settings, see the <a href="../posts">page on Posts</a>.</p>
+<p>The default post format setting allows you to set which text interpreter should be used when parsing your posts.</p>
+<p>The plain (default) setting provides standard post formatting, similar to what many other fediverse servers use. This is great for general purpose posting: you can write short, twitter-style posts, or multi-paragraph essays, insert links, and mention other accounts using their username.</p>
+<p>The markdown setting indicates that your posts should be parsed as Markdown, which is a markup language that gives you more options for customizing the layout and appearance of your posts. For more information on the differences between plain and markdown post formats, see the <a href="../posts">posts page</a>.</p>
+<p>When you are finished updating your post settings, remember to click the <code>Save post settings</code> button at the bottom of the section to save your changes.</p>
+<h2 id="password-change">
+  Password Change
+  <a class="anchor" href="#password-change">#</a>
+</h2>
+<p>You can use the Password Change section of the User Settings Panel to set a new password for your account.</p>
+<p>For more information on the way GoToSocial manages passwords, please see the <a href="../password_management">Password management document</a>.</p>
+<h2 id="admins">
+  Admins
+  <a class="anchor" href="#admins">#</a>
+</h2>
+<p>If your account has been promoted to admin, this interface will also show sections related to admin actions, see <a href="../../admin/settings">Admin Settings</a>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#profile">Profile</a>
+      <ul>
+        <li><a href="#set-avatar--header">Set Avatar / Header</a></li>
+        <li><a href="#set-displayname-and-bio">Set Displayname and Bio</a></li>
+        <li><a href="#manually-approve-followe-requests--lock-your-account">Manually Approve Followe Requests / Lock Your Account</a></li>
+        <li><a href="#enable-rss-feed-of-public-posts">Enable RSS feed of Public posts</a></li>
+        <li><a href="#custom-css">Custom CSS</a></li>
+      </ul>
+    </li>
+    <li><a href="#settings-1">Settings</a></li>
+    <li><a href="#password-change">Password Change</a></li>
+    <li><a href="#admins">Admins</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

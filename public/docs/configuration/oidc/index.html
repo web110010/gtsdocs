@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OpenID Connect (OIDC) # GoToSocial supports OpenID Connect, which is an identification protocol built on top of OAuth 2.0, an industry standard protocol for authorization.
+This means that you can connect GoToSocial to an external OIDC provider like Gitlab, Google, Keycloak, or Dex and allow users to sign in to GoToSocial using their credentials for that provider.
+This is very convenient in the following cases:
+You&rsquo;re running multiple services on a platform (Matrix, Peertube, GoToSocial), and you want users to be able to use the same sign in page for all of them.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="OpenID Connect (OIDC)" />
+<meta property="og:description" content="OpenID Connect (OIDC) # GoToSocial supports OpenID Connect, which is an identification protocol built on top of OAuth 2.0, an industry standard protocol for authorization.
+This means that you can connect GoToSocial to an external OIDC provider like Gitlab, Google, Keycloak, or Dex and allow users to sign in to GoToSocial using their credentials for that provider.
+This is very convenient in the following cases:
+You&rsquo;re running multiple services on a platform (Matrix, Peertube, GoToSocial), and you want users to be able to use the same sign in page for all of them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/configuration/oidc/" /><meta property="article:section" content="docs" />
+
+
+
+<title>OpenID Connect (OIDC) |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="active">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>OpenID Connect (OIDC)</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="#behavior">Behavior</a>
+      <ul>
+        <li><a href="#group-membership">Group membership</a></li>
+      </ul>
+    </li>
+    <li><a href="#migrating-from-old-versions">Migrating from old versions</a></li>
+    <li><a href="#provider-examples">Provider Examples</a>
+      <ul>
+        <li><a href="#dex">Dex</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="openid-connect-oidc">
+  OpenID Connect (OIDC)
+  <a class="anchor" href="#openid-connect-oidc">#</a>
+</h1>
+<p>GoToSocial supports <a href="https://openid.net/connect/">OpenID Connect</a>, which is an identification protocol built on top of <a href="https://oauth.net/2/">OAuth 2.0</a>, an industry standard protocol for authorization.</p>
+<p>This means that you can connect GoToSocial to an external OIDC provider like <a href="https://docs.gitlab.com/ee/integration/openid_connect_provider.html">Gitlab</a>, <a href="https://cloud.google.com/identity-platform/docs/web/oidc">Google</a>, <a href="https://www.keycloak.org/">Keycloak</a>, or <a href="https://dexidp.io/">Dex</a> and allow users to sign in to GoToSocial using their credentials for that provider.</p>
+<p>This is very convenient in the following cases:</p>
+<ul>
+<li>You&rsquo;re running multiple services on a platform (Matrix, Peertube, GoToSocial), and you want users to be able to use the same sign in page for all of them.</li>
+<li>You want to delegate management of users, accounts, passwords etc. to an external service to make admin easier for yourself.</li>
+<li>You already have a lot of users in an external system and you don&rsquo;t want to have to recreate them all in GoToSocial manually.</li>
+</ul>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>If a user doesn&rsquo;t exist yet, login will fail if your IdP doesn&rsquo;t return a non-empty <code>email</code> as part of the claims. The email needs to be unique on this instance. Though we use the <code>sub</code> claim to associate the external identity with a GtS user, when a user is created it needs an email associated with it.</p>
+
+</blockquote>
+
+<h2 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h2>
+<p>GoToSocial exposes the following configuration settings for OIDC, shown below with their default values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#######################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##### OIDC CONFIG #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Config for authentication with an external OIDC provider (Dex, Google, Auth0, etc).</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. Enable authentication with external OIDC provider. If set to true, then</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the other OIDC options must be set as well. If this is set to false, then the standard</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># internal oauth flow will be used, where users sign in to GtS with username/password.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [true, false]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Name of the oidc idp (identity provider). This will be shown to users when</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># they log in.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;Google&#34;, &#34;Dex&#34;, &#34;Auth0&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-idp-name</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. Skip the normal verification flow of tokens returned from the OIDC provider, ie.,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># don&#39;t check the expiry or signature. This should only be used in debugging or testing,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># never ever in a production environment as it&#39;s extremely unsafe!</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [true, false]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-skip-verification</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. The OIDC issuer URI. This is where GtS will redirect users to for login.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Typically this will look like a standard web URL.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;https://auth.example.org&#34;, &#34;https://example.org/auth&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-issuer</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. The ID for this client as registered with the OIDC provider.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;some-client-id&#34;, &#34;fda3772a-ad35-41c9-9a59-f1943ad18f54&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-client-id</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. The secret for this client as registered with the OIDC provider.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;super-secret-business&#34;, &#34;79379cf5-8057-426d-bb83-af504d98a7b0&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-client-secret</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Array of string. Scopes to request from the OIDC provider. The returned values will be used to</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># populate users created in GtS as a result of the authentication flow. &#39;openid&#39; and &#39;email&#39; are required.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#39;profile&#39; is used to extract a username for the newly created user.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#39;groups&#39; is optional and can be used to determine if a user is an admin based on oidc-admin-groups.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: See eg., https://auth0.com/docs/scopes/openid-connect-scopes</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: [&#34;openid&#34;, &#34;email&#34;, &#34;profile&#34;, &#34;groups&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-scopes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;openid&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;email&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;profile&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;groups&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. Link OIDC authenticated users to existing ones based on their email address.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is mostly intended for migration purposes if you were running previous versions of GTS</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># which only correlated users with their email address. Should be set to false for most usecases.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [true, false]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-link-existing</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Array of string. If the returned ID token contains a &#39;groups&#39; claim that</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># matches one of the groups in oidc-admin-groups, then this user will be granted</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># admin rights on the GtS instance</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: []</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">oidc-admin-groups</span>: []
+</span></span></code></pre></div><h2 id="behavior">
+  Behavior
+  <a class="anchor" href="#behavior">#</a>
+</h2>
+<p>When OIDC is enabled on GoToSocial, the default sign-in page redirects automatically to the sign-in page for the OIDC provider.</p>
+<p>This means that OIDC essentially <em>replaces</em> the normal GtS email/password sign-in flow.</p>
+<p>Due to the way the ActivityPub standard works, you <em>cannot</em> change your username
+after it has been set. This conflicts with the OIDC spec which does not
+guarantee that the <code>preferred_username</code> field is stable.</p>
+<p>To work with this, we ask the user to provide a username on their first login
+attempt. The field for this is pre-filled with the value of the <code>preferred_username</code> claim.</p>
+<p>After authenticating, GtS stores the <code>sub</code> claim supplied by the OIDC provider.
+On subsequent authentication attempts, the user is looked up using this claim
+exclusively.</p>
+<p>This then allows you to change the username on a provider level without losing
+access to your GtS account.</p>
+<h3 id="group-membership">
+  Group membership
+  <a class="anchor" href="#group-membership">#</a>
+</h3>
+<p>Most OIDC providers allow for the concept of groups and group memberships in returned claims. GoToSocial can use group membership to determine whether or not a user returned from an OIDC flow should be created as an admin account or not.</p>
+<p>If the returned OIDC groups information for a user contains membership of the groups configured in <code>oidc-admin-groups</code>, then that user will be created/signed in as though they are an admin.</p>
+<h2 id="migrating-from-old-versions">
+  Migrating from old versions
+  <a class="anchor" href="#migrating-from-old-versions">#</a>
+</h2>
+<p>If you&rsquo;re moving from an old version of GtS which used the unstable <code>email</code>
+claim for unique user identification, you can set the <code>oidc-link-existing</code>
+configuration to <code>true</code>. If no user can be found for the ID returned by the
+provider, a lookup based on the <code>email</code> claim is performed instead. If this
+succeeds, the stable id is added to the database for the matching user.</p>
+<p>You should only use this for a limited time to avoid malicious account takeover.</p>
+<h2 id="provider-examples">
+  Provider Examples
+  <a class="anchor" href="#provider-examples">#</a>
+</h2>
+<h3 id="dex">
+  Dex
+  <a class="anchor" href="#dex">#</a>
+</h3>
+<p><a href="https://dexidp.io/">Dex</a> is an open-source OIDC Provider that you can host yourself. The procedure for installing Dex is out of scope for this documentation, but you can check out the Dex docs <a href="https://dexidp.io/docs/">here</a>.</p>
+<p>Dex is great because it&rsquo;s also written in Go, like GoToSocial, which means it&rsquo;s small and fast and works well on lower-powered systems.</p>
+<p>To configure Dex and GoToSocial to work together, create the following client under the <code>staticClients</code> section of your Dex config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">staticClients</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">id</span>: <span style="color:#e6db74">&#39;gotosocial_client&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">redirectURIs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#39;https://gotosocial.example.org/auth/callback&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#39;GoToSocial&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">secret</span>: <span style="color:#e6db74">&#39;some-client-secret&#39;</span>
+</span></span></code></pre></div><p>Make sure to replace <code>gotosocial_client</code> with your desired client ID, and <code>secret</code> with a reasonably long and secure secret (a UUID for example). You should also replace <code>gotosocial.example.org</code> with the <code>host</code> of your GtS instance, but leave <code>/auth/callback</code> in place.</p>
+<p>Now, edit the <code>oidc</code> section of your GoToSocial config.yaml as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">oidc</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">idpName</span>: <span style="color:#e6db74">&#34;Dex&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">skipVerification</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">issuer</span>: <span style="color:#e6db74">&#34;https://auth.example.org&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">clientID</span>: <span style="color:#e6db74">&#34;gotosocial_client&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">clientSecret</span>: <span style="color:#e6db74">&#34;some-client-secret&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scopes</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;openid&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;email&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;profile&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;groups&#34;</span>
+</span></span></code></pre></div><p>Make sure to replace the <code>issuer</code> variable with whatever your Dex issuer is set to. This should be the exact URI at which your Dex instance can be reached.</p>
+<p>Now, restart both GoToSocial and Dex so that the new settings are in place.</p>
+<p>When you next go to log in to GtS, you should be redirected to the sign in page for Dex. On a successful sign in, you&rsquo;ll be directed back to GoToSocial.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="#behavior">Behavior</a>
+      <ul>
+        <li><a href="#group-membership">Group membership</a></li>
+      </ul>
+    </li>
+    <li><a href="#migrating-from-old-versions">Migrating from old versions</a></li>
+    <li><a href="#provider-examples">Provider Examples</a>
+      <ul>
+        <li><a href="#dex">Dex</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

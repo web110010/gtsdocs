@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/federation/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/federation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/federation/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/federation/glossary/</guid>
+      <description>Glossary # This document describes some commonly-used terms in discussions of federation.
+ActivityPub # A decentralized social networking protocol based on the ActivityStreams data format. See here.
+GoToSocial uses the ActivityPub protocol to communicate between GtS servers, and with other federated servers like Mastodon, Pixelfed, etc.
+ActivityStreams # A model/data format for representing potential and completed activities using JSON. See here.
+GoToSocial uses the ActivityStreams data model to &amp;lsquo;speak&amp;rsquo; ActivityPub with other servers.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/federation/federating_with_gotosocial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/federation/federating_with_gotosocial/</guid>
+      <description>Federating with GoToSocial # Information on the various (ActivityPub) elements needed to federate with GoToSocial.
+HTTP Signatures # GoToSocial requires all GET and POST requests to ActivityPub s2s endpoints to be accompanied by a valid http signature.
+GoToSocial will also sign all outgoing GET and POST requests that it makes to other servers.
+This behavior is the equivalent of Mastodon&amp;rsquo;s AUTHORIZED_FETCH / &amp;ldquo;secure mode&amp;rdquo;.
+GoToSocial uses the go-fed/httpsig library for signing outgoing requests, and for parsing and validating the signatures of incoming requests.</description>
+    </item>
+    
+  </channel>
+</rss>

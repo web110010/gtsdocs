@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/advanced/security/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/advanced/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Application sandboxing</title>
+      <link>http://example.org/docs/advanced/security/sandboxing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/security/sandboxing/</guid>
+      <description>Application sandboxing # By sandboxing the GoToSocial binary it&amp;rsquo;s possible to control which parts of the system GoToSocial can access, and limit which things it can read and write. This can be helpful to ensure that even in the face of a security issue in GoToSocial, an attacker is severely hindered in escalating their privileges and gaining a foothold on your system.
+Note
+As GoToSocial is still early in its development, the sandboxing policies we ship may get out of date.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/security/firewall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/security/firewall/</guid>
+      <description>Firewall # You should deploy a firewall on your instance to close off any open ports and give you a mechanism to ban potentially misbehaving clients. Many firewall frontends will also automatically install some rules that block obvious malicious packets.
+It can be helpful to deploy tools that monitor your log files for certain patterns and automatically ban clients exhibiting certain behaviour. This can be use to monitor your SSH and web server access logs for things like SSH brute-force attacks.</description>
+    </item>
+    
+  </channel>
+</rss>

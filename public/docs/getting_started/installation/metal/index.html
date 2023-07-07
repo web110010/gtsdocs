@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bare metal # This guide walks you through getting GoToSocial up and running on bare metal using the official binary releases.
+Prepare VPS # In a terminal on the VPS or your homeserver, make the directory that GoToSocial will run from, the directory it will use as storage, and the directory it will store LetsEncrypt certificates in:
+mkdir /gotosocial &amp;&amp; mkdir /gotosocial/storage &amp;&amp; mkdir /gotosocial/storage/certs If you don&rsquo;t have root permissions on the machine, use something like ~/gotosocial instead.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Bare metal" />
+<meta property="og:description" content="Bare metal # This guide walks you through getting GoToSocial up and running on bare metal using the official binary releases.
+Prepare VPS # In a terminal on the VPS or your homeserver, make the directory that GoToSocial will run from, the directory it will use as storage, and the directory it will store LetsEncrypt certificates in:
+mkdir /gotosocial &amp;&amp; mkdir /gotosocial/storage &amp;&amp; mkdir /gotosocial/storage/certs If you don&rsquo;t have root permissions on the machine, use something like ~/gotosocial instead." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/getting_started/installation/metal/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Bare metal |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle" checked />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle" checked />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="active">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Bare metal</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#prepare-vps">Prepare VPS</a></li>
+    <li><a href="#download-release">Download Release</a></li>
+    <li><a href="#edit-configuration-file">Edit Configuration File</a></li>
+    <li><a href="#run-the-binary">Run the Binary</a></li>
+    <li><a href="#create-your-user">Create your user</a></li>
+    <li><a href="#login">Login</a></li>
+    <li><a href="#optional-enable-the-systemd-service">(Optional) Enable the systemd service</a></li>
+    <li><a href="#optional-reverse-proxy">(Optional) Reverse proxy</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="bare-metal">
+  Bare metal
+  <a class="anchor" href="#bare-metal">#</a>
+</h1>
+<p>This guide walks you through getting GoToSocial up and running on bare metal using the official binary releases.</p>
+<h2 id="prepare-vps">
+  Prepare VPS
+  <a class="anchor" href="#prepare-vps">#</a>
+</h2>
+<p>In a terminal on the VPS or your homeserver, make the directory that GoToSocial will run from, the directory it will use as storage, and the directory it will store LetsEncrypt certificates in:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /gotosocial <span style="color:#f92672">&amp;&amp;</span> mkdir /gotosocial/storage <span style="color:#f92672">&amp;&amp;</span> mkdir /gotosocial/storage/certs
+</span></span></code></pre></div><p>If you don&rsquo;t have root permissions on the machine, use something like <code>~/gotosocial</code> instead.</p>
+<h2 id="download-release">
+  Download Release
+  <a class="anchor" href="#download-release">#</a>
+</h2>
+<p>In a terminal on the VPS or your homeserver, cd into the base directory for GoToSocial you just created above:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /gotosocial
+</span></span></code></pre></div><p>Now, download the latest GoToSocial release archive corresponding to the operating system and architecture you&rsquo;re running on.</p>
+<p>(You can find the list of releases <a href="https://github.com/superseriousbusiness/gotosocial/releases">right here</a>, arranged with the newest release at the top.)</p>
+<p>For example, to download version 0.5.2 for running on 64-bit Linux:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/superseriousbusiness/gotosocial/releases/download/v0.5.2/gotosocial_0.5.2_linux_amd64.tar.gz
+</span></span></code></pre></div><p>Then extract it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -xzf gotosocial_0.5.2_linux_amd64.tar.gz
+</span></span></code></pre></div><p>This will put the <code>gotosocial</code> binary in your current directory, in addition to the <code>web</code> folder, which contains assets for the web frontend, and an <code>example</code> folder, which contains a sample configuration file.</p>
+<h2 id="edit-configuration-file">
+  Edit Configuration File
+  <a class="anchor" href="#edit-configuration-file">#</a>
+</h2>
+<p>Copy the configuration file from the example folder into your current directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp ./example/config.yaml .
+</span></span></code></pre></div><p>Now open the file in your text editor of choice so that you can set some important configuration values. Change the following settings:</p>
+<ul>
+<li>Set <code>host</code> to whatever hostname you&rsquo;re going to be running the server on (eg., <code>example.org</code>).</li>
+<li>Set <code>port</code> to <code>443</code>.</li>
+<li>Set <code>db-type</code> to <code>sqlite</code>.</li>
+<li>Set <code>db-address</code> to <code>sqlite.db</code>.</li>
+<li>Set <code>storage-local-base-path</code> to the storage directory you created above (eg., <code>/gotosocial/storage</code>).</li>
+<li>Set <code>letsencrypt-enabled</code> to <code>true</code>.</li>
+<li>Set <code>letsencrypt-cert-dir</code> to the certificate storage directory you created above (eg., <code>/gotosocial/storage/certs</code>).</li>
+</ul>
+<p>The above options assume you&rsquo;re using SQLite as your database. If you want to use Postgres instead, see <a href="../../../configuration/database">here</a> for the config options.</p>
+<h2 id="run-the-binary">
+  Run the Binary
+  <a class="anchor" href="#run-the-binary">#</a>
+</h2>
+<p>You can now run the binary.</p>
+<p>Start the GoToSocial server with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./gotosocial --config-path ./config.yaml server start
+</span></span></code></pre></div><p>The server should now start up and you should be able to access the splash page by navigating to your domain in the browser. Note that it might take up to a minute or so for your LetsEncrypt certificates to be created for the first time, so refresh a few times if necessary.</p>
+<p>Note that for this example we&rsquo;re assuming that we&rsquo;re allowed to run on port 443 (standard https port), and that nothing else is running on this port.</p>
+<h2 id="create-your-user">
+  Create your user
+  <a class="anchor" href="#create-your-user">#</a>
+</h2>
+<p>You can use the GoToSocial binary to also create and promote your user account. This is all documented in our <a href="../../user_creation">Creating users</a> guide.</p>
+<h2 id="login">
+  Login
+  <a class="anchor" href="#login">#</a>
+</h2>
+<p>You should now be able to log in to your instance using the email address and password of the account you just created. We recommend using <a href="https://semaphore.social">Semaphore</a> or <a href="https://tusky.app">Tusky</a> for this.</p>
+<h2 id="optional-enable-the-systemd-service">
+  (Optional) Enable the systemd service
+  <a class="anchor" href="#optional-enable-the-systemd-service">#</a>
+</h2>
+<p>If you don&rsquo;t like manually starting GoToSocial on every boot you might want to create a systemd service that does that for you.</p>
+<p>First stop your GoToSocial instance.</p>
+<p>Then create a new user and group for your GoToSocial installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo useradd -r gotosocial
+</span></span><span style="display:flex;"><span>sudo groupadd gotosocial
+</span></span><span style="display:flex;"><span>sudo usermod -a -G gotosocial gotosocial
+</span></span></code></pre></div><p>Then make them the owner of your GoToSocial installation since they will need to read and write in it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chown -R gotosocial:gotosocial /gotosocial
+</span></span></code></pre></div><p>You can find a <code>gotosocial.service</code> file in the <code>example</code> folder on <a href="https://raw.githubusercontent.com/superseriousbusiness/gotosocial/main/example/gotosocial.service">github</a> or your installation.</p>
+<p>Copy it to <code>/etc/systemd/system/gotosocial.service</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /gotosocial/example/gotosocial.service /etc/systemd/system/
+</span></span></code></pre></div><p>Then use <code>sudoedit /etc/systemd/system/gotosocial.service</code> to change the <code>ExecStart=</code> and <code>WorkingDirectory=</code> lines according to your installation.</p>
+<p>If you have been following this guide word for word the defaults should be fine.</p>
+<p>After you&rsquo;re done enable the service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable --now gotosocial.service
+</span></span></code></pre></div><h2 id="optional-reverse-proxy">
+  (Optional) Reverse proxy
+  <a class="anchor" href="#optional-reverse-proxy">#</a>
+</h2>
+<p>If you want to run other webservers on port 443 or want to add an additional layer of security you might want to use a <a href="../../reverse_proxy">reverse proxy</a>. We have guides available for a couple of popular open source options and will gladly take pull requests to add more.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#prepare-vps">Prepare VPS</a></li>
+    <li><a href="#download-release">Download Release</a></li>
+    <li><a href="#edit-configuration-file">Edit Configuration File</a></li>
+    <li><a href="#run-the-binary">Run the Binary</a></li>
+    <li><a href="#create-your-user">Create your user</a></li>
+    <li><a href="#login">Login</a></li>
+    <li><a href="#optional-enable-the-systemd-service">(Optional) Enable the systemd service</a></li>
+    <li><a href="#optional-reverse-proxy">(Optional) Reverse proxy</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

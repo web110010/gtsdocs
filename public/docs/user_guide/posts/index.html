@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Posts # Privacy Settings # GoToSocial offers Mastodon-style privacy settings for posts. In order from most to least private, these are:
+Direct Mutuals-only Private/Followers-only Unlisted Public Whatever privacy setting you choose for a post, GoToSocial will do the best it can to ensure that your posts don&rsquo;t appear to users on instances that you&rsquo;ve blocked, or to users that you&rsquo;ve blocked directly.
+Unlike with some other fediverse server implementations, GoToSocial uses a default post setting of unlisted rather than public for new accounts.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Posts # Privacy Settings # GoToSocial offers Mastodon-style privacy settings for posts. In order from most to least private, these are:
+Direct Mutuals-only Private/Followers-only Unlisted Public Whatever privacy setting you choose for a post, GoToSocial will do the best it can to ensure that your posts don&rsquo;t appear to users on instances that you&rsquo;ve blocked, or to users that you&rsquo;ve blocked directly.
+Unlike with some other fediverse server implementations, GoToSocial uses a default post setting of unlisted rather than public for new accounts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/user_guide/posts/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Posts |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle" checked />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="active">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Posts</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#privacy-settings">Privacy Settings</a>
+      <ul>
+        <li><a href="#direct">Direct</a></li>
+        <li><a href="#mutuals-only">Mutuals-only</a></li>
+        <li><a href="#privatefollowers-only">Private/Followers-only</a></li>
+        <li><a href="#unlisted">Unlisted</a></li>
+        <li><a href="#public">Public</a></li>
+      </ul>
+    </li>
+    <li><a href="#extra-flags">Extra Flags</a>
+      <ul>
+        <li><a href="#federated">Federated</a></li>
+        <li><a href="#boostable">Boostable</a></li>
+        <li><a href="#replyable">Replyable</a></li>
+        <li><a href="#likeable">Likeable</a></li>
+      </ul>
+    </li>
+    <li><a href="#input-types">Input Types</a></li>
+    <li><a href="#formatting">Formatting</a>
+      <ul>
+        <li><a href="#whitespace">Whitespace</a></li>
+        <li><a href="#wrapping">Wrapping</a></li>
+        <li><a href="#linebreaks">Linebreaks</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#mentions">Mentions</a></li>
+      </ul>
+    </li>
+    <li><a href="#input-sanitization">Input Sanitization</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="posts">
+  Posts
+  <a class="anchor" href="#posts">#</a>
+</h1>
+<h2 id="privacy-settings">
+  Privacy Settings
+  <a class="anchor" href="#privacy-settings">#</a>
+</h2>
+<p>GoToSocial offers Mastodon-style privacy settings for posts. In order from most to least private, these are:</p>
+<ul>
+<li>Direct</li>
+<li>Mutuals-only</li>
+<li>Private/Followers-only</li>
+<li>Unlisted</li>
+<li>Public</li>
+</ul>
+<p>Whatever privacy setting you choose for a post, GoToSocial will do the best it can to ensure that your posts don&rsquo;t appear to users on instances that you&rsquo;ve blocked, or to users that you&rsquo;ve blocked directly.</p>
+<p>Unlike with some other fediverse server implementations, GoToSocial uses a default post setting of <code>unlisted</code> rather than <code>public</code> for new accounts. Our philosophy here is that posting something public should always be a conscious decision rather than a default.</p>
+<p>Please note that while GoToSocial respects these privacy settings very strictly, other server implementations cannot necessarily be trusted to do so: there are bad actors on the fediverse. As with any social media, you should think carefully about what you post and to whom.</p>
+<h3 id="direct">
+  Direct
+  <a class="anchor" href="#direct">#</a>
+</h3>
+<p>Posts with a visibility of <code>direct</code> will only appear to the post author, and to users who are mentioned in the post. Take the following post for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Hey @whoever@example.org, this is a private/direct post! Only we can see this!
+</span></span></code></pre></div><p>If this message was written by <code>@someone@server.com</code> then only <code>@whoever@example.org</code> and <code>@someone@server.com</code> would be able to see it.</p>
+<p>As the name implies, <code>direct</code> posts are best used when you want to communicate directly with one or more people.</p>
+<p>However, <code>direct</code> posts are <strong>not</strong> a suitable replacement for end-to-end encrypted messaging offered by things like <a href="https://signal.org/">Signal</a> and <a href="https://matrix.org/">Matrix</a>. If you want to communicate directly, but you&rsquo;re not communicating sensitive information, then direct posts are fine. If you need to have a sensitive + secure conversation, use something else!</p>
+<p>Direct posts can be liked/faved, but they cannot be boosted.</p>
+<p>Direct posts are <strong>not</strong> accessible via a web URL on your GoToSocial instance.</p>
+<h3 id="mutuals-only">
+  Mutuals-only
+  <a class="anchor" href="#mutuals-only">#</a>
+</h3>
+<p>Posts with a visibility of <code>mutuals_only</code> will only appear to the post author, and to <em>mutual follows</em> of the post author. In other words, they can only be seen by others if two conditions are met:</p>
+<ol>
+<li>The other account follows the post author.</li>
+<li>The post author follows the other account back.</li>
+</ol>
+<p>This is useful for when you want to post something that you only want friends to see.</p>
+<p>Mutuals-only posts can be liked/faved, but they cannot be boosted.</p>
+<p>Mutuals-only posts are <strong>not</strong> accessible via a web URL on your GoToSocial instance.</p>
+<h3 id="privatefollowers-only">
+  Private/Followers-only
+  <a class="anchor" href="#privatefollowers-only">#</a>
+</h3>
+<p>Posts with a visibility of <code>private</code> will only be visible to the post author, and to people who follow the post author. This is similar to <code>mutuals_only</code>, but only the first condition needs to met; the post author doesn&rsquo;t need to follow the other account back.</p>
+<p>This is useful for when you want to make announcements to people who follow you, or share something slightly less private than <code>mutuals_only</code>.</p>
+<p>Private/followers-only posts can be liked/faved, but they cannot be boosted.</p>
+<p>Private/followers-only posts are <strong>not</strong> accessible via a web URL on your GoToSocial instance.</p>
+<h3 id="unlisted">
+  Unlisted
+  <a class="anchor" href="#unlisted">#</a>
+</h3>
+<p>Posts with a visibility of <code>unlisted</code> (sometimes called <code>unlocked</code> posts) are semi-public. They will be sent to anyone who follows you, and they can be boosted into the timelines of people who don&rsquo;t follow you, but they won&rsquo;t appear on Federated or Local timelines, and they won&rsquo;t appear on your public profile.</p>
+<p>Unlisted posts are useful when you want to allow a post to spread, but you don&rsquo;t want it to be immediately visible to everyone. They are also useful when you want to make public-ish posts, but without clogging up Federated/Local timelines.</p>
+<p>Unlisted posts can be liked/faved, and they can be boosted.</p>
+<p>Unlike with Mastodon, unlisted posts are <strong>not</strong> accessible via a web URL on your GoToSocial instance!</p>
+<h3 id="public">
+  Public
+  <a class="anchor" href="#public">#</a>
+</h3>
+<p>Posts with a visibility of <code>public</code> are <em>fully</em> public. That is, they can be seen via the web, and they will appear in Local and Federated timelines, and they are fully boostable. <code>public</code> is the ultimate &rsquo;let my post be seen everywhere&rsquo; setting, for when you want something to be widely available and easy to distribute.</p>
+<p>Public posts can be liked/faved, and they can be boosted.</p>
+<p><strong>Public posts are accessible via a web URL on your GoToSocial instance!</strong></p>
+<h2 id="extra-flags">
+  Extra Flags
+  <a class="anchor" href="#extra-flags">#</a>
+</h2>
+<p>GoToSocial offers four extra flags on posts, which can be used to tweak how your post can be interacted with by others. These are:</p>
+<ul>
+<li><code>federated</code></li>
+<li><code>boostable</code></li>
+<li><code>replyable</code></li>
+<li><code>likeable</code></li>
+</ul>
+<p>By default, all these flags are set to <code>true</code>.</p>
+<p>Please note that while GoToSocial strictly respects these settings, other fediverse server implementations might not be aware of them. A consequence of this is that users on non-GoToSocial servers might think they are replying/boosting/liking your post, and their instance might behave as though that behavior was allowed, but those interactions will be denied by your GoToSocial server and you won&rsquo;t see them.</p>
+<h3 id="federated">
+  Federated
+  <a class="anchor" href="#federated">#</a>
+</h3>
+<p>When set to <code>false</code>, this post will not be federated out to other fediverse servers, and will be viewable only to accounts on your GoToSocial instance. This is sometimes called &rsquo;local-only&rsquo; posting.</p>
+<h3 id="boostable">
+  Boostable
+  <a class="anchor" href="#boostable">#</a>
+</h3>
+<p>When set to <code>false</code>, your post will not be boostable, even if it is unlisted or public. GoToSocial enforces this by refusing dereferencing requests from remote servers in the event that someone tries to boost the post.</p>
+<h3 id="replyable">
+  Replyable
+  <a class="anchor" href="#replyable">#</a>
+</h3>
+<p>When set to <code>false</code>, replies to your post will not be accepted by your GoToSocial server, and will not appear in your timeline or create notifications. GoToSocial enforces this by giving an error message to attempted replies to the post from federated servers.</p>
+<h3 id="likeable">
+  Likeable
+  <a class="anchor" href="#likeable">#</a>
+</h3>
+<p>When set to <code>false</code>, likes/faves of your post will not be accepted by your GoToSocial server, and will not create notifications. GoToSocial enforces this by giving an error message to attempted likes/faves on the post from federated servers.</p>
+<h2 id="input-types">
+  Input Types
+  <a class="anchor" href="#input-types">#</a>
+</h2>
+<p>GoToSocial currently accepts two different types of input for posts (and user bio). The <a href="/docs/user-guide/settings">user settings page</a> allows you to select between them. These are:</p>
+<ul>
+<li><code>plain</code></li>
+<li><code>markdown</code></li>
+</ul>
+<p>Plain is the default method of posting: GtS accepts some plain looking text, and converts it into some nice HTML by parsing links and mentions etc. If you&rsquo;re used to Mastodon or Twitter or most other social media platforms, this way of writing posts will be immediately familiar.</p>
+<p>Markdown is a more complex way of organizing text, which gives you more control over how your text is parsed and formatted.</p>
+<p>GoToSocial supports the <a href="https://www.markdownguide.org/basic-syntax">Basic Markdown Syntax</a>, and some of the <a href="https://www.markdownguide.org/extended-syntax/">Extended Markdown Syntax</a> as well, including fenced code blocks, footnotes, strikethrough, subscript, superscript, and automated URL linking.</p>
+<p>You can also include snippets of basic HTML in your markdown!</p>
+<p>For more information on Markdown, see <a href="https://www.markdownguide.org/">The Markdown Guide</a>.</p>
+<p>For a quick reference on Markdown syntax, see the <a href="https://www.markdownguide.org/cheat-sheet">Markdown Cheat Sheet</a>.</p>
+<h2 id="formatting">
+  Formatting
+  <a class="anchor" href="#formatting">#</a>
+</h2>
+<p>When a post is submitted in <code>plain</code> format, GoToSocial automatically does some tidying up and formatting of the post in order to convert it to HTML, as described below.</p>
+<h3 id="whitespace">
+  Whitespace
+  <a class="anchor" href="#whitespace">#</a>
+</h3>
+<p>Any leading or trailing whitespaces and newlines are removed from the post. So for example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>this post starts with some newlines
+</span></span></code></pre></div><p>will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>this post starts with some newlines
+</span></span></code></pre></div><h3 id="wrapping">
+  Wrapping
+  <a class="anchor" href="#wrapping">#</a>
+</h3>
+<p>The whole post will be wrapped in <code>&lt;p&gt;&lt;/p&gt;</code>.</p>
+<p>So the following text:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Hi here&#39;s a little post!
+</span></span></code></pre></div><p>Will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Hi here&#39;s a little post!&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><h3 id="linebreaks">
+  Linebreaks
+  <a class="anchor" href="#linebreaks">#</a>
+</h3>
+<p>Any newlines will be replaced with <code>&lt;br /&gt;</code></p>
+<p>So to continue the above example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Hi here&#39;s a little post!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>And here&#39;s another line.
+</span></span></code></pre></div><p>Will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Hi here&#39;s a little post!&lt;<span style="color:#f92672">br</span> /&gt;&lt;<span style="color:#f92672">br</span> /&gt;And here&#39;s another line&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><h3 id="links">
+  Links
+  <a class="anchor" href="#links">#</a>
+</h3>
+<p>Any recognizable links in the text will be shortened and turned into proper hyperlinks, and have some additional attributes added to them.</p>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Here&#39;s a link to something: https://example.org/some/link/address
+</span></span></code></pre></div><p>will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>Here&#39;s a link to something: &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.org/some/link/address&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nofollow&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;noreferrer&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;noopener&#34;</span>&gt;example.org/some/link/address&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span></code></pre></div><p>which will be rendered as:</p>
+<blockquote>
+<p>Here&rsquo;s a link to something: <a href="https://example.org/some/link/address">example.org/some/link/address</a></p>
+</blockquote>
+<p>Note that this will only work for <code>http</code> and <code>https</code> links; other schemes are not supported.</p>
+<h3 id="mentions">
+  Mentions
+  <a class="anchor" href="#mentions">#</a>
+</h3>
+<p>You can &lsquo;mention&rsquo; another account by referring to the account in the following way:</p>
+<blockquote>
+<p>@some_<a href="mailto:account@example.org">account@example.org</a></p>
+</blockquote>
+<p>In this example, <code>some_account</code> is the username of the account you want to mention, and <code>example.org</code> is the domain that hosts their account.</p>
+<p>The mentioned account will get a notification that you&rsquo;ve mentioned them, and be able to see the post in which they were mentioned.</p>
+<p>Mentions are formatted in a similar way to links, so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>hi @some_account@example.org how&#39;s it going?
+</span></span></code></pre></div><p>will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>hi &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h-card&#34;</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://example.org/@some_account&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;u-url mention&#34;</span>&gt;@&lt;<span style="color:#f92672">span</span>&gt;some_account&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt; how&#39;s it going?
+</span></span></code></pre></div><p>which will be rendered as:</p>
+<blockquote>
+<p>hi <!-- raw HTML omitted --><!-- raw HTML omitted -->@<!-- raw HTML omitted -->some_account<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> how&rsquo;s it going?</p>
+</blockquote>
+<p>When mentioning local accounts (ie., accounts on your instance), the second part of the mention is not necessary. If there&rsquo;s an account with username <code>local_account_person</code> on your instance, you can mention them just by writing:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>hey @local_account_person you&#39;re my neighbour
+</span></span></code></pre></div><p>This will become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>hey &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;h-card&#34;</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://my.instance.org/@local_account_person&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;u-url mention&#34;</span>&gt;@&lt;<span style="color:#f92672">span</span>&gt;local_account_person&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt; you&#39;re my neighbour
+</span></span></code></pre></div><p>which will be rendered as:</p>
+<blockquote>
+<p>hey <!-- raw HTML omitted --><!-- raw HTML omitted -->@<!-- raw HTML omitted -->local_account_person<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --> you&rsquo;re my neighbour</p>
+</blockquote>
+<h2 id="input-sanitization">
+  Input Sanitization
+  <a class="anchor" href="#input-sanitization">#</a>
+</h2>
+<p>In order not to spread scripts, vulnerabilities, and glitchy HTML all over the place, GoToSocial performs the following types of input sanitization:</p>
+<p><code>plain</code> input type:</p>
+<ul>
+<li>Before parsing, any existing HTML is completely removed from the post body and content-warning fields.</li>
+<li>After parsing, all generated HTML is run through a sanitizer to remove harmful elements.</li>
+</ul>
+<p><code>markdown</code> input type:</p>
+<ul>
+<li>Before parsing, any existing HTML is completely removed from the content-warning field.</li>
+<li>Before parsing, any existing HTML in the post body is run through a sanitizer to remove harmful elements.</li>
+<li>After parsing, all generated HTML is run through a sanitizer to remove harmful elements.</li>
+</ul>
+<p>GoToSocial uses <a href="https://github.com/microcosm-cc/bluemonday">bluemonday</a> for HTML sanitization.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#privacy-settings">Privacy Settings</a>
+      <ul>
+        <li><a href="#direct">Direct</a></li>
+        <li><a href="#mutuals-only">Mutuals-only</a></li>
+        <li><a href="#privatefollowers-only">Private/Followers-only</a></li>
+        <li><a href="#unlisted">Unlisted</a></li>
+        <li><a href="#public">Public</a></li>
+      </ul>
+    </li>
+    <li><a href="#extra-flags">Extra Flags</a>
+      <ul>
+        <li><a href="#federated">Federated</a></li>
+        <li><a href="#boostable">Boostable</a></li>
+        <li><a href="#replyable">Replyable</a></li>
+        <li><a href="#likeable">Likeable</a></li>
+      </ul>
+    </li>
+    <li><a href="#input-types">Input Types</a></li>
+    <li><a href="#formatting">Formatting</a>
+      <ul>
+        <li><a href="#whitespace">Whitespace</a></li>
+        <li><a href="#wrapping">Wrapping</a></li>
+        <li><a href="#linebreaks">Linebreaks</a></li>
+        <li><a href="#links">Links</a></li>
+        <li><a href="#mentions">Mentions</a></li>
+      </ul>
+    </li>
+    <li><a href="#input-sanitization">Input Sanitization</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

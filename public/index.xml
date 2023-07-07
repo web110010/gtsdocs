@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoToSocial on  GoToSocial Documentation </title>
+    <link>http://example.org/</link>
+    <description>Recent content in GoToSocial on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/api/swagger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/swagger/</guid>
+      <description>API Documentation # GoToSocial uses go-swagger to generate a V2 OpenAPI specification document from code annotations.
+The resulting API documentation is rendered below, for quick reference.
+If you&amp;rsquo;d like to do more with the spec, you can also view the swagger.yaml directly, and then paste it into something like the Swagger Editor in order to autogenerate GoToSocial API clients in different languages, convert the doc to JSON or OpenAPI v3 specification, etc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/general/</guid>
+      <description>General # The top-level configuration for GoToSocial, including basic things like host, port, bind address and transport protocol.
+The only things you really need to set here are host, which should be the hostname where your instance is reachable, and probably port.
+Settings # ########################### ##### GENERAL CONFIG ###### ########################### # String. Log level to use throughout the application. Must be lower-case. # Options: [&amp;#34;trace&amp;#34;,&amp;#34;debug&amp;#34;,&amp;#34;info&amp;#34;,&amp;#34;warn&amp;#34;,&amp;#34;error&amp;#34;,&amp;#34;fatal&amp;#34;] # Default: &amp;#34;info&amp;#34; log-level: &amp;#34;info&amp;#34; # Bool.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/federation/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/federation/glossary/</guid>
+      <description>Glossary # This document describes some commonly-used terms in discussions of federation.
+ActivityPub # A decentralized social networking protocol based on the ActivityStreams data format. See here.
+GoToSocial uses the ActivityPub protocol to communicate between GtS servers, and with other federated servers like Mastodon, Pixelfed, etc.
+ActivityStreams # A model/data format for representing potential and completed activities using JSON. See here.
+GoToSocial uses the ActivityStreams data model to &amp;lsquo;speak&amp;rsquo; ActivityPub with other servers.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/deployment_considerations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/deployment_considerations/</guid>
+      <description>Deployment considerations # Before deploying GoToSocial, it&amp;rsquo;s important to think through a few things as some choices will have long-term consequences for how you run and manage GoToSocial.
+Danger
+It&amp;rsquo;s not supported across the Fediverse to switch between implementations on the same domain. This means that if you run GoToSocial on example.org, you&amp;rsquo;ll run into federation issues if you try to switch to a different implementation like Pleroma/Akkoma, Misskey/Calckey etc.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/nginx/</guid>
+      <description>NGINX # In order to use NGINX as a reverse proxy for GoToSocial you&amp;rsquo;ll need to have it installed on your server. If you intend for the NGINX instance to also handle TLS, you&amp;rsquo;ll need to provision TLS certificates too.
+NGINX is packaged for many distributions. It&amp;rsquo;s very likely you can install it with your distribution&amp;rsquo;s package manager. You can also run NGINX using a container runtime with the official NGINX image that&amp;rsquo;s published to the Docker Hub.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/posts/</guid>
+      <description>Posts # Privacy Settings # GoToSocial offers Mastodon-style privacy settings for posts. In order from most to least private, these are:
+Direct Mutuals-only Private/Followers-only Unlisted Public Whatever privacy setting you choose for a post, GoToSocial will do the best it can to ensure that your posts don&amp;rsquo;t appear to users on instances that you&amp;rsquo;ve blocked, or to users that you&amp;rsquo;ve blocked directly.
+Unlike with some other fediverse server implementations, GoToSocial uses a default post setting of unlisted rather than public for new accounts.</description>
+    </item>
+    
+    <item>
+      <title>Admin Settings</title>
+      <link>http://example.org/docs/admin/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/settings/</guid>
+      <description>Admin Settings # The GoToSocial Settings interface uses the admin api routes to manage your instance. It&amp;rsquo;s combined with the User settings and uses the same OAUTH mechanism as normal clients (with scope: admin).
+Account permissions # To use the Admin API your account has to be promoted as such:
+./gotosocial --config-path ./config.yaml admin account promote --username YOUR_USERNAME After this, you can enter your instance domain in the login field (auto-filled if you run GoToSocial on the same domain), and login like you would with any other client.</description>
+    </item>
+    
+    <item>
+      <title>Application sandboxing</title>
+      <link>http://example.org/docs/advanced/security/sandboxing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/security/sandboxing/</guid>
+      <description>Application sandboxing # By sandboxing the GoToSocial binary it&amp;rsquo;s possible to control which parts of the system GoToSocial can access, and limit which things it can read and write. This can be helpful to ensure that even in the face of a security issue in GoToSocial, an attacker is severely hindered in escalating their privileges and gaining a foothold on your system.
+Note
+As GoToSocial is still early in its development, the sandboxing policies we ship may get out of date.</description>
+    </item>
+    
+    <item>
+      <title>Bare metal</title>
+      <link>http://example.org/docs/getting_started/installation/metal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/installation/metal/</guid>
+      <description>Bare metal # This guide walks you through getting GoToSocial up and running on bare metal using the official binary releases.
+Prepare VPS # In a terminal on the VPS or your homeserver, make the directory that GoToSocial will run from, the directory it will use as storage, and the directory it will store LetsEncrypt certificates in:
+mkdir /gotosocial &amp;amp;&amp;amp; mkdir /gotosocial/storage &amp;amp;&amp;amp; mkdir /gotosocial/storage/certs If you don&amp;rsquo;t have root permissions on the machine, use something like ~/gotosocial instead.</description>
+    </item>
+    
+    <item>
+      <title>GtS CLI Tool</title>
+      <link>http://example.org/docs/admin/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/cli/</guid>
+      <description>GtS CLI Tool # GoToSocial compiles to an executable binary.
+The standard way of using this binary is to run a server with the gotosocial server start command.
+However, this binary can also be used as an admin tool, and for debugging.
+Here&amp;rsquo;s the full output of gotosocial --help, without the big list of global config options.
+GoToSocial - a fediverse social media server For help, see: https://docs.gotosocial.org. Code: https://github.</description>
+    </item>
+    
+    <item>
+      <title>Split-domain deployments</title>
+      <link>http://example.org/docs/advanced/host-account-domain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/host-account-domain/</guid>
+      <description>Split-domain deployments # This guide explains how to have usernames like @me@example.org but run the GoToSocial instance itself on a subdomain like social.example.org. Configuring this type of deployment layout must be done before starting GoToSocial for the first time.
+Danger
+You cannot change your domain layout after you&amp;rsquo;ve federated with someone. Servers are going to get confused and you&amp;rsquo;ll need to convince the admin of every instance that&amp;rsquo;s federated with you before to mess with their database to resolve it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/security/firewall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/security/firewall/</guid>
+      <description>Firewall # You should deploy a firewall on your instance to close off any open ports and give you a mechanism to ban potentially misbehaving clients. Many firewall frontends will also automatically install some rules that block obvious malicious packets.
+It can be helpful to deploy tools that monitor your log files for certain patterns and automatically ban clients exhibiting certain behaviour. This can be use to monitor your SSH and web server access logs for things like SSH brute-force attacks.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/database/</guid>
+      <description>Database # GoToSocial stores statuses, accounts, etc, in a database. This can be either SQLite or Postgres.
+By default, GoToSocial will use Postgres, but this is easy to change.
+SQLite # SQLite, as the name implies, is the lightest database type that GoToSocial can use. It stores entries in a simple file format, usually in the same directory as the GoToSocial binary itself. SQLite is great for small instances and lower-powered machines like Raspberry Pi, where a dedicated database would be overkill.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/federation/federating_with_gotosocial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/federation/federating_with_gotosocial/</guid>
+      <description>Federating with GoToSocial # Information on the various (ActivityPub) elements needed to federate with GoToSocial.
+HTTP Signatures # GoToSocial requires all GET and POST requests to ActivityPub s2s endpoints to be accompanied by a valid http signature.
+GoToSocial will also sign all outgoing GET and POST requests that it makes to other servers.
+This behavior is the equivalent of Mastodon&amp;rsquo;s AUTHORIZED_FETCH / &amp;ldquo;secure mode&amp;rdquo;.
+GoToSocial uses the go-fed/httpsig library for signing outgoing requests, and for parsing and validating the signatures of incoming requests.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/installation/container/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/installation/container/</guid>
+      <description>Container # This guide walks you through getting GoToSocial up and running using the official container images we publish. In this case we&amp;rsquo;ll be using the Docker runtime directly through Docker Compose together with SQLite as the database.
+You can also run GoToSocial using a container orchestration system such as Kubernetes or Nomad, but that is beyond the scope of this guide.
+Create a Working Directory # You need a working directory in which your docker-compose file will be located, and a directory for GoToSocial to store data in, so create these directories with the following command:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/releases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/releases/</guid>
+      <description>Releases # GoToSocial can be installed in a number of different ways. We publish official binary releases as well as container images. A number of third-party packages are maintained by different distributions and some people have created additional deployment tooling to make it easy to deploy GoToSocial yourself.
+Binary releases # We publish binary builds for Linux to our GitHub project:
+32-bit Intel/AMD (i386/x86) 64-bit Intel/AMD (amd64/x86_64) 32-bit ARM (v6 and v7) 64-bit ARM64 For FreeBSD we publish:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/apache-httpd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/apache-httpd/</guid>
+      <description>Apache HTTP Server # In order to use Apache as a reverse proxy for GoToSocial you&amp;rsquo;ll need to have it installed on your server. If you intend for the Apache instance to also handle TLS, you&amp;rsquo;ll need to provision TLS certificates too.
+Apache is packaged for many distributions. It&amp;rsquo;s very likely you can install it with your distribution&amp;rsquo;s package manager. You can also run Apache using a container runtime with the official Apache image that&amp;rsquo;s published to the Docker Hub.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/settings/</guid>
+      <description>Settings # GoToSocial provides a settings interface where you can update your post settings, add an avatar and header image, write a bio for your account, and so on.
+You can access the Settings at https://my-instance.example.com/settings with your own GoToSocial instance. It uses the same OAUTH mechanism as normal clients (with scope: admin), and as such can be accessed from anywhere, separately from your own instance, or ran locally. A public installation is available here: https://gts.</description>
+    </item>
+    
+    <item>
+      <title>Outgoing HTTP proxy</title>
+      <link>http://example.org/docs/advanced/outgoing-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/outgoing-proxy/</guid>
+      <description>Outgoing HTTP proxy # GoToSocial supports canonical environment variables for configuring the use of an HTTP proxy for outgoing requets:
+HTTP_PROXY HTTPS_PROXY NO_PROXY The lowercase versions of these environment variables are also recognised. HTTPS_PROXY takes precedence over HTTP_PROXY for https requests.
+The environment values may be either a complete URL or a host[:port], in which case the &amp;ldquo;http&amp;rdquo; scheme is assumed. The schemes &amp;ldquo;http&amp;rdquo;, &amp;ldquo;https&amp;rdquo;, and &amp;ldquo;socks5&amp;rdquo; are supported.</description>
+    </item>
+    
+    <item>
+      <title>Request Rate Limiting</title>
+      <link>http://example.org/docs/api/ratelimiting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/ratelimiting/</guid>
+      <description>Request Rate Limiting # To mitigate abuse + scraping of your instance, IP-based HTTP rate limiting is in place.
+There are separate rate limiters configured for different groupings of endpoints. In other words, being rate limited for one part of the API doesn&amp;rsquo;t necessarily mean you will be rate limited for other parts. Each entry in the following list has a separate rate limiter:
+/users/* and /emoji/* - ActivityPub (s2s) endpoints.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/admin/backup_and_restore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/backup_and_restore/</guid>
+      <description>Backup and Restore # As the GoToSocial database contains the instance as well as all user signing keys it is vital to back it up. If you lose these keys you&amp;rsquo;ll never be able to federate from this domain again. Don&amp;rsquo;t forget to also encrypt your backups in order to keep the data safe at rest.
+Aside from disaster recovery, there are other good reasons to keep backups. Some potential scenarios for you to consider:</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/web/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/web/</guid>
+      <description>Web # Settings # ###################### ##### WEB CONFIG ##### ###################### # Config pertaining to templating and serving of web pages/email notifications and the like # String. Directory from which gotosocial will attempt to load html templates (.tmpl files). # Examples: [&amp;#34;/some/absolute/path/&amp;#34;, &amp;#34;./relative/path/&amp;#34;, &amp;#34;../../some/weird/path/&amp;#34;] # Default: &amp;#34;./web/template/&amp;#34; web-template-base-dir: &amp;#34;./web/template/&amp;#34; # String. Directory from which gotosocial will attempt to serve static web assets (images, scripts). # Examples: [&amp;#34;/some/absolute/path/&amp;#34;, &amp;#34;./relative/path/&amp;#34;, &amp;#34;../../some/weird/path/&amp;#34;] # Default: &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Caddy 2</title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/caddy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/caddy/</guid>
+      <description>Caddy 2 # Requirements # For this guide you will need Caddy 2, there are no other dependencies. Caddy manages Lets Encrypt certificates and renewal for them.
+Caddy is in the most popular package managers, or you can get a static binary. For all latest installation guides, refer to their manual.
+Debian, Ubuntu, Raspbian # # Add the keyring for their custom repository. sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl -1sLf &amp;#39;https://dl.</description>
+    </item>
+    
+    <item>
+      <title>Custom CSS (Advanced)</title>
+      <link>http://example.org/docs/user_guide/custom_css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/custom_css/</guid>
+      <description>Custom CSS (Advanced) # CSS (Cascading Style Sheets) is a coding language used alongside HTML, which determines how a web page looks in a web browser:
+While HTML is used to define the structure and semantics of your content, CSS is used to style it and lay it out. For example, you can use CSS to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features.</description>
+    </item>
+    
+    <item>
+      <title>Request Throttling</title>
+      <link>http://example.org/docs/api/throttling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/throttling/</guid>
+      <description>Request Throttling # GoToSocial uses request throttling to limit the number of open connections to the API of your instance. This is designed to prevent your instance from accidentally being DDOS&amp;rsquo;d (aka the hug of death) if a post gets boosted or replied to by an account with many thousands of followers.
+Throttling means that only a limited number of HTTP requests to the API will be handled concurrently, in order to provide a snappy response to each request and move on quickly.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/instance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/instance/</guid>
+      <description>Instance # Settings # ########################### ##### INSTANCE CONFIG ##### ########################### # Config pertaining to instance federation settings, pages to hide/expose, etc. # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order # to see a list of instances that this instance &amp;#39;peers&amp;#39; with. Even if set to &amp;#39;false&amp;#39;, then authenticated # users (members of the instance) will still be able to query the endpoint. # Options: [true, false] # Default: false instance-expose-peers: false # Bool.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/websocket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/websocket/</guid>
+      <description>WebSocket # GoToSocial uses the secure WebSocket protocol (aka wss) to allow for streaming updates of statuses and notifications via client apps like Semaphore.
+In order to use this functionality, you need to ensure that whatever proxy you&amp;rsquo;ve configured GoToSocial to run behind allows WebSocket connections through.
+The WebSocket endpoint is located at wss://example.org/api/v1/streaming where example.org is the hostname of your GoToSocial instance.
+The WebSocket endpoint uses the same port as configured in the port section of your general config.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/password_management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/password_management/</guid>
+      <description>Password Management # Change Your Password # You can use the User Settings Panel to change your password. Just log in to the user panel, scroll to the bottom of the page, and input your old password and desired new password.
+If the new password you provide is not long/complicated enough, you will see an error and be prompted to try again with a different password.
+If your instance uses OIDC (ie.</description>
+    </item>
+    
+    <item>
+      <title>Provisioning TLS certificates</title>
+      <link>http://example.org/docs/advanced/certificates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/certificates/</guid>
+      <description>Provisioning TLS certificates # As explained in the deployment considerations, federation requires the use of TLS as most instances refuse to federate over unencrypted transports.
+GoToSocial comes with built-in support for provisioning and renewing its own TLS certificates through Lets Encrypt. This guide looks at how you can provision your own certificates independently from GoToSocial. This can be useful if you want full control over how the certificates are provisioned, or because you&amp;rsquo;re using a reverse proxy which is doing TLS termination.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/accounts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/accounts/</guid>
+      <description>Accounts # Settings # ########################### ##### ACCOUNTS CONFIG ##### ########################### # Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts. # Bool. Do we want people to be able to just submit sign up requests, or do we want invite only? # Options: [true, false] # Default: true accounts-registration-open: true # Bool. Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?</description>
+    </item>
+    
+    <item>
+      <title>RSS</title>
+      <link>http://example.org/docs/user_guide/rss/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/rss/</guid>
+      <description>RSS # RSS stands for Really Simple Syndication. It&amp;rsquo;s a very well established standard for sharing content on the web. You might recognize the jolly orange RSS logo from your favorite news websites and blogs:
+If you like, you can configure your GoToSocial account to expose an RSS feed of your posts to the web. This allows people to get regular updates about your posts even when they don&amp;rsquo;t have a Fediverse account.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/tracing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/tracing/</guid>
+      <description>Tracing # GoToSocial comes with OpenTelemetry based tracing built-in. It&amp;rsquo;s not wired through every function, but our HTTP handlers and database library will create spans. How to configure tracing is explained in the Observability configuration reference.
+In order to receive the traces, you need something to ingest them and then visualise them. There are many options available including self-hosted and commercial options.
+We provide an example of how to do this using Grafana Tempo to ingest the spans and Grafana to explore them.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/media/</guid>
+      <description>Media # Settings # ######################## ##### MEDIA CONFIG ##### ######################## # Config pertaining to user media uploads (videos, image, image descriptions). # Int. Maximum allowed image upload size in bytes. # Examples: [2097152, 10485760] # Default: 10485760 -- aka 10MB media-image-max-size: 10485760 # Int. Maximum allowed video upload size in bytes. # Examples: [2097152, 10485760] # Default: 41943040 -- aka 40MB media-video-max-size: 41943040 # Int. Minimum amount of characters required as an image or video description.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/storage/</guid>
+      <description>Storage # Settings # ########################## ##### STORAGE CONFIG ##### ########################## # Config pertaining to storage of user-created uploads (videos, images, etc). # String. Type of storage backend to use. # Examples: [&amp;#34;local&amp;#34;, &amp;#34;s3&amp;#34;] # Default: &amp;#34;local&amp;#34; (storage on local disk) storage-backend: &amp;#34;local&amp;#34; # String. Directory to use as a base path for storing files. # Make sure whatever user/group gotosocial is running as has permission to access # this directory, and create new subdirectories and files within it.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/statuses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/statuses/</guid>
+      <description>Statuses # Settings # ########################### ##### STATUSES CONFIG ##### ########################### # Config pertaining to the creation of statuses/posts, and permitted limits. # Int. Maximum amount of characters permitted for a new status. # Note that going way higher than the default might break federation. # Examples: [140, 500, 5000] # Default: 5000 statuses-max-chars: 5000 # Int. Maximum amount of characters allowed in the CW/subject header of a status. # Note that going way higher than the default might break federation.</description>
+    </item>
+    
+    <item>
+      <title>TLS</title>
+      <link>http://example.org/docs/configuration/tls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/tls/</guid>
+      <description>TLS # It&amp;rsquo;s possible to configure TLS support in one of two ways:
+Built-in support for Lets Encrypt / ACME compatible vendors Loading TLS files from disk It is not possible to have both methods enabled at the same time.
+Note that when using TLS files loaded from disk you are responsible for restarting the instance when the files change. They are not automatically reloaded.
+Settings # ############################## ##### LETSENCRYPT CONFIG ##### ############################## # Config pertaining to the automatic acquisition and use of LetsEncrypt HTTPS certificates.</description>
+    </item>
+    
+    <item>
+      <title>OpenID Connect (OIDC)</title>
+      <link>http://example.org/docs/configuration/oidc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/oidc/</guid>
+      <description>OpenID Connect (OIDC) # GoToSocial supports OpenID Connect, which is an identification protocol built on top of OAuth 2.0, an industry standard protocol for authorization.
+This means that you can connect GoToSocial to an external OIDC provider like Gitlab, Google, Keycloak, or Dex and allow users to sign in to GoToSocial using their credentials for that provider.
+This is very convenient in the following cases:
+You&amp;rsquo;re running multiple services on a platform (Matrix, Peertube, GoToSocial), and you want users to be able to use the same sign in page for all of them.</description>
+    </item>
+    
+    <item>
+      <title>Email Config (smtp)</title>
+      <link>http://example.org/docs/configuration/smtp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/smtp/</guid>
+      <description>Email Config (smtp) # GoToSocial supports sending emails to users via the Simple Mail Transfer Protocol or smtp.
+Configuring GoToSocial to send emails is not required in order to have a properly running instance. Still, it&amp;rsquo;s very useful for doing things like sending confirmation emails and notifications, and handling password reset requests.
+In order to make GoToSocial email sending work, you need an smtp-compatible mail service running somewhere, either as a server on the same machine that GoToSocial is running on, or via an external service like Mailgun.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/syslog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/syslog/</guid>
+      <description>Syslog # GoToSocial can be configured to mirror logs to syslog, either via udp/tcp, or a local syslog (eg., /var/log/syslog).
+This is useful if you want to daemonize GtS and not handle log rotations etc yourself but rely on a proven implementation.
+Logs in syslog will look something like this:
+Dec 12 17:44:03 dilettante ./gotosocial[246860]: time=2021-12-12T17:44:03+01:00 level=info msg=connected to SQLITE database Dec 12 17:44:03 dilettante ./gotosocial[246860]: time=2021-12-12T17:44:03+01:00 level=info msg=there are no new migrations to run func=doMigration Settings # ######################### ##### SYSLOG CONFIG ##### ######################### # Config for additional syslog log hooks.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/advanced/</guid>
+      <description>Advanced # Advanced settings options are provided for the sake of allowing admins to tune their instance to their liking.
+These are set to sensible defaults, so most server admins won&amp;rsquo;t need to touch them or think about them.
+Changing these settings if you don&amp;rsquo;t know what you&amp;rsquo;re doing may break your instance.
+Settings # ############################# ##### ADVANCED SETTINGS ##### ############################# # Advanced settings pertaining to http timeouts, security, cookies, and more.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/configuration/observability/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/configuration/observability/</guid>
+      <description>Observability # These settings let you tune and configure certain observability related behaviours.
+Settings # ################################## ##### OBSERVABILITY SETTINGS ##### ################################## # Bool. Enable generation/parsing of a request ID for each received HTTP Request. # Default: true request-id-enabled: true # String. Header name to use to extract a request or trace ID from. Typically set by a # loadbalancer or proxy. # Default: &amp;#34;X-Request-Id&amp;#34; request-id-header: &amp;#34;X-Request-Id&amp;#34; # Bool. Enable OpenTelemetry based tracing support.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/caching/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/caching/api/</guid>
+      <description>Caching API responses # It is possible to cache certain API responses to offload the GoToSocial process from having to handle all requests. We don&amp;rsquo;t recommend caching responses to requests under /api.
+When using a split domain deployment style, you need to ensure you configure caching on the host domain. The account domain should only be issuing redirects to the host domain which clients will automatically remember.
+!!! warning &amp;ldquo;There are only two hard things in computer science&amp;rdquo; Configuring caching incorrectly can result into all kinds of problems.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/caching/assets-media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/caching/assets-media/</guid>
+      <description>Caching assets and media # When you&amp;rsquo;ve configured your GoToSocial instance with local storage for media, you can use your reverse proxy to serve these files directly and cache them. This avoids hitting GoToSocial for these requests and reverse proxies can typically serve assets faster than GoToSocial.
+You can also use your reverse proxy to cache the GoToSocial web UI assets, like the CSS and images it uses.
+When using a split domain deployment style, you need to ensure you configure caching of the assets and media on the host domain.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/user_creation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/user_creation/</guid>
+      <description>Creating users # Regardless of the installation method, you&amp;rsquo;ll need to create some users. GoToSocial currently doesn&amp;rsquo;t have a way for users to be created through the web UI, or for people to sign-up through the web UI.
+Using the CLI, you can create a user:
+$ gotosocial --config-path /path/to/config.yaml \ admin account create \ --username some_username \ --email some_email@whatever.org \ --password &amp;#39;SOME_PASSWORD&amp;#39; In the above command, replace some_username with your desired username, some_email@whatever.</description>
+    </item>
+    
+  </channel>
+</rss>

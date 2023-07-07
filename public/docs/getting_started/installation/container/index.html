@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Container # This guide walks you through getting GoToSocial up and running using the official container images we publish. In this case we&rsquo;ll be using the Docker runtime directly through Docker Compose together with SQLite as the database.
+You can also run GoToSocial using a container orchestration system such as Kubernetes or Nomad, but that is beyond the scope of this guide.
+Create a Working Directory # You need a working directory in which your docker-compose file will be located, and a directory for GoToSocial to store data in, so create these directories with the following command:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Container # This guide walks you through getting GoToSocial up and running using the official container images we publish. In this case we&rsquo;ll be using the Docker runtime directly through Docker Compose together with SQLite as the database.
+You can also run GoToSocial using a container orchestration system such as Kubernetes or Nomad, but that is beyond the scope of this guide.
+Create a Working Directory # You need a working directory in which your docker-compose file will be located, and a directory for GoToSocial to store data in, so create these directories with the following command:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/getting_started/installation/container/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Container |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle" checked />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle" checked />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="active">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Container</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-a-working-directory">Create a Working Directory</a></li>
+    <li><a href="#get-the-latest-docker-composeyaml">Get the latest docker-compose.yaml</a></li>
+    <li><a href="#edit-the-docker-composeyaml">Edit the docker-compose.yaml</a>
+      <ul>
+        <li><a href="#version">Version</a></li>
+        <li><a href="#host">Host</a></li>
+        <li><a href="#user-optional--probably-not-necessary">User (optional / probably not necessary)</a></li>
+        <li><a href="#letsencrypt-optional">LetsEncrypt (optional)</a></li>
+      </ul>
+    </li>
+    <li><a href="#start-gotosocial">Start GoToSocial</a></li>
+    <li><a href="#create-your-first-user">Create your first User</a>
+      <ul>
+        <li><a href="#done">Done</a></li>
+      </ul>
+    </li>
+    <li><a href="#optional-reverse-proxy">(Optional) Reverse Proxy</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="container">
+  Container
+  <a class="anchor" href="#container">#</a>
+</h1>
+<p>This guide walks you through getting GoToSocial up and running using the official container images we publish. In this case we&rsquo;ll be using the Docker runtime directly through <a href="https://docs.docker.com/compose">Docker Compose</a> together with SQLite as the database.</p>
+<p>You can also run GoToSocial using a container orchestration system such as <a href="https://kubernetes.io/">Kubernetes</a> or <a href="https://www.nomadproject.io/">Nomad</a>, but that is beyond the scope of this guide.</p>
+<h2 id="create-a-working-directory">
+  Create a Working Directory
+  <a class="anchor" href="#create-a-working-directory">#</a>
+</h2>
+<p>You need a working directory in which your docker-compose file will be located, and a directory for GoToSocial to store data in, so create these directories with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/gotosocial/data
+</span></span></code></pre></div><p>Now change to the working directory you created:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/gotosocial
+</span></span></code></pre></div><h2 id="get-the-latest-docker-composeyaml">
+  Get the latest docker-compose.yaml
+  <a class="anchor" href="#get-the-latest-docker-composeyaml">#</a>
+</h2>
+<p>Use <code>wget</code> to download the latest <a href="https://raw.githubusercontent.com/superseriousbusiness/gotosocial/main/example/docker-compose/docker-compose.yaml">docker-compose.yaml</a> example, which we&rsquo;ll customize for our needs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://raw.githubusercontent.com/superseriousbusiness/gotosocial/main/example/docker-compose/docker-compose.yaml
+</span></span></code></pre></div><h2 id="edit-the-docker-composeyaml">
+  Edit the docker-compose.yaml
+  <a class="anchor" href="#edit-the-docker-composeyaml">#</a>
+</h2>
+<p>Because GoToSocial can be configured using <a href="../../../configuration#environment-variables">Environment Variables</a>, we can skip mounting a config.yaml file into the container, to make our configuration simpler. We just need to edit the docker-compose.yaml file to change a few things.</p>
+<p>First open the docker-compose.yaml file in your editor of choice. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano docker-compose.yaml
+</span></span></code></pre></div><h3 id="version">
+  Version
+  <a class="anchor" href="#version">#</a>
+</h3>
+<p>If desired, update the GoToSocial Docker image tag to the version of GtS you want to use.</p>
+<p><code>latest</code>   - the default. This points to the latest stable release of GoToSocial.</p>
+<p><code>snapshot</code> - points to whatever code is currently on the main branch. Not guaranteed to be stable, and may often be broken. Use with caution.</p>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>You can also replace <code>latest</code> with a specific GoToSocial version number. This is recommended when you want to make sure that you don&rsquo;t update your GoToSocial version by accident, which can cause problems. The list of releases can be found <a href="https://github.com/superseriousbusiness/gotosocial/releases">right here</a>, with the newest release at the top. Replace <code>latest</code> in the docker-compose.yaml with the number of the desired release (without the leading <code>v</code> or trailing version name).</p>
+
+</blockquote>
+
+<h3 id="host">
+  Host
+  <a class="anchor" href="#host">#</a>
+</h3>
+<p>Change the <code>GTS_HOST</code> environment variable to the domain you are running GoToSocial on.</p>
+<h3 id="user-optional--probably-not-necessary">
+  User (optional / probably not necessary)
+  <a class="anchor" href="#user-optional--probably-not-necessary">#</a>
+</h3>
+<p>By default, Dockerized GoToSocial runs with Linux user/group <code>1000:1000</code>, which is fine in most cases. If you want to run as a different user/group, you should change the <code>user</code> field in the docker-compose.yaml accordingly.</p>
+<p>For example, let&rsquo;s say you created the <code>~/gotosocial/data</code> directory for a user with id <code>1001</code>, and group id <code>1001</code>. If you now try to run GoToSocial without changing the <code>user</code> field, it will get a permissions error trying to open its database file in the directory. In this case, you would have to change the <code>user</code> field of the docker compose file to <code>1001:1001</code>.</p>
+<h3 id="letsencrypt-optional">
+  LetsEncrypt (optional)
+  <a class="anchor" href="#letsencrypt-optional">#</a>
+</h3>
+<p>If you want to use <a href="../../../configuration/tls">LetsEncrypt</a> for TLS certificates (https), you should also:</p>
+<ol>
+<li>Change the value of <code>GTS_LETSENCRYPT_ENABLED</code> to <code>&quot;true&quot;</code>.</li>
+<li>Remove the <code>#</code> before <code>- &quot;80:80&quot;</code> in the <code>ports</code> section.</li>
+<li>(Optional) Set <code>GTS_LETSENCRYPT_EMAIL_ADDRESS</code> to a valid email address to receive certificate expiry warnings etc.</li>
+</ol>
+<h2 id="start-gotosocial">
+  Start GoToSocial
+  <a class="anchor" href="#start-gotosocial">#</a>
+</h2>
+<p>With those small changes out of the way, you can now start GoToSocial with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker-compose up -d
+</span></span></code></pre></div><p>After running this command, you should get an output like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Creating network &#34;gotosocial_gotosocial&#34; with the default driver
+</span></span><span style="display:flex;"><span>Creating gotosocial ... done
+</span></span></code></pre></div><p>If you want to follow the logs of GoToSocial, you can use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker logs -f gotosocial
+</span></span></code></pre></div><p>If everything is OK, you should see something similar to the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>time=2022-04-19T09:48:35Z level=info msg=connected to SQLITE database
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:35Z level=info msg=MIGRATED DATABASE TO group #1 (20211113114307, 20220214175650, 20220305130328, 20220315160814) func=doMigration
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=instance account example.org CREATED with id 01EXX0TJ9PPPXF2C4N2MMMVK50
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=created instance instance example.org with id 01PQT31C7BZJ1Q2Z4BMEV90ZCV
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=media manager cron logger: start[]
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=media manager cron logger: schedule[now 2022-04-19 09:48:36.096127852 +0000 UTC entry 1 next 2022-04-20 00:00:00 +0000 UTC]
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=started media manager remote cache cleanup job: will run next at 2022-04-20 00:00:00 +0000 UTC
+</span></span><span style="display:flex;"><span>time=2022-04-19T09:48:36Z level=info msg=listening on 0.0.0.0:8080
+</span></span></code></pre></div><h2 id="create-your-first-user">
+  Create your first User
+  <a class="anchor" href="#create-your-first-user">#</a>
+</h2>
+<p>Now that GoToSocial is running, you should create at least a user for yourself. How to do so is documented in our <a href="../../user_creation">Creating users</a> guide.</p>
+<h3 id="done">
+  Done
+  <a class="anchor" href="#done">#</a>
+</h3>
+<p>GoToSocial should now be running on your machine! To verify this, open your browser navigate to whatever you set as your <code>GTS_HOST</code> value. You should see the GoToSocial landing page. Well done!</p>
+<h2 id="optional-reverse-proxy">
+  (Optional) Reverse Proxy
+  <a class="anchor" href="#optional-reverse-proxy">#</a>
+</h2>
+<p>If you want to run other webservers on port 443 or want to add an additional layer of security you might want to use a <a href="../../reverse_proxy">reverse proxy</a>. We have guides available for a couple of popular open source options and will gladly take pull requests to add more.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-a-working-directory">Create a Working Directory</a></li>
+    <li><a href="#get-the-latest-docker-composeyaml">Get the latest docker-compose.yaml</a></li>
+    <li><a href="#edit-the-docker-composeyaml">Edit the docker-compose.yaml</a>
+      <ul>
+        <li><a href="#version">Version</a></li>
+        <li><a href="#host">Host</a></li>
+        <li><a href="#user-optional--probably-not-necessary">User (optional / probably not necessary)</a></li>
+        <li><a href="#letsencrypt-optional">LetsEncrypt (optional)</a></li>
+      </ul>
+    </li>
+    <li><a href="#start-gotosocial">Start GoToSocial</a></li>
+    <li><a href="#create-your-first-user">Create your first User</a>
+      <ul>
+        <li><a href="#done">Done</a></li>
+      </ul>
+    </li>
+    <li><a href="#optional-reverse-proxy">(Optional) Reverse Proxy</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

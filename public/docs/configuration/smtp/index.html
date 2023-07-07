@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Email Config (smtp) # GoToSocial supports sending emails to users via the Simple Mail Transfer Protocol or smtp.
+Configuring GoToSocial to send emails is not required in order to have a properly running instance. Still, it&rsquo;s very useful for doing things like sending confirmation emails and notifications, and handling password reset requests.
+In order to make GoToSocial email sending work, you need an smtp-compatible mail service running somewhere, either as a server on the same machine that GoToSocial is running on, or via an external service like Mailgun.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Email Config (smtp)" />
+<meta property="og:description" content="Email Config (smtp) # GoToSocial supports sending emails to users via the Simple Mail Transfer Protocol or smtp.
+Configuring GoToSocial to send emails is not required in order to have a properly running instance. Still, it&rsquo;s very useful for doing things like sending confirmation emails and notifications, and handling password reset requests.
+In order to make GoToSocial email sending work, you need an smtp-compatible mail service running somewhere, either as a server on the same machine that GoToSocial is running on, or via an external service like Mailgun." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/configuration/smtp/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Email Config (smtp) |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="active">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Email Config (smtp)</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="#behavior">Behavior</a>
+      <ul>
+        <li><a href="#ssl">SSL</a></li>
+        <li><a href="#when-are-emails-sent">When are emails sent?</a></li>
+        <li><a href="#can-i-test-if-my-smtp-configuration-is-correct">Can I test if my SMTP configuration is correct?</a></li>
+        <li><a href="#html-versus-plaintext">HTML versus Plaintext</a></li>
+      </ul>
+    </li>
+    <li><a href="#customization">Customization</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="email-config-smtp">
+  Email Config (smtp)
+  <a class="anchor" href="#email-config-smtp">#</a>
+</h1>
+<p>GoToSocial supports sending emails to users via the <a href="https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">Simple Mail Transfer Protocol</a> or <strong>smtp</strong>.</p>
+<p>Configuring GoToSocial to send emails is <strong>not required</strong> in order to have a properly running instance. Still, it&rsquo;s very useful for doing things like sending confirmation emails and notifications, and handling password reset requests.</p>
+<p>In order to make GoToSocial email sending work, you need an smtp-compatible mail service running somewhere, either as a server on the same machine that GoToSocial is running on, or via an external service like <a href="https://mailgun.com">Mailgun</a>. It may also be possible to use a free personal email address for sending emails, if your email provider supports smtp (check with them&ndash;most do), but you might run into trouble sending lots of emails.</p>
+<h2 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h2>
+<p>The configuration options for smtp are as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">#######################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##### SMTP CONFIG #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Config for sending emails via an smtp server. See https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. The hostname of the smtp server you want to use.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If this is not set, smtp will not be used to send emails, and you can ignore the other settings.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;mail.example.org&#34;, &#34;localhost&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-host</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Int. Port to use to connect to the smtp server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: []</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: 0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-port</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Username to use when authenticating with the smtp server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This should have been provided to you by your smtp host.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is often, but not always, an email address.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;maillord@example.org&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-username</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Password to use when authenticating with the smtp server.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This should have been provided to you by your smtp host.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;1234&#34;, &#34;password&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-password</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. &#39;From&#39; address for sent emails.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;mail@example.org&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-from</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. If true, when an email is sent that has multiple recipients, each recipient</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># will be included in the To field, so that each recipient can see who else got the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># email, and they can &#39;reply all&#39; to the other recipients if they want to.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If false, email will be sent to Undisclosed Recipients, and each recipient will not</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># be able to see who else received the email.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># It might be useful to change this setting to &#39;true&#39; if you want to be able to discuss</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># new moderation reports with other admins by &#39;replying-all&#39; to the notification email.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">smtp-disclose-recipients</span>: <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div><p>Note that if you don&rsquo;t set <code>Host</code>, then email sending via smtp will be disabled, and the other settings will be ignored. GoToSocial will still log (at trace level) emails that <em>would</em> have been sent if smtp was enabled.</p>
+<h2 id="behavior">
+  Behavior
+  <a class="anchor" href="#behavior">#</a>
+</h2>
+<h3 id="ssl">
+  SSL
+  <a class="anchor" href="#ssl">#</a>
+</h3>
+<p>GoToSocial requires your smtp server to present valid SSL certificates. Most of the big services like Mailgun do this anyway, but if you&rsquo;re running your own mail server without SSL for some reason, and you&rsquo;re trying to connect GoToSocial to it, it will not work.</p>
+<p>The exception to this requirement is if you&rsquo;re running your mail server (or bridge to a mail server) on <code>localhost</code>, in which case SSL certs are not required.</p>
+<h3 id="when-are-emails-sent">
+  When are emails sent?
+  <a class="anchor" href="#when-are-emails-sent">#</a>
+</h3>
+<p>Currently, emails are sent:</p>
+<ul>
+<li>To the provided email address of a new user to request email confirmation when a new account is created via the API.</li>
+<li>To all active instance moderators + admins when a new moderation report is received. By default, recipients are Bcc&rsquo;d, but you can change this behavior with the setting <code>smtp-disclose-recipients</code>.</li>
+<li>To the creator of a report (on this instance) when the report is closed by a moderator.</li>
+</ul>
+<h3 id="can-i-test-if-my-smtp-configuration-is-correct">
+  Can I test if my SMTP configuration is correct?
+  <a class="anchor" href="#can-i-test-if-my-smtp-configuration-is-correct">#</a>
+</h3>
+<p>Yes, you can use the API to send a test email to yourself. Check the API documentation for the <code>/api/v1/admin/email/test</code> endpoint.</p>
+<h3 id="html-versus-plaintext">
+  HTML versus Plaintext
+  <a class="anchor" href="#html-versus-plaintext">#</a>
+</h3>
+<p>Emails are sent in plaintext by default. At this point, there is no option to send emails in html, but this is something that might be added later if there&rsquo;s enough demand for it.</p>
+<h2 id="customization">
+  Customization
+  <a class="anchor" href="#customization">#</a>
+</h2>
+<p>If you like, you can customize the templates that are used for generating emails. Follow the examples in <code>web/templates</code>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+    <li><a href="#behavior">Behavior</a>
+      <ul>
+        <li><a href="#ssl">SSL</a></li>
+        <li><a href="#when-are-emails-sent">When are emails sent?</a></li>
+        <li><a href="#can-i-test-if-my-smtp-configuration-is-correct">Can I test if my SMTP configuration is correct?</a></li>
+        <li><a href="#html-versus-plaintext">HTML versus Plaintext</a></li>
+      </ul>
+    </li>
+    <li><a href="#customization">Customization</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

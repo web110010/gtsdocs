@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Database # GoToSocial stores statuses, accounts, etc, in a database. This can be either SQLite or Postgres.
+By default, GoToSocial will use Postgres, but this is easy to change.
+SQLite # SQLite, as the name implies, is the lightest database type that GoToSocial can use. It stores entries in a simple file format, usually in the same directory as the GoToSocial binary itself. SQLite is great for small instances and lower-powered machines like Raspberry Pi, where a dedicated database would be overkill.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Database # GoToSocial stores statuses, accounts, etc, in a database. This can be either SQLite or Postgres.
+By default, GoToSocial will use Postgres, but this is easy to change.
+SQLite # SQLite, as the name implies, is the lightest database type that GoToSocial can use. It stores entries in a simple file format, usually in the same directory as the GoToSocial binary itself. SQLite is great for small instances and lower-powered machines like Raspberry Pi, where a dedicated database would be overkill." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/configuration/database/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Database |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="active">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Database</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sqlite">SQLite</a></li>
+    <li><a href="#postgres">Postgres</a></li>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="database">
+  Database
+  <a class="anchor" href="#database">#</a>
+</h1>
+<p>GoToSocial stores statuses, accounts, etc, in a database. This can be either <a href="https://sqlite.org/index.html">SQLite</a> or <a href="https://www.postgresql.org/">Postgres</a>.</p>
+<p>By default, GoToSocial will use Postgres, but this is easy to change.</p>
+<h2 id="sqlite">
+  SQLite
+  <a class="anchor" href="#sqlite">#</a>
+</h2>
+<p>SQLite, as the name implies, is the lightest database type that GoToSocial can use. It stores entries in a simple file format, usually in the same directory as the GoToSocial binary itself. SQLite is great for small instances and lower-powered machines like Raspberry Pi, where a dedicated database would be overkill.</p>
+<p>To configure GoToSocial to use SQLite, change <code>db-type</code> to <code>sqlite</code>. The <code>address</code> setting will then be a filename instead of an address, so you will want to change it to <code>sqlite.db</code> or something similar.</p>
+<p>Note that the <code>:memory:</code> setting will use an <em>in-memory database</em> which will be wiped when your GoToSocial instance stops running. This is for testing only and is absolutely not suitable for running a proper instance, so <em>don&rsquo;t do this</em>.</p>
+<h2 id="postgres">
+  Postgres
+  <a class="anchor" href="#postgres">#</a>
+</h2>
+<p>Postgres is a heavier database format, which is useful for larger instances where you need to scale performance, or where you need to run your database on a dedicated machine separate from your GoToSocial instance (or do funky stuff like run a database cluster).</p>
+<p>You can connect to Postgres using either a Unix socket connection, or via TCP, depending on what you&rsquo;ve set as your <code>db-address</code> value.</p>
+<p>GoToSocial also supports connecting to Postgres using SSL/TLS over TCP. If you&rsquo;re running Postgres on a different machine from GoToSocial, and connecting to it via an IP address or hostname (as opposed to just running on localhost), then SSL/TLS is <strong>CRUCIAL</strong> to avoid leaking data all over the place!</p>
+<p>When you&rsquo;re using Postgres, GoToSocial expects whatever you&rsquo;ve set for <code>db-user</code> to already be created in the database, and to have ownership of whatever you&rsquo;ve set for <code>db-database</code>.</p>
+<p>For example, if you set:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>db:
+</span></span><span style="display:flex;"><span>  [...]
+</span></span><span style="display:flex;"><span>  user: &#34;gotosocial&#34;
+</span></span><span style="display:flex;"><span>  password: &#34;some_really_good_password&#34;
+</span></span><span style="display:flex;"><span>  database: &#34;gotosocial&#34;  
+</span></span></code></pre></div><p>Then you should have already created database <code>gotosocial</code> in Postgres, and given ownership of it to the <code>gotosocial</code> user.</p>
+<p>The psql commands to do this will look something like:</p>
+<pre tabindex="0"><code class="language-psql" data-lang="psql">create database gotosocial with locale C.UTF-8 template template0;
+create user gotosocial with password &#39;some_really_good_password&#39;;
+grant all privileges on database gotosocial to gotosocial;
+</code></pre><p>GoToSocial makes use of ULIDs (Universally Unique Lexicographically Sortable Identifiers) which will not work in non-English collate environments. For this reason it is important to create the database with <code>C.UTF-8</code> locale. To do that on systems which were already initialized with non-C locale, <code>template0</code> pristine database template must be used.</p>
+<h2 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">############################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##### DATABASE CONFIG ######</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">############################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Config pertaining to the Gotosocial database connection</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Database type.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [&#34;postgres&#34;,&#34;sqlite&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;postgres&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-type</span>: <span style="color:#e6db74">&#34;postgres&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Database address or parameters.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For Postgres, this should be the address or socket at which the database can be reached.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># For Sqlite, this should be the path to your sqlite database file. Eg., /opt/gotosocial/sqlite.db.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If the file doesn&#39;t exist at the specified path, it will be created.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If just a filename is provided (no directory) then the database will be created in the same directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># as the GoToSocial binary.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If address is set to :memory: then an in-memory database will be used (no file).</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># WARNING: :memory: should NOT BE USED except for testing purposes.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;localhost&#34;,&#34;my.db.host&#34;,&#34;127.0.0.1&#34;,&#34;192.111.39.110&#34;,&#34;:memory:&#34;, &#34;sqlite.db&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-address</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Int. Port for database connection.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [5432, 1234, 6969]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: 5432</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-port</span>: <span style="color:#ae81ff">5432</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Username for the database connection.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;mydbuser&#34;,&#34;postgres&#34;,&#34;gotosocial&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-user</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Password to use for the database connection</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;password123&#34;,&#34;verysafepassword&#34;,&#34;postgres&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-password</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Name of the database to use within the provided database type.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;mydb&#34;,&#34;postgres&#34;,&#34;gotosocial&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;gotosocial&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-database</span>: <span style="color:#e6db74">&#34;gotosocial&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Disable, enable, or require SSL/TLS connection to the database.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If &#34;disable&#34; then no TLS connection will be attempted.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If &#34;enable&#34; then TLS will be tried, but the database certificate won&#39;t be checked (for self-signed certs).</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If &#34;require&#34; then TLS will be required to make a connection, and a valid certificate must be presented.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [&#34;disable&#34;, &#34;enable&#34;, &#34;require&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;disable&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-tls-mode</span>: <span style="color:#e6db74">&#34;disable&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Path to a CA certificate on the host machine for db certificate validation.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If this is left empty, just the host certificates will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If filled in, the certificate will be loaded and added to host certificates.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;/path/to/some/cert.crt&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-tls-ca-cert</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Int. Number to multiply by CPU count to set permitted total of open database connections (in-use and idle).</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You can use this setting to tune your database connection behavior, though most admins won&#39;t need to touch it.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example values for multiplier 8:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 cpu = 08 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2 cpu = 16 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4 cpu = 32 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example values for multiplier 4:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1 cpu = 04 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2 cpu = 08 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4 cpu = 16 open connections</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A multiplier of 8 is a sensible default, but you may wish to increase this for instances</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># running on very performant hardware, or decrease it for instances using v. slow CPUs.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you set the multiplier to less than 1, only one open connection will be used regardless of cpu count.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># PLEASE NOTE!!: This setting currently only applies for Postgres. SQLite will always use 1 connection regardless</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># of what is set here. This behavior will change in future when we implement better SQLITE_BUSY handling.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See https://github.com/superseriousbusiness/gotosocial/issues/1407 for more details.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [16, 8, 10, 2]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: 8</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-max-open-conns-multiplier</span>: <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. SQLite journaling mode.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SQLite only -- unused otherwise.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If set to empty string, the sqlite default will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See: https://www.sqlite.org/pragma.html#pragma_journal_mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;DELETE&#34;, &#34;TRUNCATE&#34;, &#34;PERSIST&#34;, &#34;MEMORY&#34;, &#34;WAL&#34;, &#34;OFF&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;WAL&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-sqlite-journal-mode</span>: <span style="color:#e6db74">&#34;WAL&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. SQLite synchronous mode.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SQLite only -- unused otherwise.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If set to empty string, the sqlite default will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See: https://www.sqlite.org/pragma.html#pragma_synchronous</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;OFF&#34;, &#34;NORMAL&#34;, &#34;FULL&#34;, &#34;EXTRA&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;NORMAL&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-sqlite-synchronous</span>: <span style="color:#e6db74">&#34;NORMAL&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Byte size. SQlite cache size.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SQLite only -- unused otherwise.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If set to empty string or zero, the sqlite default (2MiB) will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See: https://www.sqlite.org/pragma.html#pragma_cache_size</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;0&#34;, &#34;2MiB&#34;, &#34;8MiB&#34;, &#34;64MiB&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;8MiB&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-sqlite-cache-size</span>: <span style="color:#e6db74">&#34;8MiB&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Duration. SQlite busy timeout.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># SQLite only -- unused otherwise.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If set to empty string or zero, the sqlite default will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See: https://www.sqlite.org/pragma.html#pragma_busy_timeout</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;0s&#34;, &#34;1s&#34;, &#34;30s&#34;, &#34;1m&#34;, &#34;5m&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;5s&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">db-sqlite-busy-timeout</span>: <span style="color:#e6db74">&#34;5m&#34;</span>
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sqlite">SQLite</a></li>
+    <li><a href="#postgres">Postgres</a></li>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

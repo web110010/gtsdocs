@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/admin/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/admin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Admin Settings</title>
+      <link>http://example.org/docs/admin/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/settings/</guid>
+      <description>Admin Settings # The GoToSocial Settings interface uses the admin api routes to manage your instance. It&amp;rsquo;s combined with the User settings and uses the same OAUTH mechanism as normal clients (with scope: admin).
+Account permissions # To use the Admin API your account has to be promoted as such:
+./gotosocial --config-path ./config.yaml admin account promote --username YOUR_USERNAME After this, you can enter your instance domain in the login field (auto-filled if you run GoToSocial on the same domain), and login like you would with any other client.</description>
+    </item>
+    
+    <item>
+      <title>GtS CLI Tool</title>
+      <link>http://example.org/docs/admin/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/cli/</guid>
+      <description>GtS CLI Tool # GoToSocial compiles to an executable binary.
+The standard way of using this binary is to run a server with the gotosocial server start command.
+However, this binary can also be used as an admin tool, and for debugging.
+Here&amp;rsquo;s the full output of gotosocial --help, without the big list of global config options.
+GoToSocial - a fediverse social media server For help, see: https://docs.gotosocial.org. Code: https://github.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/admin/backup_and_restore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/admin/backup_and_restore/</guid>
+      <description>Backup and Restore # As the GoToSocial database contains the instance as well as all user signing keys it is vital to back it up. If you lose these keys you&amp;rsquo;ll never be able to federate from this domain again. Don&amp;rsquo;t forget to also encrypt your backups in order to keep the data safe at rest.
+Aside from disaster recovery, there are other good reasons to keep backups. Some potential scenarios for you to consider:</description>
+    </item>
+    
+  </channel>
+</rss>

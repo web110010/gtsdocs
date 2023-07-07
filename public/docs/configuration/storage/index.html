@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Storage # Settings # ########################## ##### STORAGE CONFIG ##### ########################## # Config pertaining to storage of user-created uploads (videos, images, etc). # String. Type of storage backend to use. # Examples: [&#34;local&#34;, &#34;s3&#34;] # Default: &#34;local&#34; (storage on local disk) storage-backend: &#34;local&#34; # String. Directory to use as a base path for storing files. # Make sure whatever user/group gotosocial is running as has permission to access # this directory, and create new subdirectories and files within it.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Storage # Settings # ########################## ##### STORAGE CONFIG ##### ########################## # Config pertaining to storage of user-created uploads (videos, images, etc). # String. Type of storage backend to use. # Examples: [&#34;local&#34;, &#34;s3&#34;] # Default: &#34;local&#34; (storage on local disk) storage-backend: &#34;local&#34; # String. Directory to use as a base path for storing files. # Make sure whatever user/group gotosocial is running as has permission to access # this directory, and create new subdirectories and files within it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/configuration/storage/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Storage |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="active">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Storage</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a>
+      <ul>
+        <li><a href="#aws-s3-bucket-configuration">AWS S3 Bucket Configuration</a></li>
+        <li><a href="#migrating-between-backends">Migrating between backends</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="storage">
+  Storage
+  <a class="anchor" href="#storage">#</a>
+</h1>
+<h2 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">##########################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##### STORAGE CONFIG #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##########################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Config pertaining to storage of user-created uploads (videos, images, etc).</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Type of storage backend to use.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;local&#34;, &#34;s3&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;local&#34; (storage on local disk)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-backend</span>: <span style="color:#e6db74">&#34;local&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Directory to use as a base path for storing files.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make sure whatever user/group gotosocial is running as has permission to access</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># this directory, and create new subdirectories and files within it.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only required when running with the local storage backend.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;/home/gotosocial/storage&#34;, &#34;/opt/gotosocial/datastorage&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;/gotosocial/storage&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-local-base-path</span>: <span style="color:#e6db74">&#34;/gotosocial/storage&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. API endpoint of the S3 compatible service.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only required when running with the s3 storage backend.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If your endpoint contains the bucket name, all files will be put into a</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># subdirectory with the name of `storage-s3-bucket`</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;minio:9000&#34;, &#34;s3.nl-ams.scw.cloud&#34;, &#34;s3.us-west-002.backblazeb2.com&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-endpoint</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-proxy</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. Use SSL for S3 connections.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only set this to &#39;false&#39; when testing locally.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-use-ssl</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Access key part of the S3 credentials.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Consider setting this value using environment variables to avoid leaking it via the config file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only required when running with the s3 storage backend.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;AKIAJSIE27KKMHXI3BJQ&#34;,&#34;miniouser&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-access-key</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Secret key part of the S3 credentials.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Consider setting this value using environment variables to avoid leaking it via the config file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only required when running with the s3 storage backend.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;5bEYu26084qjSFyclM/f2pz4gviSfoOg+mFwBH39&#34;,&#34;miniopassword&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-secret-key</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Name of the storage bucket.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you have already encoded your bucket name in the storage-s3-endpoint, this</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># value will be used as a directory containing your data.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The bucket must exist prior to starting GoToSocial</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only required when running with the s3 storage backend.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;gts&#34;,&#34;cool-instance&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage-s3-bucket</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span></code></pre></div><h3 id="aws-s3-bucket-configuration">
+  AWS S3 Bucket Configuration
+  <a class="anchor" href="#aws-s3-bucket-configuration">#</a>
+</h3>
+<h4 id="bucket-created">
+  Bucket Created
+  <a class="anchor" href="#bucket-created">#</a>
+</h4>
+<p>GoToSocial by default creates signed URL&rsquo;s which means we dont need to change anything major on the policies of the bucket.
+Here are the steps to follow for bucket creation</p>
+<ol>
+<li>Login to AWS -&gt; select S3 as service.</li>
+<li>click Create Bucket</li>
+<li>Provide a unique name and avoid adding &ldquo;.&rdquo; in the name</li>
+<li>Do not change the public access settings (Let them be on &ldquo;block public access&rdquo; mode)</li>
+</ol>
+<h4 id="aws-access-key-configuration">
+  AWS ACCESS KEY Configuration
+  <a class="anchor" href="#aws-access-key-configuration">#</a>
+</h4>
+<ol>
+<li>In AWS Console -&gt; IAM (under Security, Identity, &amp; Compliance)</li>
+<li>Add a user with programatic api&rsquo;s access</li>
+<li>We recommend setting up below listed policy, replace <!-- raw HTML omitted --> with your buckets name</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:ListAllMyBuckets&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:s3:::*&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:*&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:s3:::&lt;bucket_name&gt;&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;arn:aws:s3:::&lt;bucket_name&gt;/*&#34;</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="4">
+<li>Provide the values in config above</li>
+</ol>
+<ul>
+<li>storage-s3-endpoint -&gt; should be your bucket location say <code>s3.ap-southeast-1.amazonaws.com</code></li>
+<li>storage-s3-access-key -&gt; Access key you obtained for the user created above</li>
+<li>storage-s3-secret-key -&gt; Secret key you obtained for the user created above</li>
+<li>storage-s3-bucket -&gt; Keep this as the <!-- raw HTML omitted --> that you created just now.</li>
+</ul>
+<h4 id="migrating-data-from-local-storage-to-aws-s3-bucket">
+  Migrating data from local storage to AWS s3 bucket
+  <a class="anchor" href="#migrating-data-from-local-storage-to-aws-s3-bucket">#</a>
+</h4>
+<p>This step is only needed if you have a running instance. Ignore this if you are setting up a fresh instance.
+We have provided <a href="https://github.com/s3tools/s3cmd">s3cmd</a> command for the copy operation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s3cmd sync --add-header<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cache-Control:public, max-age=315576000, immutable&#34;</span> ./ s3://&lt;bucket name&gt;
+</span></span></code></pre></div><h3 id="migrating-between-backends">
+  Migrating between backends
+  <a class="anchor" href="#migrating-between-backends">#</a>
+</h3>
+<p>Currently, migration between backends is freely possible. To do so, you only
+have to move the directories (and their contents) between the different implementations.</p>
+<p>One way to do so, is by utilizing the <a href="https://docs.min.io/docs/minio-client-complete-guide.html">MinIO
+Client</a>. The
+migration process might look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Change the GoToSocial configuration to the new backend (and restart)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Register the S3 Backend with the MinIO client</span>
+</span></span><span style="display:flex;"><span>mc alias set scw https://s3.nl-ams.scw.cloud
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Mirror the folder structure to the remote bucket</span>
+</span></span><span style="display:flex;"><span>mc mirror /gotosocial/storage/ scw/example-bucket/
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Aaaand we&#39;re done!</span>
+</span></span></code></pre></div><p>If you want to migrate back, switch around the arguments of the <code>mc mirror</code> command.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a>
+      <ul>
+        <li><a href="#aws-s3-bucket-configuration">AWS S3 Bucket Configuration</a></li>
+        <li><a href="#migrating-between-backends">Migrating between backends</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

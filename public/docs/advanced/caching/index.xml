@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/advanced/caching/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/advanced/caching/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/caching/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/caching/api/</guid>
+      <description>Caching API responses # It is possible to cache certain API responses to offload the GoToSocial process from having to handle all requests. We don&amp;rsquo;t recommend caching responses to requests under /api.
+When using a split domain deployment style, you need to ensure you configure caching on the host domain. The account domain should only be issuing redirects to the host domain which clients will automatically remember.
+!!! warning &amp;ldquo;There are only two hard things in computer science&amp;rdquo; Configuring caching incorrectly can result into all kinds of problems.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/caching/assets-media/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/caching/assets-media/</guid>
+      <description>Caching assets and media # When you&amp;rsquo;ve configured your GoToSocial instance with local storage for media, you can use your reverse proxy to serve these files directly and cache them. This avoids hitting GoToSocial for these requests and reverse proxies can typically serve assets faster than GoToSocial.
+You can also use your reverse proxy to cache the GoToSocial web UI assets, like the CSS and images it uses.
+When using a split domain deployment style, you need to ensure you configure caching of the assets and media on the host domain.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/getting_started/installation/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/getting_started/installation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bare metal</title>
+      <link>http://example.org/docs/getting_started/installation/metal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/installation/metal/</guid>
+      <description>Bare metal # This guide walks you through getting GoToSocial up and running on bare metal using the official binary releases.
+Prepare VPS # In a terminal on the VPS or your homeserver, make the directory that GoToSocial will run from, the directory it will use as storage, and the directory it will store LetsEncrypt certificates in:
+mkdir /gotosocial &amp;amp;&amp;amp; mkdir /gotosocial/storage &amp;amp;&amp;amp; mkdir /gotosocial/storage/certs If you don&amp;rsquo;t have root permissions on the machine, use something like ~/gotosocial instead.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/installation/container/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/installation/container/</guid>
+      <description>Container # This guide walks you through getting GoToSocial up and running using the official container images we publish. In this case we&amp;rsquo;ll be using the Docker runtime directly through Docker Compose together with SQLite as the database.
+You can also run GoToSocial using a container orchestration system such as Kubernetes or Nomad, but that is beyond the scope of this guide.
+Create a Working Directory # You need a working directory in which your docker-compose file will be located, and a directory for GoToSocial to store data in, so create these directories with the following command:</description>
+    </item>
+    
+  </channel>
+</rss>

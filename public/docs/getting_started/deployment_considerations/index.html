@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deployment considerations # Before deploying GoToSocial, it&rsquo;s important to think through a few things as some choices will have long-term consequences for how you run and manage GoToSocial.
+Danger
+It&rsquo;s not supported across the Fediverse to switch between implementations on the same domain. This means that if you run GoToSocial on example.org, you&rsquo;ll run into federation issues if you try to switch to a different implementation like Pleroma/Akkoma, Misskey/Calckey etc.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Deployment considerations # Before deploying GoToSocial, it&rsquo;s important to think through a few things as some choices will have long-term consequences for how you run and manage GoToSocial.
+Danger
+It&rsquo;s not supported across the Fediverse to switch between implementations on the same domain. This means that if you run GoToSocial on example.org, you&rsquo;ll run into federation issues if you try to switch to a different implementation like Pleroma/Akkoma, Misskey/Calckey etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/getting_started/deployment_considerations/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Deployment Considerations |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle" checked />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="active">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Deployment Considerations</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#database">Database</a></li>
+    <li><a href="#domain-name">Domain name</a></li>
+    <li><a href="#tls">TLS</a></li>
+    <li><a href="#server--vps">Server / VPS</a></li>
+    <li><a href="#ports">Ports</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="deployment-considerations">
+  Deployment considerations
+  <a class="anchor" href="#deployment-considerations">#</a>
+</h1>
+<p>Before deploying GoToSocial, it&rsquo;s important to think through a few things as some choices will have long-term consequences for how you run and manage GoToSocial.</p>
+<blockquote class="book-hint danger">
+  <p><strong>Danger</strong></p>
+<p>It&rsquo;s not supported across the Fediverse to switch between implementations on the same domain. This means that if you run GoToSocial on example.org, you&rsquo;ll run into federation issues if you try to switch to a different implementation like Pleroma/Akkoma, Misskey/Calckey etc.</p>
+<p>In that same vein, if you already have another ActivityPub implementation running on example.org you should not attempt to switch to GoToSocial on that domain.</p>
+
+</blockquote>
+
+<h2 id="database">
+  Database
+  <a class="anchor" href="#database">#</a>
+</h2>
+<p>GoToSocial supports both SQLite and Postgres and you can start using either. We do not currently have tooling to support migrating from SQLite to Postgres or vice-versa, but it is possible in theory.</p>
+<p>SQLite is great for a single-user instance. If you&rsquo;re planning on hosting multiple people it&rsquo;s advisable to use Postgres instead. You can always use Postgres regardless of the instance size.</p>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>Please <a href="../../admin/backup_and_restore">backup  your database</a>. The database contains encryption keys for the instance and any user accounts. You won&rsquo;t be able to federate again from the same domain if you lose these keys.</p>
+
+</blockquote>
+
+<h2 id="domain-name">
+  Domain name
+  <a class="anchor" href="#domain-name">#</a>
+</h2>
+<p>In order to federate with others, you&rsquo;ll need a domain like <code>example.org</code>. You can register your domain name through any domain registrar, like <a href="https://www.namecheap.com/">Namecheap</a>. Make sure you pick a registrar that also lets you manage DNS entries, so you can point your domain to the IP of the server that&rsquo;s running your GoToSocial instance.</p>
+<p>You&rsquo;ll commonly see usernames existing at the apex of the domain, for example <code>@me@example.org</code> but this is not required. It&rsquo;s perfectly fine to have users exist on <code>@me@social.example.org</code> instead. Many people prefer to have usernames on the apex as its shorter to type, but you can use any (subdomain) you control.</p>
+<p>It is possible to have usernames like <code>@me@example.org</code> but have GoToSocial running on <code>social.example.org</code> instead. This is done by distinguishing between the API domain, called the &ldquo;host&rdquo;, and the domain used for usernames, called the &ldquo;account domain&rdquo;.</p>
+<blockquote class="book-hint danger">
+  <p><strong>Danger</strong></p>
+<p>It&rsquo;s not possible to safely change whether the host and account domain are different after the fact. It requires regenerating the database and will cause confusion for any server you have already federated with.</p>
+
+</blockquote>
+
+<p>When using a single domain, you only need to configure the &ldquo;host&rdquo; in the GoToSocial configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;example.org&#34;</span>
+</span></span></code></pre></div><p>When using a split domain approach, you need to configure both the &ldquo;host&rdquo; and the &ldquo;account-domain&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;social.example.org&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">account-domain</span>: <span style="color:#e6db74">&#34;example.org&#34;</span>
+</span></span></code></pre></div><h2 id="tls">
+  TLS
+  <a class="anchor" href="#tls">#</a>
+</h2>
+<p>For federation to work, you have to use TLS. Most implementations, including GoToSocial, will generally refuse to federate over unencrypted transports.</p>
+<p>GoToSocial comes with built-in support for provisioning certificates through Lets Encrypt. It can also load certificates from disk. If you have a reverse-proxy in front of GoToSocial you can handle TLS at that level instead.</p>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>Make sure you configure the use of modern versions of TLS, TLSv1.2 and higher, in order to keep communications between servers and clients safe. When GoToSocial handles TLS termination this is done automatically for you. If you have a reverse-proxy in use, use the <a href="https://ssl-config.mozilla.org/">Mozilla SSL Configuration Generator</a>.</p>
+
+</blockquote>
+
+<h2 id="server--vps">
+  Server / VPS
+  <a class="anchor" href="#server--vps">#</a>
+</h2>
+<p>GoToSocial aims to fit in small spaces so we try and ensure that the system requirements are fairly minimal: for a single-user instance with about 100 followers/followees, it uses somewhere between 50 to 100MB of RAM. CPU usage is only intensive when handling media (encoding blurhashes, mostly) and/or doing a lot of federation requests at the same time.</p>
+<p>These light requirements mean GtS runs pretty well on something like a Raspberry Pi (a €40 single-board computer). It&rsquo;s been tested on a Raspberry Pi Zero W as well (a €9 computer smaller than a credit card), but it&rsquo;s not quite able to run on that. It should run on a Raspberry Pi Zero W 2 (which costs €14!), but we haven&rsquo;t tested that yet. You can also repurpose an old laptop or desktop to run GoToSocial for you.</p>
+<p>If you decide to use a VPS instead, you can spin yourself up something cheap with Linux running on it. Most of the VPS offerings in the €2-€5 range will perform admirably for a personal GoToSocial instance.</p>
+<p><a href="https://www.hostwinds.com/">Hostwinds</a> is a good option here: it&rsquo;s cheap and they throw in a static IP address for free.</p>
+<p><a href="https://greenhost.net">Greenhost</a> is also great: it has zero CO2 emissions, but is a bit more costly.</p>
+<h2 id="ports">
+  Ports
+  <a class="anchor" href="#ports">#</a>
+</h2>
+<p>GoToSocial needs ports <code>80</code> and <code>443</code> open.</p>
+<ul>
+<li><code>80</code> is used for Lets Encrypt. As such, you don&rsquo;t need it if you don&rsquo;t use the built-in Lets Encrypt provisioning.</li>
+<li><code>443</code> is used to serve the API on with TLS and is what any instance you&rsquo;re federating with will try to connect to.</li>
+</ul>
+<p>If you can&rsquo;t leave <code>443</code> and <code>80</code> open on the machine, don&rsquo;t worry! You can configure these ports in GoToSocial, but you&rsquo;ll have to also configure port forwarding to properly forward traffic on <code>443</code> and <code>80</code> to whatever ports you choose.</p>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>You should configure a firewall on your machine, as well as some protection against brute-force SSH login attempts and the like. Take a look at our <a href="/docs/advanced/security/firewall">firewall documentation</a> for pointers on what to configure and tools that can help you out.</p>
+
+</blockquote>
+
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#database">Database</a></li>
+    <li><a href="#domain-name">Domain name</a></li>
+    <li><a href="#tls">TLS</a></li>
+    <li><a href="#server--vps">Server / VPS</a></li>
+    <li><a href="#ports">Ports</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

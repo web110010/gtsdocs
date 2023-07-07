@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Backup and Restore # As the GoToSocial database contains the instance as well as all user signing keys it is vital to back it up. If you lose these keys you&rsquo;ll never be able to federate from this domain again. Don&rsquo;t forget to also encrypt your backups in order to keep the data safe at rest.
+Aside from disaster recovery, there are other good reasons to keep backups. Some potential scenarios for you to consider:">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Backup and Restore # As the GoToSocial database contains the instance as well as all user signing keys it is vital to back it up. If you lose these keys you&rsquo;ll never be able to federate from this domain again. Don&rsquo;t forget to also encrypt your backups in order to keep the data safe at rest.
+Aside from disaster recovery, there are other good reasons to keep backups. Some potential scenarios for you to consider:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/admin/backup_and_restore/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Backup and Restore |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle" checked />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="active">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Backup and Restore</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-backup">What to backup</a>
+      <ul>
+        <li><a href="#database">Database</a></li>
+        <li><a href="#media">Media</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-backup">How to backup</a>
+      <ul>
+        <li><a href="#image-your-disk">Image your disk</a></li>
+        <li><a href="#use-the-gotosocial-cli">Use the GoToSocial CLI</a></li>
+        <li><a href="#back-up-your-database-files-and-media">Back up your database files and media</a></li>
+        <li><a href="#backup-software">Backup software</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="backup-and-restore">
+  Backup and Restore
+  <a class="anchor" href="#backup-and-restore">#</a>
+</h1>
+<p>As the GoToSocial database contains the instance as well as all user signing keys it is vital to back it up. If you lose these keys you&rsquo;ll never be able to federate from this domain again. Don&rsquo;t forget to also encrypt your backups in order to keep the data safe at rest.</p>
+<p>Aside from disaster recovery, there are other good reasons to keep backups. Some potential scenarios for you to consider:</p>
+<ul>
+<li>You want to close down your instance but you might create it again later and you don&rsquo;t want to break federation.</li>
+<li>You need to migrate to a different database for some reason (Postgres =&gt; SQLite or vice versa).</li>
+<li>You&rsquo;re about to hack around on your instance and you want to make a quick backup so you don&rsquo;t lose everything if you mess up.</li>
+</ul>
+<h2 id="what-to-backup">
+  What to backup
+  <a class="anchor" href="#what-to-backup">#</a>
+</h2>
+<h3 id="database">
+  Database
+  <a class="anchor" href="#database">#</a>
+</h3>
+<p>Most backup tools have built-in support for common databases like PostgreSQL and SQLite. Ensure you review their documentation first as they often spell out certain considerations and conditions that need to be met for backups to complete and restore successfully.</p>
+<h3 id="media">
+  Media
+  <a class="anchor" href="#media">#</a>
+</h3>
+<p>Local media should be backed up. You can use the <a href="../cli#gotosocial-admin-media-list-local">GoToSocial CLI</a> to list all media files that belong to your instance and its users.</p>
+<p>Remote media does not have to be backed up. This can be a good way to keep the size of your backups down. Remote media will be fetched from the origin instance, much like how it&rsquo;ll be fetched again if it got pruned due to media retention.</p>
+<h2 id="how-to-backup">
+  How to backup
+  <a class="anchor" href="#how-to-backup">#</a>
+</h2>
+<p>You can go about this a few different ways:</p>
+<ul>
+<li>Imaging the VMs/machines your instance and database runs on</li>
+<li>Dumping GoToSocial&rsquo;s state with the CLI</li>
+<li>Backing up database and media files</li>
+<li>Backup software</li>
+</ul>
+<p>Though setting up backup software can be a bit more work, it&rsquo;s by far the best option. It ensures consistent and encrypted backups and can protect you against filesystem corruption in a way that taking disk snapshots and copying the raw database and media files won&rsquo;t.</p>
+<h3 id="image-your-disk">
+  Image your disk
+  <a class="anchor" href="#image-your-disk">#</a>
+</h3>
+<p>If you&rsquo;re running GoToSocial on a VPS (a remote machine in the cloud), arguably the easiest way to preserve all of your database entries and media is to image the disk attached to the VPS. This will preserve the whole disk. Many VPS providers offer the option of automatically creating backups on a timer, so you&rsquo;ll always be able to restore if your data is lost.</p>
+<p>Advantages:</p>
+<ul>
+<li>Relatively easy to do.</li>
+<li>Easy to automate (depending on your vps).</li>
+<li>Keep complete media + database entries.</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Can cost extra depending on your VPS.</li>
+<li>Will probably also preserve stuff you don&rsquo;t need, from other programs running on the same machine.</li>
+<li>Vendor lock-in, difficult to move the data around.</li>
+</ul>
+<h3 id="use-the-gotosocial-cli">
+  Use the GoToSocial CLI
+  <a class="anchor" href="#use-the-gotosocial-cli">#</a>
+</h3>
+<p>The GoToSocial CLI tool also provides commands for backing up and restoring data from your instance, which will preserve the <em>bare-minimum</em> necessary data to backup and restore your instance, without breaking federation with other instances.</p>
+<p>What will be <strong>kept</strong>:</p>
+<ul>
+<li>All local account entries, including private and public keys.</li>
+<li>Followed/following remote accounts, including public keys.</li>
+<li>Follows/follow requests.</li>
+<li>Domain blocks.</li>
+<li>Account blocks.</li>
+<li>Account suspensions.</li>
+<li>User + password entries, email addresses.</li>
+</ul>
+<p>What will be <strong>dropped</strong>:</p>
+<ul>
+<li>All statuses.</li>
+<li>Media.</li>
+<li>Faves.</li>
+<li>Bookmarks.</li>
+<li>Pins.</li>
+<li>Applications.</li>
+<li>Tokens.</li>
+</ul>
+<p>The backup file produced will be in the form of a line-separated series of JSON objects (not a JSON array!). For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;account&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5NBDF2MV7CTC4Q5128HF&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-08-31T12:00:53.985645Z&#34;</span>,<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;1happyturtle&#34;</span>,<span style="color:#f92672">&#34;locked&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;language&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle&#34;</span>,<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/@1happyturtle&#34;</span>,<span style="color:#f92672">&#34;inboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/inbox&#34;</span>,<span style="color:#f92672">&#34;outboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/outbox&#34;</span>,<span style="color:#f92672">&#34;followingUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/following&#34;</span>,<span style="color:#f92672">&#34;followersUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/followers&#34;</span>,<span style="color:#f92672">&#34;featuredCollectionUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/collections/featured&#34;</span>,<span style="color:#f92672">&#34;actorType&#34;</span>:<span style="color:#e6db74">&#34;Person&#34;</span>,<span style="color:#f92672">&#34;privateKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAzLP7oyyR+BU9ejn0CN9K+WpX3L37pxUcCgZAGH5lf3cGPZjz\nausfsFME94OjVyzw3K5M2beDkZ4E+Fak46NLtakLB1yovy9jKtj4Y4txHoMvRJLz\neUPxdfeXtpx2d3FDj++Uq4DEE0BhbePXhTGJWaNdC9MQmWKghJnCS5mrnFkdpEFx\njUz9l0UHl2Z4wppxPdpt7FyevcdfKqzGsAA3BxTM0dg47ZJWjtcvfCiSYpAKFNJY\nfKhKn9T3ezZgrLsF+o0IpD23KxWe1X4d5lgJRU9T4FmLmbvyJKUnfgYXbSEvLUcq\n79WbhgRcWwxWubjmWXgPGwzULVhhpYlwd2Cv3wIDAQABAoIBAGF+MxHjD15VV2NY\nKKb1GjMx98i1Xx6TijgoA+zmfha4LGu35e79Lql+0LXFp0zEpa6lAQsMQQhgd0OD\nmKKmSk+pxAvskJ4FxrhIf/yBFA4RMrj5OCaAOocRtdsOJ8n5UtFBrNAF0tzMY9q/\nkgzoq97aVF1mV9iFxaeBx6zT8ozSdqBq1PK/3w1dVg89S5tfKYc7Q0lQ00SfsTnd\niTDClKyqurebo9Pt6M7gXavgg3tvBlmwwr6XHs34Leng3oiN9mW8DVzaBMPzn+rE\nxF2eqs3v9vVpj8es88OwCh5P+ff8vJYvhu7Fcr/bJ8BItBQwfb8QBDATg/MXU2BI\n2ssW6AECgYEA4wmIyYGeu9+hzDa/J3Vh8GnlVNUCohHcChQdOsWsFXUgpVlUIHrX\neKHn42vD4Rzy52/YzJts4NkZTM9sL+kEXIEcpMG/S9xIIud7U0m/hMSAlmnJK/9j\niEXws3o4jo0E77jnRcBdIjpG4K5Eekm0DSR3SFhtZfEdN2DWPvu7K98CgYEA5tER\n/qJwFMc51AobMU87ZjXON7hI2U1WY/pVF62jSl0IcSsnj2riEKWLrs+GRG+HUg+U\naFSqAHcxaVHA0h0AYR8RopAhDdVKh0kvB8biLo+IEzNjPv2vyn0yRN5YSfXdGzyJ\nUjVU6kWdQOwmzy86nHgFaqEx7eofHIaGZzJK/AECgYEAu2VNQHX63TuzQuoVUa5z\nzoq5vhGsALYZF0CO98ndRkDNV22qIL0ESQ/qZS64GYFZhWouWoQXlGfdmCbFN65v\n6SKwz9UT3rvN1vGWO6Ltr9q6AG0EnYpJT1vbV2kUcaU4Y94NFue2d9/+TMnKv91B\n/m8Q/efvNGuWH/WQIaCKV6UCgYBz89WhYMMDfS4M2mLcu5vwddk53qciGxrqMMjs\nkzsz0Va7W12NS7lzeWaZlAE0gf6t98urOdUJVNeKvBoss4sMP0phqxwf0eWV3ur0\ncjIQB+TpGGikLVdRVuGY/UXHKe9AjoHBva8B3aTpB3lbnbNJBXZbIc1uYq3sa5w7\nXWWUAQKBgH3yW73RRpQNcc9hTUssomUsnQQgHxpfWx5tNxqod36Ytd9EKBh3NqUZ\nvPcH6gdh7mcnNaVNTtQOHLHsbPfBK/pqvb3MAsdlokJcQz8MQJ9SGBBPY6PaGw8z\nq/ambaQykER6dwlXTIlU20uXY0bttOL/iYjKmgo3vA66qfzS6nsg\n-----END RSA PRIVATE KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAzLP7oyyR+BU9ejn0CN9K+WpX3L37pxUcCgZAGH5lf3cGPZjzausf\nsFME94OjVyzw3K5M2beDkZ4E+Fak46NLtakLB1yovy9jKtj4Y4txHoMvRJLzeUPx\ndfeXtpx2d3FDj++Uq4DEE0BhbePXhTGJWaNdC9MQmWKghJnCS5mrnFkdpEFxjUz9\nl0UHl2Z4wppxPdpt7FyevcdfKqzGsAA3BxTM0dg47ZJWjtcvfCiSYpAKFNJYfKhK\nn9T3ezZgrLsF+o0IpD23KxWe1X4d5lgJRU9T4FmLmbvyJKUnfgYXbSEvLUcq79Wb\nhgRcWwxWubjmWXgPGwzULVhhpYlwd2Cv3wIDAQAB\n-----END RSA PUBLIC KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKeyUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle#main-key&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;account&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH0BBE4FHXPH513MBVFHB0&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T10:00:53.985634Z&#34;</span>,<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;weed_lord420&#34;</span>,<span style="color:#f92672">&#34;locked&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;language&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420&#34;</span>,<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/@weed_lord420&#34;</span>,<span style="color:#f92672">&#34;inboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420/inbox&#34;</span>,<span style="color:#f92672">&#34;outboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420/outbox&#34;</span>,<span style="color:#f92672">&#34;followingUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420/following&#34;</span>,<span style="color:#f92672">&#34;followersUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420/followers&#34;</span>,<span style="color:#f92672">&#34;featuredCollectionUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420/collections/featured&#34;</span>,<span style="color:#f92672">&#34;actorType&#34;</span>:<span style="color:#e6db74">&#34;Person&#34;</span>,<span style="color:#f92672">&#34;privateKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEAzsCcTHzwIgpWKVvut0Q/t1bFwnbj9hO6Ic6k0KXCXbf6qi0b\nMIyLRZr8DS61mD+SPSO2QKEL647xxyW2D8YGtwN6Cc6MpWETsWJkNtS8t7tDL//P\nceYpo5LiqKgn0TXj0Pq8Lvb7rqpH8QJ2EVm14SK+elhKZW/Bi5ZOEwfL8pw6EHI4\nus6VxCNQ099dksu++kbdD7zxqEKnk/4zOttYt0whlVrxzkibTjlKdlSlTYpIstU+\nfNyYVE0xWvrn+yF7jVlEwZYOFGfZbpELadrdOr2k1hvAk7upkrpKmLqYfwqD/xPc\nqwtx0iS6AEnmkSiTcAvju5vLkoLFRU7Of4AZ2wIDAQABAoIBAEAA4GHNS4k+Ke4j\nx4J0XkUjV5UbuPY0pSpSDjOJHOJmUfLcg85Ds9mYYO6zxwOaqmrC42ieclI5rh84\nTWQUqX9+VAk1J9UKeE4xZ1SSBtnZ3rK9PjrERZ+dmQ0dATaCuEO5Wwgu7Trk++Bg\nIqy8WNGZL94v9tfwALp1jTXW9AvmQoNdCFBP62vcmYW4YLjnggxLCFTA8YKfdePa\nTuxxY6uLkeBbxzWpbRU2+bmlxd5OnCkiRSMHIX+6JdtCu2JdWpUTCnWrFi2n1TZz\nZQx9z5rvowK1O785jGMFum5vBWpjIU8sJcXmPjGMU25zzmrhzfmkJsTXER3CXoUo\nSqSPqgECgYEA78OR7bY5KKQQ7Lyz6dru4Fct5P/OXTQoOg5aS7TKb95LVWj+TANn\n5djwIbLmAUV30z0Id9VgiZOL0Hny8+3VV9eU088Z408pAy5WQrL3dB8tZLUJSq5c\n5k6X15/VjWOOZKppDxShzoV3mcohrnwVwkv4fhPFQQOJJBYz6xurWs0CgYEA3MDE\nsDMd9ahzO0dl62ynojkkA8ZTcn2UdyvLpGj9UxT5j9vWF3CfqitXgcpNiVSIbxqQ\nbo/pBch7c/2Xakv5zkdcrJj5/6gyr+m1/tK2o7+CjDaSE4SYwufXx+qkl03Zpyzt\nKdOi7Hz/b2tdjump7ECEDE45mG2ea8oSnPgXl0cCgYBkGGFzu/9g2B24t47ksmHH\nhp3CXIjqoDurARLxSCi7SzJoFc0ULtfRPSAC8YzUOwwrQ++lF4+V3+MexcqHy2Kl\nqXqYcn18SC/3BAE/Fzf3Yoyw3mNiqihefbEmc7PTsxxfKkVx5ksmzNGBgsFM9sCe\nvNigyeAvpCo8xogmPwbqgQKBgE34mIBTzcUzFmBdu5YH7r3RyPK8XkUWLhZZlbgg\njTmHMw6o61mkIgENBf+F4RUckoQLsfAbTIcKZPB3JcAZzcYaVpVwAv1V/3E671lu\nO6xivE2iCL50GzDcis7GBhSbHsF5kNsxMV6uV9qW5ZjQ13/m2b0u9BDuxwHzgdeH\nmW2JAoGAIUOYniuEwdygxWVnYatpr3NPjT3BOKoV5i9zkeJRu1hFpwQM6vQ4Ds5p\nGC5vbMKAv9Cwuw62e2HvqTun3+U2Y5Uived3XCpgM/50BFrFHCfuqXEnu1bEzk5z\n9mIhp8uXPxzC5N7tRQfb3/eU1IUcb6T6ksbr2P81z0j03J55erg=\n-----END RSA PRIVATE KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAzsCcTHzwIgpWKVvut0Q/t1bFwnbj9hO6Ic6k0KXCXbf6qi0bMIyL\nRZr8DS61mD+SPSO2QKEL647xxyW2D8YGtwN6Cc6MpWETsWJkNtS8t7tDL//PceYp\no5LiqKgn0TXj0Pq8Lvb7rqpH8QJ2EVm14SK+elhKZW/Bi5ZOEwfL8pw6EHI4us6V\nxCNQ099dksu++kbdD7zxqEKnk/4zOttYt0whlVrxzkibTjlKdlSlTYpIstU+fNyY\nVE0xWvrn+yF7jVlEwZYOFGfZbpELadrdOr2k1hvAk7upkrpKmLqYfwqD/xPcqwtx\n0iS6AEnmkSiTcAvju5vLkoLFRU7Of4AZ2wIDAQAB\n-----END RSA PUBLIC KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKeyUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/weed_lord420#main-key&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;account&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH17FWEB39HZJ76B6VXSKF&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-05T10:00:53.985641Z&#34;</span>,<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#f92672">&#34;locked&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;language&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin&#34;</span>,<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/@admin&#34;</span>,<span style="color:#f92672">&#34;inboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin/inbox&#34;</span>,<span style="color:#f92672">&#34;outboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin/outbox&#34;</span>,<span style="color:#f92672">&#34;followingUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin/following&#34;</span>,<span style="color:#f92672">&#34;followersUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin/followers&#34;</span>,<span style="color:#f92672">&#34;featuredCollectionUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin/collections/featured&#34;</span>,<span style="color:#f92672">&#34;actorType&#34;</span>:<span style="color:#e6db74">&#34;Person&#34;</span>,<span style="color:#f92672">&#34;privateKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PRIVATE KEY-----\nMIIEogIBAAKCAQEAxr2e1pqfLwwUCwHUdx56Mxnq5Kzc2EBwqN6jIPjiqVaG5eVq\nhujDhdqwMq0hnpBSPzLnvjiOtEh7Bwhx0MjuC/GRPTM9oNWPYD4PcjX5ofrubyLR\nBI97qD0SbyzUWzeyBi6R5tpW8LK1MJXNbnYlz5WouEiC4mY77ulri0EN2hCq80wg\nfvtEjEvELcKBqIytKH3rutIzfAyqXD7LSQ8UDoNh9GHyIfq8Zj32gWVk2MiPI3+G\n8kQJDmD8CKEasnrGVdSJBQUg3xDAtOibPXLP+07AIsKYMon35hVNvQNQPS7ru/Bk\nRhhGp2R44zqj6L9mxYbSrhFAaKDedu8oVe1aLQIDAQABAoIBAGK0aIADOU4ffJDe\n7sveiih5Fc1PATwx/QIR2QkWM1SREdx6LYclcX44V8xDanAbE44p1SkHY/CsEtYy\nXnyoXnn2FwFDQrdveY7+I6PApOPLAcKWkyLltC+hbVdj92/6YGNrm7EA/a77wruH\nmwjiivLnTG2CLecNiXSl33DA9YU4Yz+2Tza3IpTdjt8c/dz/BKKaxaWV+i9ew5VR\nioo5v51B+J8PrneCM/p8LGiLV148Njr0JqV6eFy1JuzItYMYdc3Fp+YnMzsuMZEA\n1akMcoln/ucVJyOFnCn6jx47nIoPZLl1KxX3aRDRfvrejm6W4yAkkTmR5voSRqax\njPL3rI0CgYEA9Acu4TO8xJ3uGaUad0N9JTYQVSmtAaE/g+df9LGMSzoj8X95S4xE\nQsGPqNGDm2VWADJjK4P05twZ+LfsfSKQ86wbp4/gbgnXpqB1P5Lty/B7KxiTnNwt\nwb1WGWTCukxfUSL3PRyf8uylkrg72RxKiBx4zKO3WVSLWOZWrFtn0qMCgYEA0H2p\nJs9Nv20ADOOX5tQ7+ruS6/B/Fhyj5fhflSYCAtOW7aME7+zQKJyqSQZ4b2Aub3Tp\nGIaUbRIGzjHyuTultFFWvjU3H5aI/0g1G9WKaBhNkyTIYVmMKtYyhXNvouWing8x\noraWx8TTBP8Cdnnk+QgdR2fpug8cghKupp5wvO8CgYA1JFtRL7MsHjh73TimQExA\njkWARlMmx7bNQtXis8eZmk+5h8kiaqly4DQoz3eZn7fa0x5Fm7b5j3UYdPVLSvvG\nFPTwyKRXUk1kPA1MivK+NuCbwf5jao+MYW8emJLPf1JCmRq+dD1g6aglC3n9Dewt\nOAYWipCjI4Y1FfRKFJ3HgQKBgEAb47+DTyzln3ZXJYZdDHR06SCTuwBZnixAy2NZ\nZJTp6yb3UbVU5E0Yn2QFEVNuB9lN4b8g4tMHEACnazN6G+HugPXL9z9HUqjs0yfT\n6dNIZdIxJUyJ9IfXhYFzlYhJhE+F7IVUD9kttJV8tI0pvja1QAuM8Fm9+84jYIDr\nh08RAoGAMYbjKHbtejcHBwt1kIcSss0cDmlZbBleJo8tdmdg4ndf5GE9N4/EL7tq\nm2zYSfr7OVdnOwRhoO+xF/6d1L7+TR1wz+k2fuMsI71aM5Ocp1nYTutjIkBTcldZ\nZzvjOgZWng5icuRLQQiDSKG5uqazqL/xGXkijb4kp4WW6myWY3c=\n-----END RSA PRIVATE KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEAxr2e1pqfLwwUCwHUdx56Mxnq5Kzc2EBwqN6jIPjiqVaG5eVqhujD\nhdqwMq0hnpBSPzLnvjiOtEh7Bwhx0MjuC/GRPTM9oNWPYD4PcjX5ofrubyLRBI97\nqD0SbyzUWzeyBi6R5tpW8LK1MJXNbnYlz5WouEiC4mY77ulri0EN2hCq80wgfvtE\njEvELcKBqIytKH3rutIzfAyqXD7LSQ8UDoNh9GHyIfq8Zj32gWVk2MiPI3+G8kQJ\nDmD8CKEasnrGVdSJBQUg3xDAtOibPXLP+07AIsKYMon35hVNvQNQPS7ru/BkRhhG\np2R44zqj6L9mxYbSrhFAaKDedu8oVe1aLQIDAQAB\n-----END RSA PUBLIC KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKeyUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/admin#main-key&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;account&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH1H7YV1Z7D2C8K2730QBF&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T10:00:53.985643Z&#34;</span>,<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;the_mighty_zork&#34;</span>,<span style="color:#f92672">&#34;locked&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;language&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork&#34;</span>,<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/@the_mighty_zork&#34;</span>,<span style="color:#f92672">&#34;inboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/inbox&#34;</span>,<span style="color:#f92672">&#34;outboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/outbox&#34;</span>,<span style="color:#f92672">&#34;followingUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/following&#34;</span>,<span style="color:#f92672">&#34;followersUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/followers&#34;</span>,<span style="color:#f92672">&#34;featuredCollectionUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/collections/featured&#34;</span>,<span style="color:#f92672">&#34;actorType&#34;</span>:<span style="color:#e6db74">&#34;Person&#34;</span>,<span style="color:#f92672">&#34;privateKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEApBmF8U+or+E0mgUMH3LE4uRIWzeV9rhYnvSMm9OpOsxwJiss\n5mEA/NtPHvQlq2UwrqXX89Wvu94K9EzZ4VyWYQGdxaiPpt17vRqUfsHUnXkY0pvC\nC9zt/aNlJtdt2xm+7PTC0YQd4+E1FX3aaoUPJL8MXzNlpJzaUtuwLZe1iBmFfatZ\nFHptEgc4nlf6TNLTzj3Yw1/7zIGVS8Vi7VquHc0Xo8dRiL2RxCGzLWnwL6GlrxY1\ntMhsUg467XeoiwegFCpcIhAhPFREKoTnCEksL/N0rpXl7m6CAy5uqBGs5mMXnXlq\nefr58l0j2dU6zc60LCHH9TJC+roXsKJhy9sx/QIDAQABAoIBAFa+UypbFG1cW2Tr\nNBxPm7ngOEtXl8MicV4dIVKh0TwOo13ZxtNFBbOj7jALmPn/9HrtmbkABPQHDL1U\n/nt9aNSAeTjpwH3RaD5vFX3n0g8n2zJBOZLxxzAjNi4RBLYj5uP1AiKkdvRlsJza\nuSFDkty2zMBqN9mLPHE+RePj5Qa6tjYfIQqQzu/+YnYMlXHoC2yHNKsvz6S5FhVj\nv5zATv2JlJQH3RSmhuPOah73iQnKCLzYYEAHleawKrCg/rZ3ht37Guvabeq7MqQN\nvi9pJdAA+RMxPsboHajskePjOTYJgKQSxEAMRTMfBR40aZxklxQL0EoBd1Y3CHXh\nfMg0xWECgYEA0ORrpJ1A2WNQwKcDDeBBsaJqWF4EraoFzYrugKZrAYEeVyuGD0zq\nARUaWkZTZ1f6wQ10i1WxAuKlBEds7QsLdZzLsA4um4JlBroCZiYfPnmTtb8op1LY\nFqeYTByvAmnfWWTuOI67GX9ruLg8tEGuz38kuQVSxYs51its3tScNPUCgYEAyRst\nwRbqpOqnwoRoS6pxv0Vpc3nUcfaVYwsg/qobJkiwAdlUYeE7alvEY926VW4cvU/X\nhy3L1punAqnyLI7uuqCefXEbNxO0Cebyy4Kv2Ye1uzl0OHsJczSNdfpNqfAIKwtN\nHLCYDGCsluQhz+I/5Pd0dT+JDPPW9hKS2HG7o+kCgYBqugn1VRLo/sEnbS02TbnC\n1ESZWY/yWsgUOEObH2vUnO+vgeFAt/9nBi0sqnm6d0z6jbFZ7zI9UycUhJm2ksoM\nEUxQay6M7ZZIVYkcP6X++YbqePyAYOdey8oYOR+BkC45MkQ0SVh2so+LFTaOsnBq\nO3+7uGiN3ZBzSESbpO0acQKBgQCONrsXZeZO82XpB4tdns3LbgGRWKEkajTgEnml\nvZNvck2NMSwb/5PttbFe0ei4CyMluPV4MamJPQ9Qse+BFR67OWR63uZY/4T8z6X4\nxpUmZnLcUFfgrRlUr+AtgvEy8HxGPDquxC7x6deC6RcEFEIM3/UqCOEZGMJ1x1Ky\n31LLKQKBgGCKwVgQ8+4JyHZFkie3YdHhxJDokgY+Opb0HNnoBY/lZ54UMCCJQPS2\n0XPSu651j/3adr3RQneU04gF6U2/D5JzFEV0kUsqZ4Zy2EEU0LU4ibus0gyomSpK\niWhU4QrC/M4ELxYZinlNu3ThPWNQ/PMNteVWfdgOcV7uUWl0ViFp\n-----END RSA PRIVATE KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEApBmF8U+or+E0mgUMH3LE4uRIWzeV9rhYnvSMm9OpOsxwJiss5mEA\n/NtPHvQlq2UwrqXX89Wvu94K9EzZ4VyWYQGdxaiPpt17vRqUfsHUnXkY0pvCC9zt\n/aNlJtdt2xm+7PTC0YQd4+E1FX3aaoUPJL8MXzNlpJzaUtuwLZe1iBmFfatZFHpt\nEgc4nlf6TNLTzj3Yw1/7zIGVS8Vi7VquHc0Xo8dRiL2RxCGzLWnwL6GlrxY1tMhs\nUg467XeoiwegFCpcIhAhPFREKoTnCEksL/N0rpXl7m6CAy5uqBGs5mMXnXlqefr5\n8l0j2dU6zc60LCHH9TJC+roXsKJhy9sx/QIDAQAB\n-----END RSA PUBLIC KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKeyUri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork#main-key&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;block&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01FEXXET6XXMF7G2V3ASZP3YQW&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:00:53.965362Z&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/1happyturtle/blocks/01FEXXET6XXMF7G2V3ASZP3YQW&#34;</span>,<span style="color:#f92672">&#34;accountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5NBDF2MV7CTC4Q5128HF&#34;</span>,<span style="color:#f92672">&#34;targetAccountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5ZK5VRH73AKHQM6Y9VNX&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;account&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5ZK5VRH73AKHQM6Y9VNX&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-08-31T12:00:53.985646Z&#34;</span>,<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;foss_satan&#34;</span>,<span style="color:#f92672">&#34;domain&#34;</span>:<span style="color:#e6db74">&#34;fossbros-anonymous.io&#34;</span>,<span style="color:#f92672">&#34;locked&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;language&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan&#34;</span>,<span style="color:#f92672">&#34;url&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/@foss_satan&#34;</span>,<span style="color:#f92672">&#34;inboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/inbox&#34;</span>,<span style="color:#f92672">&#34;outboxURI&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/outbox&#34;</span>,<span style="color:#f92672">&#34;followingUri&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/following&#34;</span>,<span style="color:#f92672">&#34;followersUri&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/followers&#34;</span>,<span style="color:#f92672">&#34;featuredCollectionUri&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/collections/featured&#34;</span>,<span style="color:#f92672">&#34;actorType&#34;</span>:<span style="color:#e6db74">&#34;Person&#34;</span>,<span style="color:#f92672">&#34;publicKey&#34;</span>:<span style="color:#e6db74">&#34;-----BEGIN RSA PUBLIC KEY-----\nMIIBCgKCAQEA2OyVgkaIL9VohXKYTh319j4OouHRX/8QC7piXj71k7q5RDzEyvis\nVZBc5/C1/crCpxt895i0Ai2CiXQx+dISV7s/JBhAGl8s7TQ8jLlMuptrI0+sdkBC\nlu8pU0qQmoeXVnlquOzNmqGufUxIDtLXLZDN17qf/7vWA23q4d0tG5KQhGGGKiVM\n61Ufvr9MmgPBSpyUvYMAulFlz1264L49aGWeVgOz3qUQzqtxjrP0kaIbeyt56miP\nKr5AqkRgSsXci+FAo6suxR5gzo9NgleNkbZWF9MQyKlawukPwZUDSh396vtNQMee\n/4mto7mAXw8iio0IacrYO3F7iyewXnmI/QIDAQAB\n-----END RSA PUBLIC KEY-----\n&#34;</span>,<span style="color:#f92672">&#34;publicKeyUri&#34;</span>:<span style="color:#e6db74">&#34;http://fossbros-anonymous.io/users/foss_satan/main-key&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;follow&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8PYDCE8XE23GRE5DPZJDZDP&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:00:54.749465Z&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/follow/01F8PYDCE8XE23GRE5DPZJDZDP&#34;</span>,<span style="color:#f92672">&#34;accountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH1H7YV1Z7D2C8K2730QBF&#34;</span>,<span style="color:#f92672">&#34;targetAccountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5NBDF2MV7CTC4Q5128HF&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;follow&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8PY8RHWRQZV038T4E8T9YK8&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T12:00:54.749459Z&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080/users/the_mighty_zork/follow/01F8PY8RHWRQZV038T4E8T9YK8&#34;</span>,<span style="color:#f92672">&#34;accountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH1H7YV1Z7D2C8K2730QBF&#34;</span>,<span style="color:#f92672">&#34;targetAccountId&#34;</span>:<span style="color:#e6db74">&#34;01F8MH17FWEB39HZJ76B6VXSKF&#34;</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;domainBlock&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01FF22EQM7X8E3RX1XGPN7S87D&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T10:00:53.968971Z&#34;</span>,<span style="color:#f92672">&#34;domain&#34;</span>:<span style="color:#e6db74">&#34;replyguys.com&#34;</span>,<span style="color:#f92672">&#34;createdByAccountID&#34;</span>:<span style="color:#e6db74">&#34;01F8MH17FWEB39HZJ76B6VXSKF&#34;</span>,<span style="color:#f92672">&#34;privateComment&#34;</span>:<span style="color:#e6db74">&#34;i blocked this domain because they keep replying with pushy + unwarranted linux advice&#34;</span>,<span style="color:#f92672">&#34;publicComment&#34;</span>:<span style="color:#e6db74">&#34;reply-guying to tech posts&#34;</span>,<span style="color:#f92672">&#34;obfuscate&#34;</span>:<span style="color:#66d9ef">false</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MGYG9E893WRHW0TAEXR8GJ&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T10:00:53.97247Z&#34;</span>,<span style="color:#f92672">&#34;accountID&#34;</span>:<span style="color:#e6db74">&#34;01F8MH0BBE4FHXPH513MBVFHB0&#34;</span>,<span style="color:#f92672">&#34;encryptedPassword&#34;</span>:<span style="color:#e6db74">&#34;$2y$10$ggWz5QWwnx6kzb9g0tnIJurFtE0dhr5Zfeaqs9iFuUIXzafQlJVZS&#34;</span>,<span style="color:#f92672">&#34;locale&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;lastEmailedAt&#34;</span>:<span style="color:#e6db74">&#34;0001-01-01T00:00:00Z&#34;</span>,<span style="color:#f92672">&#34;confirmationToken&#34;</span>:<span style="color:#e6db74">&#34;a5a280bd-34be-44a3-8330-a57eaf61b8dd&#34;</span>,<span style="color:#f92672">&#34;confirmationTokenSentAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T10:00:53.972472Z&#34;</span>,<span style="color:#f92672">&#34;unconfirmedEmail&#34;</span>:<span style="color:#e6db74">&#34;weed_lord420@example.org&#34;</span>,<span style="color:#f92672">&#34;moderator&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;admin&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;disabled&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;approved&#34;</span>:<span style="color:#66d9ef">false</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MGWYWKVKS3VS8DV1AMYPGE&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-05T10:00:53.972475Z&#34;</span>,<span style="color:#f92672">&#34;email&#34;</span>:<span style="color:#e6db74">&#34;admin@example.org&#34;</span>,<span style="color:#f92672">&#34;accountID&#34;</span>:<span style="color:#e6db74">&#34;01F8MH17FWEB39HZJ76B6VXSKF&#34;</span>,<span style="color:#f92672">&#34;encryptedPassword&#34;</span>:<span style="color:#e6db74">&#34;$2y$10$ggWz5QWwnx6kzb9g0tnIJurFtE0dhr5Zfeaqs9iFuUIXzafQlJVZS&#34;</span>,<span style="color:#f92672">&#34;currentSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:50:53.972477Z&#34;</span>,<span style="color:#f92672">&#34;lastSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T08:00:53.972477Z&#34;</span>,<span style="color:#f92672">&#34;chosenLanguages&#34;</span>:[<span style="color:#e6db74">&#34;en&#34;</span>],<span style="color:#f92672">&#34;locale&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;lastEmailedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:30:53.972478Z&#34;</span>,<span style="color:#f92672">&#34;confirmedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-05T10:00:53.972478Z&#34;</span>,<span style="color:#f92672">&#34;moderator&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;admin&#34;</span>:<span style="color:#66d9ef">true</span>,<span style="color:#f92672">&#34;disabled&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;approved&#34;</span>:<span style="color:#66d9ef">true</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MGVGPHQ2D3P3X0454H54Z5&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T22:00:53.97248Z&#34;</span>,<span style="color:#f92672">&#34;email&#34;</span>:<span style="color:#e6db74">&#34;zork@example.org&#34;</span>,<span style="color:#f92672">&#34;accountID&#34;</span>:<span style="color:#e6db74">&#34;01F8MH1H7YV1Z7D2C8K2730QBF&#34;</span>,<span style="color:#f92672">&#34;encryptedPassword&#34;</span>:<span style="color:#e6db74">&#34;$2y$10$ggWz5QWwnx6kzb9g0tnIJurFtE0dhr5Zfeaqs9iFuUIXzafQlJVZS&#34;</span>,<span style="color:#f92672">&#34;currentSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:30:53.972481Z&#34;</span>,<span style="color:#f92672">&#34;lastSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T08:00:53.972481Z&#34;</span>,<span style="color:#f92672">&#34;chosenLanguages&#34;</span>:[<span style="color:#e6db74">&#34;en&#34;</span>],<span style="color:#f92672">&#34;locale&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;lastEmailedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:05:53.972482Z&#34;</span>,<span style="color:#f92672">&#34;confirmationTokenSentAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T22:00:53.972483Z&#34;</span>,<span style="color:#f92672">&#34;confirmedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-07T00:00:53.972482Z&#34;</span>,<span style="color:#f92672">&#34;moderator&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;admin&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;disabled&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;approved&#34;</span>:<span style="color:#66d9ef">true</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;user&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01F8MH1VYJAE00TVVGMM5JNJ8X&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T22:00:53.972485Z&#34;</span>,<span style="color:#f92672">&#34;email&#34;</span>:<span style="color:#e6db74">&#34;tortle.dude@example.org&#34;</span>,<span style="color:#f92672">&#34;accountID&#34;</span>:<span style="color:#e6db74">&#34;01F8MH5NBDF2MV7CTC4Q5128HF&#34;</span>,<span style="color:#f92672">&#34;encryptedPassword&#34;</span>:<span style="color:#e6db74">&#34;$2y$10$ggWz5QWwnx6kzb9g0tnIJurFtE0dhr5Zfeaqs9iFuUIXzafQlJVZS&#34;</span>,<span style="color:#f92672">&#34;currentSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:30:53.972485Z&#34;</span>,<span style="color:#f92672">&#34;lastSignInAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T08:00:53.972486Z&#34;</span>,<span style="color:#f92672">&#34;chosenLanguages&#34;</span>:[<span style="color:#e6db74">&#34;en&#34;</span>],<span style="color:#f92672">&#34;locale&#34;</span>:<span style="color:#e6db74">&#34;en&#34;</span>,<span style="color:#f92672">&#34;lastEmailedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T09:05:53.972487Z&#34;</span>,<span style="color:#f92672">&#34;confirmationTokenSentAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-06T22:00:53.972487Z&#34;</span>,<span style="color:#f92672">&#34;confirmedAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-07T00:00:53.972487Z&#34;</span>,<span style="color:#f92672">&#34;moderator&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;admin&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;disabled&#34;</span>:<span style="color:#66d9ef">false</span>,<span style="color:#f92672">&#34;approved&#34;</span>:<span style="color:#66d9ef">true</span>}
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;type&#34;</span>:<span style="color:#e6db74">&#34;instance&#34;</span>,<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#e6db74">&#34;01BZDDRPAB8J645ABY31HHF68Y&#34;</span>,<span style="color:#f92672">&#34;createdAt&#34;</span>:<span style="color:#e6db74">&#34;2021-09-08T10:00:54.763912Z&#34;</span>,<span style="color:#f92672">&#34;domain&#34;</span>:<span style="color:#e6db74">&#34;localhost:8080&#34;</span>,<span style="color:#f92672">&#34;title&#34;</span>:<span style="color:#e6db74">&#34;localhost:8080&#34;</span>,<span style="color:#f92672">&#34;uri&#34;</span>:<span style="color:#e6db74">&#34;http://localhost:8080&#34;</span>,<span style="color:#f92672">&#34;reputation&#34;</span>:<span style="color:#ae81ff">0</span>}
+</span></span></code></pre></div><p>For information on how to use the commands to import/export, see <a href="../cli#gotosocial-admin-export">here</a>. Though the <code>export</code> command won&rsquo;t backup media, you can use the <a href="cli.md#gotosocial-admin-media-list-local"><code>media list-local</code></a> command to figure out which media files you should keep.</p>
+<p>Advantages:</p>
+<ul>
+<li>Database agnostic: exported data is in a somewhat generic format, and the <code>import</code> command can be used to insert this data into either a Postgres or an SQLite database.</li>
+<li>Lightweight: only what is needed is preserved, so backup files can be quite small (even small enough to send in an email). Backup/import commands just take a few seconds to run.</li>
+<li>Easily readable format: the output is just JSON.</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Loss of statuses/faves/etc: don&rsquo;t do a backup/restore this way unless you&rsquo;re willing to drop stuff.</li>
+<li>You need to use the GtS CLI tool to insert data back into a database, unless you write custom tooling for it.</li>
+</ul>
+<h3 id="back-up-your-database-files-and-media">
+  Back up your database files and media
+  <a class="anchor" href="#back-up-your-database-files-and-media">#</a>
+</h3>
+<p>Regardless of whether you&rsquo;re using PostgreSQL or SQLite as your GoToSocial database, it&rsquo;s possible to simply back up the database files directly by using something like <a href="https://rclone.org/">rclone</a>, or following best practices for <a href="https://www.postgresql.org/docs/15/backup.html">backing up Postgres data</a> or <a href="https://sqlite.org/backup.html">SQLite data</a>.</p>
+<p>Use the <a href="../cli#gotosocial-admin-media-list-local">GoToSocial CLI</a> to get a list of media files you need to safeguard.</p>
+<p>Advantages:</p>
+<ul>
+<li>Backups are relatively portable - you can move data from one machine to another.</li>
+<li>Well-documented procedure with a lot of guides and tooling available.</li>
+<li>Lots of different ways of doing your backups, depending on what you need.</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Can be a bit fiddly to set up initially.</li>
+<li>You need to figure out where to keep your backups.</li>
+<li>Restoring from backups can be a pain.</li>
+<li>Unless you back up media as well, references to media attachments in your db will be broken.</li>
+</ul>
+<h3 id="backup-software">
+  Backup software
+  <a class="anchor" href="#backup-software">#</a>
+</h3>
+<p>Backup software is created with the specific purpose of helping you create, manage and restore your backups. It typically knows how to safely backup your database so you don&rsquo;t have to be an expert on how to do PostgreSQL or SQLite backups. It can backup from the filesystem too.</p>
+<p>Though the same advantages and disadvantages roughly apply as with backing up the database files directly, this approach does have some nice extras:</p>
+<ul>
+<li>Backups are highly portable and can be used to restore the database from 0</li>
+<li>Backups happen on a regular schedule and with configurable retention policies</li>
+<li>Backups are incremental and compressed to save on storage and bandwidth</li>
+<li>Backups are encrypted</li>
+<li>Built-in tooling to list your snapshots and restore from them</li>
+</ul>
+<blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p><a href="https://rsync.net/">Rsync.net</a>, <a href="https://www.borgbase.com/">BorgBase</a> and <a href="https://www.hetzner.com/storage/storage-box">Hetzner Storage</a> provide affordable storage that you can use as a backup target. Rsync.net has a special Borg-only backup product that is much cheaper than their regular storage product. If you only want to use them for backups managed with Borg, <a href="https://www.rsync.net/products/borg.html">sign up here instead</a>.</p>
+
+</blockquote>
+
+<h4 id="borgmatic">
+  Borgmatic
+  <a class="anchor" href="#borgmatic">#</a>
+</h4>
+<p><a href="https://torsion.org/borgmatic/">Borgmatic</a> is a utility to help perform backups using <a href="https://www.borgbackup.org/">Borg</a>. It&rsquo;s driven by a declarative configuration file using YAML. BorgBase, Rsync.net and Hetzner all support Borg.</p>
+<blockquote class="book-hint warning">
+  <p><strong>Warning</strong></p>
+<p>When initialising the Borg repository, ensure you set it up with a strong encryption key and store that key somewhere safely. Without it you won&rsquo;t be able to decrypt your backups in the future. The ArchWiki entry on Borgmatic explains how to safely pass your encryption key to Borgmatic without storing it plain text in its configuration file.</p>
+
+</blockquote>
+
+<p>How to backup databases with Borgmatic has its own <a href="https://torsion.org/borgmatic/docs/how-to/backup-your-databases/">documentation page</a> that you should review. A simple <code>config.yaml</code> for Borgmatic with GoToSocial using SQLite looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">location</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">repositories</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">ssh://&lt;find it in your provider control panel&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">label</span>: <span style="color:#ae81ff">&lt;anything but typically the provider, for example borgbase&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">patterns_from</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">/etc/borgmatic/gotosocial_patterns</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">storage</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">compression</span>: <span style="color:#ae81ff">auto,zstd</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">archive_name_format</span>: <span style="color:#e6db74">&#39;{hostname}-{now:%Y-%m-%d-%H%M%S}&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">retries</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">retry_wait</span>: <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">retention</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">keep_daily</span>: <span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">keep_weekly</span>: <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">keep_monthly</span>: <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hooks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">before_backup</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/usr/bin/systemctl stop gotosocial</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">after_backup</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/usr/bin/systemctl start gotosocial</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sqlite_databases</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">gotosocial</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/path/to/sqlite.db</span>
+</span></span></code></pre></div><p>For PostgreSQL, you&rsquo;ll want to use <code>postgresql_databases</code> instead.</p>
+<p>The file mentioned in <code>patterns_from</code> can be created by transforming the output from the <a href="../cli#gotosocial-admin-media-list-local">GoToSocial CLI</a>. In order to generate the right patterns you can use the <a href="https://github.com/superseriousbusiness/gotosocial/tree/main/example/borgmatic/media-to-borg-patterns.py"><code>media-to-borg-patterns.py</code></a> script. How Borg patterns work is explained in <a href="https://man.archlinux.org/man/borg-patterns.1">their documentation</a>.</p>
+<p>You&rsquo;ll need to put that file on your GoToSocial instance and make sure the file is executable. It requires Python 3 which you will already have if you have Borg and Borgmatic installed. It only depends on the Python standard library.</p>
+<blockquote class="book-hint info">
+  <p><strong>Note</strong></p>
+<p>For this to work reliably, you should ensure that the <a href="../../configuration/storage">storage-local-base-path</a> in your GoToSocial configuration uses an absolute path. Otherwise you&rsquo;ll have to tweak the paths yourself.</p>
+
+</blockquote>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gotosocial admin media list-local | <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    /path/to/media-to-borg-patterns.py <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    &lt;storage-local-base-path&gt;
+</span></span></code></pre></div><p>This will output a pattern set looking roughly like this to your console:</p>
+<pre tabindex="0"><code>R &lt;storage-local-base-path&gt;
++ pp:&lt;storage-local-base-path&gt;/&lt;account ID&gt;
+- &lt;storage-local-base-path&gt;/*
+</code></pre><blockquote class="book-hint info">
+  <p><strong>Tip</strong></p>
+<p>You can view the help by passing <code>--help</code> to <code>media-to-borg-patterns.py</code>. It can write the output to a file directly by passing the location of a file as the last argument to the script.</p>
+
+</blockquote>
+
+<p>Given this set of patterns, Borg will start looking for files starting from <code>&lt;storage-local-base-path&gt;</code>. Anything that matches the path prefix, <code>pp:</code> will be included. Everything else will match the last pattern, excluding it from the archive.</p>
+<p>On a single-user instance, you can run this command once and inline the patterns directly in your Borgmatic configuration <a href="https://torsion.org/borgmatic/docs/reference/configuration/">using the <code>patterns</code> key</a>. On multi-user instances you should run this after a user signs up. Alternatively, you can run it every time before you do a backup.</p>
+<p>If you&rsquo;re running Borgmatic as a systemd service, you can <a href="https://wiki.archlinux.org/title/systemd#Drop-in_files">create a drop-in</a> for <code>borgmatic.service</code> and run the pattern generation before the backup is started with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStartPre</span><span style="color:#f92672">=</span><span style="color:#e6db74">/path/to/gotosocial admin media list-local | /path/to/media-to-borg-patterns.py &lt;storage-local-base-path&gt; /etc/borgmatic/gotosocial_patterns</span>
+</span></span></code></pre></div><p>Documentation that&rsquo;s good to review:</p>
+<ul>
+<li>Borgmatic <a href="https://torsion.org/borgmatic/docs/reference/configuration/">configuration reference</a></li>
+<li>ArchWiki entry <a href="https://wiki.archlinux.org/title/Borgmatic">on Borgmatic</a></li>
+<li>ArchWiki entry <a href="https://wiki.archlinux.org/title/Borg_backup">on Borg</a></li>
+<li>BorgBase <a href="https://docs.borgbase.com/">documentation</a></li>
+<li>Hetzner community guide on <a href="https://community.hetzner.com/tutorials/install-and-configure-borgmatic">setting up Borgmatic</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-to-backup">What to backup</a>
+      <ul>
+        <li><a href="#database">Database</a></li>
+        <li><a href="#media">Media</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-backup">How to backup</a>
+      <ul>
+        <li><a href="#image-your-disk">Image your disk</a></li>
+        <li><a href="#use-the-gotosocial-cli">Use the GoToSocial CLI</a></li>
+        <li><a href="#back-up-your-database-files-and-media">Back up your database files and media</a></li>
+        <li><a href="#backup-software">Backup software</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

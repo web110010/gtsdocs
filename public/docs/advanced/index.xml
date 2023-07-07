@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/advanced/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/advanced/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Split-domain deployments</title>
+      <link>http://example.org/docs/advanced/host-account-domain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/host-account-domain/</guid>
+      <description>Split-domain deployments # This guide explains how to have usernames like @me@example.org but run the GoToSocial instance itself on a subdomain like social.example.org. Configuring this type of deployment layout must be done before starting GoToSocial for the first time.
+Danger
+You cannot change your domain layout after you&amp;rsquo;ve federated with someone. Servers are going to get confused and you&amp;rsquo;ll need to convince the admin of every instance that&amp;rsquo;s federated with you before to mess with their database to resolve it.</description>
+    </item>
+    
+    <item>
+      <title>Outgoing HTTP proxy</title>
+      <link>http://example.org/docs/advanced/outgoing-proxy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/outgoing-proxy/</guid>
+      <description>Outgoing HTTP proxy # GoToSocial supports canonical environment variables for configuring the use of an HTTP proxy for outgoing requets:
+HTTP_PROXY HTTPS_PROXY NO_PROXY The lowercase versions of these environment variables are also recognised. HTTPS_PROXY takes precedence over HTTP_PROXY for https requests.
+The environment values may be either a complete URL or a host[:port], in which case the &amp;ldquo;http&amp;rdquo; scheme is assumed. The schemes &amp;ldquo;http&amp;rdquo;, &amp;ldquo;https&amp;rdquo;, and &amp;ldquo;socks5&amp;rdquo; are supported.</description>
+    </item>
+    
+    <item>
+      <title>Provisioning TLS certificates</title>
+      <link>http://example.org/docs/advanced/certificates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/certificates/</guid>
+      <description>Provisioning TLS certificates # As explained in the deployment considerations, federation requires the use of TLS as most instances refuse to federate over unencrypted transports.
+GoToSocial comes with built-in support for provisioning and renewing its own TLS certificates through Lets Encrypt. This guide looks at how you can provision your own certificates independently from GoToSocial. This can be useful if you want full control over how the certificates are provisioned, or because you&amp;rsquo;re using a reverse proxy which is doing TLS termination.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/advanced/tracing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/advanced/tracing/</guid>
+      <description>Tracing # GoToSocial comes with OpenTelemetry based tracing built-in. It&amp;rsquo;s not wired through every function, but our HTTP handlers and database library will create spans. How to configure tracing is explained in the Observability configuration reference.
+In order to receive the traces, you need something to ingest them and then visualise them. There are many options available including self-hosted and commercial options.
+We provide an example of how to do this using Grafana Tempo to ingest the spans and Grafana to explore them.</description>
+    </item>
+    
+  </channel>
+</rss>

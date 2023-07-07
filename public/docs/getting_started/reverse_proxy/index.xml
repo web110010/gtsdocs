@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/getting_started/reverse_proxy/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/getting_started/reverse_proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/nginx/</guid>
+      <description>NGINX # In order to use NGINX as a reverse proxy for GoToSocial you&amp;rsquo;ll need to have it installed on your server. If you intend for the NGINX instance to also handle TLS, you&amp;rsquo;ll need to provision TLS certificates too.
+NGINX is packaged for many distributions. It&amp;rsquo;s very likely you can install it with your distribution&amp;rsquo;s package manager. You can also run NGINX using a container runtime with the official NGINX image that&amp;rsquo;s published to the Docker Hub.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/apache-httpd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/apache-httpd/</guid>
+      <description>Apache HTTP Server # In order to use Apache as a reverse proxy for GoToSocial you&amp;rsquo;ll need to have it installed on your server. If you intend for the Apache instance to also handle TLS, you&amp;rsquo;ll need to provision TLS certificates too.
+Apache is packaged for many distributions. It&amp;rsquo;s very likely you can install it with your distribution&amp;rsquo;s package manager. You can also run Apache using a container runtime with the official Apache image that&amp;rsquo;s published to the Docker Hub.</description>
+    </item>
+    
+    <item>
+      <title>Caddy 2</title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/caddy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/caddy/</guid>
+      <description>Caddy 2 # Requirements # For this guide you will need Caddy 2, there are no other dependencies. Caddy manages Lets Encrypt certificates and renewal for them.
+Caddy is in the most popular package managers, or you can get a static binary. For all latest installation guides, refer to their manual.
+Debian, Ubuntu, Raspbian # # Add the keyring for their custom repository. sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl -1sLf &amp;#39;https://dl.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/getting_started/reverse_proxy/websocket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/getting_started/reverse_proxy/websocket/</guid>
+      <description>WebSocket # GoToSocial uses the secure WebSocket protocol (aka wss) to allow for streaming updates of statuses and notifications via client apps like Semaphore.
+In order to use this functionality, you need to ensure that whatever proxy you&amp;rsquo;ve configured GoToSocial to run behind allows WebSocket connections through.
+The WebSocket endpoint is located at wss://example.org/api/v1/streaming where example.org is the hostname of your GoToSocial instance.
+The WebSocket endpoint uses the same port as configured in the port section of your general config.</description>
+    </item>
+    
+  </channel>
+</rss>

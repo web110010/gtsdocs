@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/api/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/api/swagger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/swagger/</guid>
+      <description>API Documentation # GoToSocial uses go-swagger to generate a V2 OpenAPI specification document from code annotations.
+The resulting API documentation is rendered below, for quick reference.
+If you&amp;rsquo;d like to do more with the spec, you can also view the swagger.yaml directly, and then paste it into something like the Swagger Editor in order to autogenerate GoToSocial API clients in different languages, convert the doc to JSON or OpenAPI v3 specification, etc.</description>
+    </item>
+    
+    <item>
+      <title>Request Rate Limiting</title>
+      <link>http://example.org/docs/api/ratelimiting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/ratelimiting/</guid>
+      <description>Request Rate Limiting # To mitigate abuse + scraping of your instance, IP-based HTTP rate limiting is in place.
+There are separate rate limiters configured for different groupings of endpoints. In other words, being rate limited for one part of the API doesn&amp;rsquo;t necessarily mean you will be rate limited for other parts. Each entry in the following list has a separate rate limiter:
+/users/* and /emoji/* - ActivityPub (s2s) endpoints.</description>
+    </item>
+    
+    <item>
+      <title>Request Throttling</title>
+      <link>http://example.org/docs/api/throttling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/api/throttling/</guid>
+      <description>Request Throttling # GoToSocial uses request throttling to limit the number of open connections to the API of your instance. This is designed to prevent your instance from accidentally being DDOS&amp;rsquo;d (aka the hug of death) if a post gets boosted or replied to by an account with many thousands of followers.
+Throttling means that only a limited number of HTTP requests to the API will be handled concurrently, in order to provide a snappy response to each request and move on quickly.</description>
+    </item>
+    
+  </channel>
+</rss>

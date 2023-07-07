@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="General # The top-level configuration for GoToSocial, including basic things like host, port, bind address and transport protocol.
+The only things you really need to set here are host, which should be the hostname where your instance is reachable, and probably port.
+Settings # ########################### ##### GENERAL CONFIG ###### ########################### # String. Log level to use throughout the application. Must be lower-case. # Options: [&#34;trace&#34;,&#34;debug&#34;,&#34;info&#34;,&#34;warn&#34;,&#34;error&#34;,&#34;fatal&#34;] # Default: &#34;info&#34; log-level: &#34;info&#34; # Bool.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="General # The top-level configuration for GoToSocial, including basic things like host, port, bind address and transport protocol.
+The only things you really need to set here are host, which should be the hostname where your instance is reachable, and probably port.
+Settings # ########################### ##### GENERAL CONFIG ###### ########################### # String. Log level to use throughout the application. Must be lower-case. # Options: [&#34;trace&#34;,&#34;debug&#34;,&#34;info&#34;,&#34;warn&#34;,&#34;error&#34;,&#34;fatal&#34;] # Default: &#34;info&#34; log-level: &#34;info&#34; # Bool." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/configuration/general/" /><meta property="article:section" content="docs" />
+
+
+
+<title>General |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle" checked />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="active">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>General</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="general">
+  General
+  <a class="anchor" href="#general">#</a>
+</h1>
+<p>The top-level configuration for GoToSocial, including basic things like host, port, bind address and transport protocol.</p>
+<p>The only things you <em>really</em> need to set here are <code>host</code>, which should be the hostname where your instance is reachable, and probably <code>port</code>.</p>
+<h2 id="settings">
+  Settings
+  <a class="anchor" href="#settings">#</a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">###########################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##### GENERAL CONFIG ######</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">###########################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Log level to use throughout the application. Must be lower-case.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [&#34;trace&#34;,&#34;debug&#34;,&#34;info&#34;,&#34;warn&#34;,&#34;error&#34;,&#34;fatal&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;info&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">log-level</span>: <span style="color:#e6db74">&#34;info&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bool. Log database queries when log-level is set to debug or trace.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This setting produces verbose logs, so it&#39;s better to only enable it</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># when you&#39;re trying to track an issue down.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [true, false]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">log-db-queries</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Application name to use internally.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;My Application&#34;,&#34;gotosocial&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;gotosocial&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">application-name</span>: <span style="color:#e6db74">&#34;gotosocial&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Hostname that this server will be reachable at. Defaults to localhost for local testing,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># but you should *definitely* change this when running for real, or your server won&#39;t work at all.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DO NOT change this after your server has already run once, or you will break things!</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;gts.example.org&#34;,&#34;some.server.com&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;localhost&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">host</span>: <span style="color:#e6db74">&#34;localhost&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Domain to use when federating profiles. This is useful when you want your server to be at</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># eg., &#34;gts.example.org&#34;, but you want the domain on accounts to be &#34;example.org&#34; because it looks better</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or is just shorter/easier to remember.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To make this setting work properly, you need to redirect requests at &#34;example.org/.well-known/webfinger&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to &#34;gts.example.org/.well-known/webfinger&#34; so that GtS can handle them properly.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You should also redirect requests at &#34;example.org/.well-known/nodeinfo&#34; in the same way.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You should also redirect requests at &#34;example.org/.well-known/host-meta&#34; in the same way. This endpoint is used by a number of clients to discover the API endpoint to use when the host and account domain are different.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># An empty string (ie., not set) means that the same value as &#39;host&#39; will be used.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># DO NOT change this after your server has already run once, or you will break things!</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Please read the appropriate section of the installation guide before you go messing around with this setting:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://docs.gotosocial.org/installation_guide/advanced/#can-i-host-my-instance-at-fediexampleorg-but-have-just-exampleorg-in-my-username</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;example.org&#34;,&#34;server.com&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">account-domain</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Protocol to use for the server. Only change to http for local testing!</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This should be the protocol part of the URI that your server is actually reachable on. So even if you&#39;re</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># running GoToSocial behind a reverse proxy that handles SSL certificates for you, instead of using built-in</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># letsencrypt, it should still be https.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Options: [&#34;http&#34;,&#34;https&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;https&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">protocol</span>: <span style="color:#e6db74">&#34;https&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># String. Address to bind the GoToSocial server to.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This can be an IPv4 address or an IPv6 address (surrounded in square brackets), or a hostname.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The default value will bind to all interfaces, which makes the server</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># accessible by other machines. For most setups there is no need to change this.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you are using GoToSocial in a reverse proxy setup with the proxy running on</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the same machine, you will want to set this to &#34;localhost&#34; or an equivalent,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># so that the proxy can&#39;t be bypassed.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [&#34;0.0.0.0&#34;, &#34;172.128.0.16&#34;, &#34;localhost&#34;, &#34;[::]&#34;, &#34;[2001:db8::fed1]&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: &#34;0.0.0.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">bind-address</span>: <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Int. Listen port for the GoToSocial webserver + API. If you&#39;re running behind a reverse proxy and/or in a docker,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># container, just set this to whatever you like (or leave the default), and make sure it&#39;s forwarded properly.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you are running with built-in letsencrypt enabled, and running GoToSocial directly on a host machine, you will</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># probably want to set this to 443 (standard https port), unless you have other services already using that port.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This *MUST NOT* be the same as the letsencrypt port specified below, unless letsencrypt is turned off.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Examples: [443, 6666, 8080]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: 8080</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Array of string. CIDRs or IP addresses of proxies that should be trusted when determining real client IP from behind a reverse proxy.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you&#39;re running inside a Docker container behind Traefik or Nginx, for example, add the subnet of your docker network,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or the gateway of the docker network, and/or the address of the reverse proxy (if it&#39;s not running on the host network).</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Example: [&#34;127.0.0.1/32&#34;, &#34;172.20.0.1&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default: [&#34;127.0.0.1/32&#34;, &#34;::1&#34;] (localhost ipv4 + ipv6)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">trusted-proxies</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;127.0.0.1/32&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;::1&#34;</span>
+</span></span></code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

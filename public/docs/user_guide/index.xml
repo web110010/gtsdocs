@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> GoToSocial Documentation </title>
+    <link>http://example.org/docs/user_guide/</link>
+    <description>Recent content on  GoToSocial Documentation </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/docs/user_guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/posts/</guid>
+      <description>Posts # Privacy Settings # GoToSocial offers Mastodon-style privacy settings for posts. In order from most to least private, these are:
+Direct Mutuals-only Private/Followers-only Unlisted Public Whatever privacy setting you choose for a post, GoToSocial will do the best it can to ensure that your posts don&amp;rsquo;t appear to users on instances that you&amp;rsquo;ve blocked, or to users that you&amp;rsquo;ve blocked directly.
+Unlike with some other fediverse server implementations, GoToSocial uses a default post setting of unlisted rather than public for new accounts.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/settings/</guid>
+      <description>Settings # GoToSocial provides a settings interface where you can update your post settings, add an avatar and header image, write a bio for your account, and so on.
+You can access the Settings at https://my-instance.example.com/settings with your own GoToSocial instance. It uses the same OAUTH mechanism as normal clients (with scope: admin), and as such can be accessed from anywhere, separately from your own instance, or ran locally. A public installation is available here: https://gts.</description>
+    </item>
+    
+    <item>
+      <title>Custom CSS (Advanced)</title>
+      <link>http://example.org/docs/user_guide/custom_css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/custom_css/</guid>
+      <description>Custom CSS (Advanced) # CSS (Cascading Style Sheets) is a coding language used alongside HTML, which determines how a web page looks in a web browser:
+While HTML is used to define the structure and semantics of your content, CSS is used to style it and lay it out. For example, you can use CSS to alter the font, color, size, and spacing of your content, split it into multiple columns, or add animations and other decorative features.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/docs/user_guide/password_management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/password_management/</guid>
+      <description>Password Management # Change Your Password # You can use the User Settings Panel to change your password. Just log in to the user panel, scroll to the bottom of the page, and input your old password and desired new password.
+If the new password you provide is not long/complicated enough, you will see an error and be prompted to try again with a different password.
+If your instance uses OIDC (ie.</description>
+    </item>
+    
+    <item>
+      <title>RSS</title>
+      <link>http://example.org/docs/user_guide/rss/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/docs/user_guide/rss/</guid>
+      <description>RSS # RSS stands for Really Simple Syndication. It&amp;rsquo;s a very well established standard for sharing content on the web. You might recognize the jolly orange RSS logo from your favorite news websites and blogs:
+If you like, you can configure your GoToSocial account to expose an RSS feed of your posts to the web. This allows people to get regular updates about your posts even when they don&amp;rsquo;t have a Fediverse account.</description>
+    </item>
+    
+  </channel>
+</rss>

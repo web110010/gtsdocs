@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+	<meta name="generator" content="Hugo 0.101.0" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What is GoToSocial? # GoToSocial is an ActivityPub social network server, written in Golang. With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
+GoToSocial provides a lightweight, customizable, and safety-focused entryway into the Fediverse, and is comparable to (but distinct from) existing projects such as Mastodon, Pleroma, Friendica, and PixelFed.
+GoToSocial is still ALPHA SOFTWARE.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="GoToSocial" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/" />
+
+<title>GoToSocial |  GoToSocial Documentation </title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.f8de3645fe00591b41524aee174e19edd98a22255a2930a0cdc82a94835ba387.css" integrity="sha256-&#43;N42Rf4AWRtBUkruF04Z7dmKIiVaKTCgzcgqlINbo4c=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.611c5c1febb7934f5bf0513e18b80edbb8ef94a70c6bcfdb5d454501232b51e4.js" integrity="sha256-YRxcH&#43;u3k09b8FE&#43;GLgO27jvlKcMa8/bXUVFASMrUeQ=" crossorigin="anonymous"></script>
+<link rel="alternate" type="application/rss+xml" href="http://example.org/index.xml" title=" GoToSocial Documentation " />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+  <link href="/css/swagger-css/swagger-ui.css" rel="stylesheet" type="text/css">
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/favicon.ico" alt="Logo" /><span> GoToSocial Documentation </span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="/docs/faq/" class="">FAQ</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="toggle"  />
+    <label for="section-0b8a4f04ff43ad74e1f0264bbdf6f4e1" class="flex justify-between">
+      <a role="button" class="">User Guide</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/posts/" class="">Posts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/settings/" class="">Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/custom_css/" class="">Custom CSS (Advanced)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/password_management/" class="">Password Management</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user_guide/rss/" class="">RSS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="toggle"  />
+    <label for="section-d0d8c0b66b8e3c4a41d9a7a903279018" class="flex justify-between">
+      <a role="button" class="">Getting Started</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/deployment_considerations/" class="">Deployment Considerations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/releases/" class="">Releases</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-4dd3c8f7579de11397af9a616dd97623" class="toggle"  />
+    <label for="section-4dd3c8f7579de11397af9a616dd97623" class="flex justify-between">
+      <a href="/docs/getting_started/installation/" class="">Installation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/metal/" class="">Bare metal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/installation/container/" class="">Container</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="toggle"  />
+    <label for="section-227ed35e8d3d1d9ae6ada088eaa5826a" class="flex justify-between">
+      <a href="/docs/getting_started/reverse_proxy/" class="">Reverse Proxy</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/nginx/" class="">Nginx</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/apache-httpd/" class="">Apache Httpd</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/caddy/" class="">Caddy 2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/reverse_proxy/websocket/" class="">Websocket</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting_started/user_creation/" class="">User Creation</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-733eb6bf92c2240d3439f44b52d0e508" class="toggle"  />
+    <label for="section-733eb6bf92c2240d3439f44b52d0e508" class="flex justify-between">
+      <a href="/docs/configuration/" class="">Configuration</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/general/" class="">General</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/database/" class="">Database</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/web/" class="">Web</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/instance/" class="">Instance</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/accounts/" class="">Accounts</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/media/" class="">Media</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/storage/" class="">Storage</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/statuses/" class="">Statuses</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/tls/" class="">TLS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/oidc/" class="">OpenID Connect (OIDC)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/smtp/" class="">Email Config (smtp)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/syslog/" class="">Syslog</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/advanced/" class="">Advanced</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/configuration/observability/" class="">Observability</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-947fb6d312b5241daf9523c924869228" class="toggle"  />
+    <label for="section-947fb6d312b5241daf9523c924869228" class="flex justify-between">
+      <a href="/docs/advanced/" class="">Advanced</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/host-account-domain/" class="">Split-domain deployments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/outgoing-proxy/" class="">Outgoing HTTP proxy</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-76875d46ccfca56452024158a33d8109" class="toggle"  />
+    <label for="section-76875d46ccfca56452024158a33d8109" class="flex justify-between">
+      <a href="/docs/advanced/caching/" class="">Caching</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/api/" class="">API</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/caching/assets-media/" class="">Assets Media</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/certificates/" class="">Provisioning TLS certificates</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-010cc1241fb55df50712cba4c805f74e" class="toggle"  />
+    <label for="section-010cc1241fb55df50712cba4c805f74e" class="flex justify-between">
+      <a href="/docs/advanced/security/" class="">Security</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/sandboxing/" class="">Application sandboxing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/security/firewall/" class="">Firewall</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/advanced/tracing/" class="">Tracing</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="toggle"  />
+    <label for="section-d3501c3f4c7ea3fb09a3bb156b24beda" class="flex justify-between">
+      <a role="button" class="">Admin</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/settings/" class="">Admin Settings</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/cli/" class="">GtS CLI Tool</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/admin/backup_and_restore/" class="">Backup and Restore</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-901779afe5996ea4448e3bb3d55a2b9f" class="toggle"  />
+    <label for="section-901779afe5996ea4448e3bb3d55a2b9f" class="flex justify-between">
+      <a href="/docs/federation/" class="">Federation</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/glossary/" class="">Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/federation/federating_with_gotosocial/" class="">Federating With Gotosocial</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bf7b3283e3790c00c8caaa140299052b" class="toggle"  />
+    <label for="section-bf7b3283e3790c00c8caaa140299052b" class="flex justify-between">
+      <a role="button" class="">API</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/swagger/" class="">Swagger</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/ratelimiting/" class="">Request Rate Limiting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/api/throttling/" class="">Request Throttling</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>GoToSocial</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#history-and-status">History and Status</a></li>
+    <li><a href="#known-issues">Known Issues</a>
+      <ul>
+        <li><a href="#client-app-issues">Client App Issues</a></li>
+        <li><a href="#federation-issues">Federation Issues</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#credits">Credits</a>
+      <ul>
+        <li><a href="#image-attribution-and-licensing">Image Attribution and Licensing</a></li>
+        <li><a href="#developers">Developers</a></li>
+        <li><a href="#special-thanks">Special Thanks</a></li>
+      </ul>
+    </li>
+    <li><a href="#sponsorship--funding">Sponsorship + Funding</a>
+      <ul>
+        <li><a href="#crowdfunding">Crowdfunding</a></li>
+        <li><a href="#nlnet">NLnet</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="what-is-gotosocial">
+  What is GoToSocial?
+  <a class="anchor" href="#what-is-gotosocial">#</a>
+</h1>
+<p>GoToSocial is an <a href="https://activitypub.rocks/">ActivityPub</a> social network server, written in Golang.
+With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!</p>
+<p>GoToSocial provides a lightweight, customizable, and safety-focused entryway into the <a href="https://en.wikipedia.org/wiki/Fediverse">Fediverse</a>, and is comparable to (but distinct from) existing projects such as <a href="https://joinmastodon.org/">Mastodon</a>, <a href="https://pleroma.social/">Pleroma</a>, <a href="https://friendica.net">Friendica</a>, and <a href="https://pixelfed.org/">PixelFed</a>.</p>
+
+<div style="text-align: center;">
+	
+  <img src="./assets/sloth.png" width="300"/>
+	
+</div>
+<p><strong>GoToSocial is still <a href="https://en.wikipedia.org/wiki/Software_release_life_cycle#Alpha">ALPHA SOFTWARE</a></strong>. It is already deployable and useable, and it federates cleanly with many other Fediverse servers (not yet all). However, many things are not yet implemented, and there are plenty of bugs! We foresee entering beta around the beginning of 2024.</p>
+<p>Here&rsquo;s a screenshot of the instance landing page!
+<img src="./assets/instancesplash.png" alt="Screenshot of the landing page for the GoToSocial instance goblin.technology. It shows basic information about the instance; number of users and posts etc." /></p>
+<p>If you&rsquo;ve ever used something like Twitter or Tumblr (or even Myspace!) GoToSocial will probably feel familiar to you: You can follow people and have followers, you make posts which people can favourite and reply to and share, and you scroll through posts from people you follow using a timeline. You can write long posts or short posts, or just post images, it&rsquo;s up to you. You can also, of course, block people or otherwise limit interactions that you don&rsquo;t want by posting just to your friends.</p>
+<p><strong>GoToSocial does NOT use recommendation algorithms or collect data about you to suggest content or &lsquo;improve your experience&rsquo;</strong>. The timeline is chronological: whatever you see at the top of your timeline is there because it&rsquo;s <em>just been posted</em>, not because it&rsquo;s been selected as interesting (or controversial) based on your personal profile.</p>
+<p>GoToSocial is not designed for &lsquo;must-follow&rsquo; influencers with tens of thousands of followers, and it&rsquo;s not designed to be addictive. Your timeline and your experience is shaped by who you follow and how you interact with people, not by metrics of engagement!</p>
+<p>GoToSocial doesn&rsquo;t claim to be <em>better</em> than any other application, but it offers something that might better <em>for you</em> in particular.
+<img src="./assets/profile1.png" alt="Screenshot of the web view of a profile in GoToSocial, showing header and avatar, bio, and numbers of followers/following." /></p>
+<h2 id="history-and-status">
+  History and Status
+  <a class="anchor" href="#history-and-status">#</a>
+</h2>
+<p>This project sprang up in 2021 out of a dissatisfaction with the safety + privacy features of other Federated microblogging/social media applications, and a desire to implement something a little different.</p>
+<p>It began as a solo project, and then picked up steam as more developers became interested and jumped on.</p>
+<h2 id="known-issues">
+  Known Issues
+  <a class="anchor" href="#known-issues">#</a>
+</h2>
+<p>Since GoToSocial is still in alpha, there are plenty of bugs. We use <a href="https://github.com/superseriousbusiness/gotosocial/issues?q=is%3Aissue&#43;is%3Aopen&#43;label%3Abug">GitHub issues</a> to track these. The <a href="./docs/faq">FAQ</a> also describes some of the features that haven&rsquo;t been implemented yet.</p>
+<h3 id="client-app-issues">
+  Client App Issues
+  <a class="anchor" href="#client-app-issues">#</a>
+</h3>
+<p>GoToSocial works great with Tusky and Semaphore, but some other client applications still need work or have issues connecting to GoToSocial. We&rsquo;re tracking them <a href="https://github.com/superseriousbusiness/gotosocial/projects/5">right here</a>. It&rsquo;s our goal to make any app that&rsquo;s compatible with the Mastodon API work seamlessly with GoToSocial.</p>
+<h3 id="federation-issues">
+  Federation Issues
+  <a class="anchor" href="#federation-issues">#</a>
+</h3>
+<p>Since every ActivityPub server implementation has a slightly different interpretation of the protocol, some servers don&rsquo;t quite federate properly with GoToSocial yet. We&rsquo;re tracking these issues <a href="https://github.com/superseriousbusiness/gotosocial/projects/4">in this project</a>. Eventually we want to make sure that any implementation that can federate nicely with Mastodon should also be able to federate with GoToSocial.</p>
+<h2 id="contributing">
+  Contributing
+  <a class="anchor" href="#contributing">#</a>
+</h2>
+<p>You wanna contribute to GtS? Great! ❤️❤️❤️ Check out the issues page to see if there&rsquo;s anything you wanna jump in on, and read the CONTRIBUTING.md file on the repository for guidelines and setting up your dev environment.</p>
+<h2 id="building">
+  Building
+  <a class="anchor" href="#building">#</a>
+</h2>
+<p>Instructions for building GoToSocial from source are also in the CONTRIBUTING.md file.</p>
+<h2 id="contact">
+  Contact
+  <a class="anchor" href="#contact">#</a>
+</h2>
+<p>For questions and comments, you can <a href="https://matrix.to/#/#gotosocial:superseriousbusiness.org">join our Matrix channel</a> at <code>#gotosocial:superseriousbusiness.org</code>. This is the quickest way to reach the devs. You can also mail <a href="mailto:admin@gotosocial.org">admin@gotosocial.org</a>.</p>
+<p>For bugs and feature requests, please check to see if there&rsquo;s <a href="https://github.com/superseriousbusiness/gotosocial/issues">already an issue</a>, and if not, open one or use one of the above channels to make a request (if you don&rsquo;t have a Github account).</p>
+<h2 id="credits">
+  Credits
+  <a class="anchor" href="#credits">#</a>
+</h2>
+<h3 id="image-attribution-and-licensing">
+  Image Attribution and Licensing
+  <a class="anchor" href="#image-attribution-and-licensing">#</a>
+</h3>
+<p>Sloth logo by <a href="https://abramek.art/">Anna Abramek</a>.</p>
+
+<div>
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />The GoToSocial sloth mascot is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.	
+</div>
+<p>For more information on GoToSocial image licensing, see <a href="https://github.com/superseriousbusiness/gotosocial#image-attribution-and-licensing">here</a>.</p>
+<h3 id="developers">
+  Developers
+  <a class="anchor" href="#developers">#</a>
+</h3>
+<p>In alphabetical order:</p>
+<ul>
+<li>f0x [<a href="https://liberapay.com/f0x">donate with liberapay</a>]</li>
+<li>kim</li>
+<li>tobi [<a href="https://liberapay.com/GoToSocial/">donate with liberapay</a>]</li>
+</ul>
+<h3 id="special-thanks">
+  Special Thanks
+  <a class="anchor" href="#special-thanks">#</a>
+</h3>
+<p>A huge thank you to CJ from <a href="https://github.com/go-fed/activity">go-fed</a>: without your work GoToSocial would not have been possible.</p>
+<p>Thanks to everyone who has used GtS, opened an issue, suggested something, given funding, and otherwise encouraged or supported the project!</p>
+<h2 id="sponsorship--funding">
+  Sponsorship + Funding
+  <a class="anchor" href="#sponsorship--funding">#</a>
+</h2>
+<p><strong>Please note: GoToSocial has NO CORPORATE SPONSORS and does not desire corporate sponsorship. In addition, we do not take donations from any of the following: adult websites, affiliate and review websites, casinos and gambling, insurance and financial products (credit), pharmacy products, SEO services and social media buying, VPN and proxy services, and essay writing services. Donations from such sources will be automatically rejected.</strong></p>
+<h3 id="crowdfunding">
+  Crowdfunding
+  <a class="anchor" href="#crowdfunding">#</a>
+</h3>
+<p><img src="https://opencollective.com/gotosocial/tiers/standard-sloth/badge.svg?label=Standard%20Sloth&amp;color=brightgreen" alt="open collective Standard Sloth badge" /> <img src="https://opencollective.com/gotosocial/tiers/stable-sloth/badge.svg?label=Stable%20Sloth&amp;color=green" alt="open collective Stable Sloth badge" /> <img src="https://opencollective.com/gotosocial/tiers/special-sloth/badge.svg?label=Special%20Sloth&amp;color=yellowgreen" alt="open collective Special Sloth badge" /> <img src="https://opencollective.com/gotosocial/tiers/sugar-sloth/badge.svg?label=Sugar%20Sloth&amp;color=blue" alt="open collective Sugar Sloth badge" /></p>
+<p>If you would like to donate to GoToSocial to keep the lights on during development, <a href="https://opencollective.com/gotosocial#support">you can do so via our OpenCollective page</a>!</p>
+<p><img src="https://img.shields.io/liberapay/patrons/GoToSocial.svg?logo=liberapay" alt="LiberaPay patrons" /> <img src="https://img.shields.io/liberapay/receives/GoToSocial.svg?logo=liberapay" alt="receives via LiberaPay" /></p>
+<p>If you prefer, we also have an account on LiberaPay! You can find that <a href="https://liberapay.com/GoToSocial/">right here</a>.</p>
+<p>Crowdfunded donations to our OpenCollective and Liberapay accounts go towards paying the core team, paying server costs, and paying for GtS art, design, and other bits and bobs.</p>
+<p>💕 🦥 💕 Thank you!</p>
+<h3 id="nlnet">
+  NLnet
+  <a class="anchor" href="#nlnet">#</a>
+</h3>
+
+<div>
+	
+<img src="https://nlnet.nl/logo/NGI/NGIZero-green.hex.svg" width="75" alt="NGIZero logo"/>
+	
+</div>
+<p>Combined with the above crowdfunding sources, 2023 Alpha development of GoToSocial is also funded by a 50,000 EUR grant from the <a href="https://nlnet.nl/entrust/">NGI0 Entrust Fund</a>, via <a href="https://nlnet.nl/">NLnet</a>. See <a href="https://nlnet.nl/project/GoToSocial/#ack">here</a> for more details. The successful grant application is archived <a href="https://github.com/superseriousbusiness/gotosocial/blob/main/archive/nlnet/2022-next-generation-internet-zero.md">here</a>.</p>
+<h2 id="license">
+  License
+  <a class="anchor" href="#license">#</a>
+</h2>
+<p><img src="https://www.gnu.org/graphics/agplv3-155x51.png" alt="the gnu AGPL logo" /></p>
+<p>GoToSocial is free software, licensed under the GNU AGPL v3 LICENSE. We encourage forking and changing the code, hacking around with it, and experimenting.</p>
+<p>See <a href="https://www.gnu.org/licenses/why-affero-gpl.html">here</a> for the differences between AGPL versus GPL licensing, and <a href="https://www.gnu.org/licenses/gpl-faq.html">here</a> for FAQ&rsquo;s about GPL licenses, including the AGPL.</p>
+<p>If you modify the GoToSocial source code, and run that modified code in a way that&rsquo;s accessible over a network, you <em>must</em> make your modifications to the source code available following the guidelines of the license:</p>
+<blockquote>
+<p>[I]f you modify the Program, your modified version must prominently offer all users interacting with it remotely through a computer network (if your version supports such interaction) an opportunity to receive the Corresponding Source of your version by providing access to the Corresponding Source from a network server at no charge, through some standard or customary means of facilitating copying of software.</p>
+</blockquote>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#history-and-status">History and Status</a></li>
+    <li><a href="#known-issues">Known Issues</a>
+      <ul>
+        <li><a href="#client-app-issues">Client App Issues</a></li>
+        <li><a href="#federation-issues">Federation Issues</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#credits">Credits</a>
+      <ul>
+        <li><a href="#image-attribution-and-licensing">Image Attribution and Licensing</a></li>
+        <li><a href="#developers">Developers</a></li>
+        <li><a href="#special-thanks">Special Thanks</a></li>
+      </ul>
+    </li>
+    <li><a href="#sponsorship--funding">Sponsorship + Funding</a>
+      <ul>
+        <li><a href="#crowdfunding">Crowdfunding</a></li>
+        <li><a href="#nlnet">NLnet</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
